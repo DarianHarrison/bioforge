@@ -1,0 +1,71 @@
+schema_version: "1.0"
+rules:
+  # ----------------------------------------------------
+  # Rules for Process Flow Control (Stage Duration)
+  # ----------------------------------------------------
+  - name: ruleCultivationStepDuration
+    condition:
+      type: time_in_stage
+      ticks: 168 # 7 days
+    action:
+      type: advance_to_next_step
+
+  - name: ruleExtractionStepDuration
+    condition:
+      type: time_in_stage
+      ticks: 20
+    action:
+      type: advance_to_next_step
+
+  - name: rulePurificationStepDuration
+    condition:
+      type: time_in_stage
+      ticks: 30
+    action:
+      type: advance_to_next_step
+
+  - name: ruleDefaultStepDuration
+    condition:
+      type: time_in_stage
+      ticks: 10
+    action:
+      type: advance_to_next_step
+
+  # ----------------------------------------------------
+  # Reusable Rules for Process Parameter Control
+  # ----------------------------------------------------
+  - name: ruleMaintainOptimalTemp70C
+    condition:
+      type: asset_value
+      asset_id: "REACT-VESSEL-01"
+      parameter: "temperature"
+      operator: not_equal_to # Assumes you would add this operator
+      value: 70.0
+    action:
+      type: set_temperature
+      asset_id: "REACT-VESSEL-01"
+      celsius: 70.0
+
+  - name: ruleMaintainOptimalTemp50C
+    condition:
+      type: asset_value
+      asset_id: "REACT-VESSEL-01"
+      parameter: "temperature"
+      operator: not_equal_to
+      value: 50.0
+    action:
+      type: set_temperature
+      asset_id: "REACT-VESSEL-01"
+      celsius: 50.0
+
+  - name: ruleMaintainPH7
+    condition:
+      type: asset_value
+      asset_id: "REACT-VESSEL-01"
+      parameter: "ph"
+      operator: not_equal_to
+      value: 7.0
+    action:
+      type: adjust_ph
+      asset_id: "REACT-VESSEL-01"
+      target_ph: 7.0

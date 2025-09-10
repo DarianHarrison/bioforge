@@ -1,0 +1,995 @@
+#########################################
+# Primary Methods
+#########################################
+
+schema_version: "1.0"
+processes:
+  - process_id: PROC-LUT-NUT-01
+    process_name: Lutein - Nutraceutical Grade
+    component_class: Carotenes & Xanthophylls
+    status: Optimized Production
+    notes: Premium process using SFE and crystallization to deliver a high-purity,
+      traceable, and clinically-supported ingredient for eye health, aligning with
+      the 'Gold Standard' value proposition.
+    default_workflow:
+      - MTHD-LUT-EXT-SFE-01
+      - MTHD-LUT-PUR-SAP-01
+      - MTHD-LUT-NEU-PH-01
+      - MTHD-LUT-PUR-CRY-01
+      - MTHD-LUT-FRM-MENC-01
+      - MTHD-GEN-PCK-PKG-01
+    methods:
+      - method_id: MTHD-LUT-EXT-SFE-01
+        stage: Extraction
+        technique: supercriticalFluidExtraction
+        required_asset_id: SFE-SYSTEM-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light
+        required_materials:
+          - type: consumable
+            id: CONS-ETOH-BUFFER-01
+        qc_checks: []
+        required_rule_ids:
+          - ruleExtractionStepDuration
+      - method_id: MTHD-LUT-PUR-SAP-01
+        stage: Purification
+        technique: saponification
+        required_asset_id: REACT-VESSEL-01
+        operating_parameters:
+          optimalTempC: 70
+          environment: dark, low-oxygen, low-light
+        required_materials:
+          - type: consumable
+            id: CONS-NAOH-1M-01
+        qc_checks: []
+        required_rule_ids:
+          - ruleMaintainOptimalTemp
+          - rulePurificationStepDuration
+      - method_id: MTHD-LUT-NEU-PH-01
+        stage: Neutralization
+        technique: pHAdjustment
+        required_asset_id: REACT-VESSEL-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials:
+          - type: consumable
+            id: CONS-HCL-1M-01
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-LUT-PUR-CRY-01
+        stage: Final Purification
+        technique: crystallization
+        required_asset_id: CRYSTALLIZER-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials: []
+        qc_checks:
+          - method_id: QC-LUT-NUT-001
+            timing: in-process_control
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-LUT-FRM-MENC-01
+        stage: Formulation
+        technique: microencapsulation
+        required_asset_id: BEADLETTING-ENCAP-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials: []
+        qc_checks:
+          - method_id: QC-LUT-NUT-001
+            timing: final_product_release
+          - method_id: QC-LUT-NUT-002
+            timing: final_product_release
+          - method_id: QC-LUT-NUT-003
+            timing: final_product_release
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-GEN-PCK-PKG-01
+        stage: Packaging & Storage
+        technique: packaging
+        required_asset_id: PACKAGING-SYS-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light
+        required_materials: []
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration
+  - process_id: PROC-LUT-FOD-01
+    process_name: Lutein - Food Colorant Grade
+    component_class: Carotenes & Xanthophylls
+    status: Optimized Production
+    notes: Eco-focused process using a bio-based solvent (d-Limonene) to produce
+      a vibrant, stable, and clean-label colorant with a 'health halo'. QC is focused
+      on color strength and food-grade safety.
+    default_workflow:
+      - MTHD-LUT-EXT-SLE-01
+      - MTHD-LUT-PUR-SAP-01
+      - MTHD-LUT-NEU-PH-01
+      - MTHD-LUT-PUR-ATPS-01
+      - MTHD-LUT-FRM-MENC-01
+      - MTHD-GEN-PCK-PKG-01
+    methods:
+      - method_id: MTHD-LUT-EXT-SLE-01
+        stage: Extraction
+        technique: solidLiquidExtraction
+        required_asset_id: CC-EXT-001
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials:
+          - type: solvent
+            id: TERP-LIMO-95
+        qc_checks: []
+        required_rule_ids:
+          - ruleExtractionStepDuration
+      - method_id: MTHD-LUT-PUR-SAP-01
+        stage: Purification
+        technique: saponification
+        required_asset_id: REACT-VESSEL-01
+        operating_parameters:
+          optimalTempC: 70
+          environment: dark, low-oxygen, low-light
+        required_materials:
+          - type: consumable
+            id: CONS-NAOH-1M-01
+        qc_checks: []
+        required_rule_ids:
+          - ruleMaintainOptimalTemp
+          - rulePurificationStepDuration
+      - method_id: MTHD-LUT-NEU-PH-01
+        stage: Neutralization
+        technique: pHAdjustment
+        required_asset_id: REACT-VESSEL-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials:
+          - type: consumable
+            id: CONS-HCL-1M-01
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-LUT-PUR-ATPS-01
+        stage: Final Purification
+        technique: aqueousTwoPhaseSystem
+        required_asset_id: CC-EXT-001
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials:
+          - type: consumable
+            id: CONS-DI-WATER-USP-01
+          - type: additive
+            id: ADD-NA2SO4
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-LUT-FRM-MENC-01
+        stage: Formulation
+        technique: microencapsulation
+        required_asset_id: BEADLETTING-ENCAP-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials: []
+        qc_checks:
+          - method_id: QC-LUT-FOD-001
+            timing: final_product_release
+          - method_id: QC-LUT-FOD-002
+            timing: final_product_release
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-GEN-PCK-PKG-01
+        stage: Packaging & Storage
+        technique: packaging
+        required_asset_id: PACKAGING-SYS-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light
+        required_materials: []
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration
+  - process_id: PROC-LUT-FED-01
+    process_name: Lutein - Animal Feed Grade
+    component_class: Carotenes & Xanthophylls
+    status: Optimized Production
+    notes: Cost-optimized process using hexane extraction. The workflow is simplified
+      by removing crystallization to deliver a reliable pigmenting agent at the lowest
+      possible price.
+    default_workflow:
+      - MTHD-LUT-EXT-SLE-01
+      - MTHD-GEN-REC-EVAP-01
+      - MTHD-LUT-PUR-SAP-01
+      - MTHD-LUT-NEU-PH-01
+      - MTHD-LUT-FRM-MENC-01
+      - MTHD-GEN-PCK-PKG-01
+    methods:
+      - method_id: MTHD-LUT-EXT-SLE-01
+        stage: Extraction
+        technique: solidLiquidExtraction
+        required_asset_id: CC-EXT-001
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials:
+          - type: consumable
+            id: CONS-HEXANE-01
+        qc_checks: []
+        required_rule_ids:
+          - ruleExtractionStepDuration
+      - method_id: MTHD-GEN-REC-EVAP-01
+        stage: Solvent Recovery
+        technique: evaporation
+        required_asset_id: ROTAVAP-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light
+        required_materials: []
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-LUT-PUR-SAP-01
+        stage: Purification
+        technique: saponification
+        required_asset_id: REACT-VESSEL-01
+        operating_parameters:
+          optimalTempC: 70
+          environment: dark, low-oxygen, low-light
+        required_materials:
+          - type: consumable
+            id: CONS-NAOH-1M-01
+        qc_checks: []
+        required_rule_ids:
+          - ruleMaintainOptimalTemp
+          - rulePurificationStepDuration
+      - method_id: MTHD-LUT-NEU-PH-01
+        stage: Neutralization
+        technique: pHAdjustment
+        required_asset_id: REACT-VESSEL-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials:
+          - type: consumable
+            id: CONS-HCL-1M-01
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-LUT-FRM-MENC-01
+        stage: Formulation
+        technique: microencapsulation
+        required_asset_id: BEADLETTING-ENCAP-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials: []
+        qc_checks:
+          - method_id: QC-LUT-FED-001
+            timing: final_product_release
+          - method_id: QC-LUT-FED-002
+            timing: final_product_release
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-GEN-PCK-PKG-01
+        stage: Packaging & Storage
+        technique: packaging
+        required_asset_id: PACKAGING-SYS-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light
+        required_materials: []
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration
+  - process_id: PROC-BGL-NUT-01
+    process_name: β-Glucan - Nutraceutical Grade
+    component_class: Large Soluble Polysaccharides
+    status: Optimized Production
+    notes: Eco-focused process using gentle enzymatic purification to preserve the
+      specific β-1,3/1,6-glucan structure, aligning with the 'Specific Structure
+      & Science' value proposition for immune health.
+    default_workflow:
+      - MTHD-BGL-PUR-ENZ-01
+      - MTHD-BGL-WSH-DF-01
+      - MTHD-BGL-DRY-DRYML-01
+      - MTHD-GEN-PCK-PKG-01
+    methods:
+      - method_id: MTHD-BGL-PUR-ENZ-01
+        stage: Purification
+        technique: enzymaticDigestion
+        required_asset_id: REACT-VESSEL-01
+        operating_parameters:
+          optimalTempC: 50
+          environment: dark, low-oxygen, low-light
+        required_materials:
+          - type: consumable
+            id: CONS-KIT-PROTEASE-NUCLEASE-01
+        qc_checks: []
+        required_rule_ids:
+          - ruleMaintainOptimalTemp
+          - rulePurificationStepDuration
+      - method_id: MTHD-BGL-WSH-DF-01
+        stage: Washing & Concentration
+        technique: diafiltration
+        required_asset_id: TFF-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials:
+          - type: consumable
+            id: CONS-DI-WATER-USP-01
+        qc_checks:
+          - method_id: QC-BGL-NUT-001
+            timing: in-process_control
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-BGL-DRY-DRYML-01
+        stage: Final Processing
+        technique: dryingAndMilling
+        required_asset_id: DRY-MILL-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light
+        required_materials: []
+        qc_checks:
+          - method_id: QC-BGL-NUT-001
+            timing: final_product_release
+          - method_id: QC-BGL-NUT-002
+            timing: final_product_release
+          - method_id: QC-BGL-NUT-003
+            timing: final_product_release
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-GEN-PCK-PKG-01
+        stage: Packaging & Storage
+        technique: packaging
+        required_asset_id: PACKAGING-SYS-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light
+        required_materials: []
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration
+  - process_id: PROC-BGL-COS-01
+    process_name: β-Glucan - Cosmetic Grade
+    component_class: Large Soluble Polysaccharides
+    status: Optimized Production
+    notes: Eco-focused process using gentle enzymatic purification to create a pure,
+      non-irritating active ideal for 'clean beauty' and 'sensitive skin' applications.
+      QC is focused on purity and topical safety.
+    default_workflow:
+      - MTHD-BGL-PUR-ENZ-01
+      - MTHD-BGL-WSH-DF-01
+      - MTHD-BGL-DRY-DRYML-01
+      - MTHD-GEN-PCK-PKG-01
+    methods:
+      - method_id: MTHD-BGL-PUR-ENZ-01
+        stage: Purification
+        technique: enzymaticDigestion
+        required_asset_id: REACT-VESSEL-01
+        operating_parameters:
+          optimalTempC: 50
+          environment: dark, low-oxygen, low-light
+        required_materials:
+          - type: consumable
+            id: CONS-KIT-PROTEASE-NUCLEASE-01
+        qc_checks: []
+        required_rule_ids:
+          - ruleMaintainOptimalTemp
+          - rulePurificationStepDuration
+      - method_id: MTHD-BGL-WSH-DF-01
+        stage: Washing & Concentration
+        technique: diafiltration
+        required_asset_id: TFF-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials:
+          - type: consumable
+            id: CONS-DI-WATER-USP-01
+        qc_checks:
+          - method_id: QC-BGL-COS-001
+            timing: in-process_control
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-BGL-DRY-DRYML-01
+        stage: Final Processing
+        technique: dryingAndMilling
+        required_asset_id: DRY-MILL-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light
+        required_materials: []
+        qc_checks:
+          - method_id: QC-BGL-COS-001
+            timing: final_product_release
+          - method_id: QC-BGL-COS-002
+            timing: final_product_release
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-GEN-PCK-PKG-01
+        stage: Packaging & Storage
+        technique: packaging
+        required_asset_id: PACKAGING-SYS-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light
+        required_materials: []
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration
+
+#########################################
+# Alternative Methods
+#########################################
+
+  - process_id: PROC-LUT-NUT-01-GOLD
+    process_name: Lutein - Nutraceutical Grade (Gold Standard)
+    component_class: Carotenes & Xanthophylls
+    status: Industry Reference
+    notes: The current industry gold standard, balancing purity and efficiency. It
+      uses Supercritical Fluid Extraction (SFE) for a clean extract and crystallization
+      for high purity. This process assumes receipt of pre-treated, milled biomass
+      paste.
+    default_workflow:
+      - MTHD-LUT-EXT-SFE-01
+      - MTHD-LUT-PUR-SAP-01
+      - MTHD-LUT-NEU-PH-01
+      - MTHD-LUT-PUR-CRY-01
+      - MTHD-LUT-FRM-MENC-01
+      - MTHD-GEN-PCK-PKG-01
+    methods:
+      - method_id: MTHD-LUT-EXT-SFE-01
+        stage: Extraction
+        technique: supercriticalFluidExtraction
+        required_asset_id: SFE-SYSTEM-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light
+        required_materials:
+          - type: consumable
+            id: CONS-ETOH-BUFFER-01
+        qc_checks: []
+        required_rule_ids:
+          - ruleExtractionStepDuration
+      - method_id: MTHD-LUT-PUR-SAP-01
+        stage: Purification
+        technique: saponification
+        required_asset_id: REACT-VESSEL-01
+        operating_parameters:
+          optimalTempC: 70
+          environment: dark, low-oxygen, low-light
+        required_materials:
+          - type: consumable
+            id: CONS-NAOH-1M-01
+        qc_checks: []
+        required_rule_ids:
+          - rulePurificationStepDuration
+      - method_id: MTHD-LUT-NEU-PH-01
+        stage: Neutralization
+        technique: pHAdjustment
+        required_asset_id: REACT-VESSEL-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials:
+          - type: consumable
+            id: CONS-HCL-1M-01
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-LUT-PUR-CRY-01
+        stage: Final Purification
+        technique: crystallization
+        required_asset_id: CRYSTALLIZER-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials: []
+        qc_checks:
+          - method_id: QC-LUT-NUT-001
+            timing: in-process_control
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-LUT-FRM-MENC-01
+        stage: Formulation
+        technique: microencapsulation
+        required_asset_id: BEADLETTING-ENCAP-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials: []
+        qc_checks:
+          - method_id: QC-LUT-NUT-002
+            timing: final_product_release
+          - method_id: QC-LUT-NUT-003
+            timing: final_product_release
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-GEN-PCK-PKG-01
+        stage: Packaging & Storage
+        technique: packaging
+        required_asset_id: PACKAGING-SYS-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light
+        required_materials: []
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration
+  - process_id: PROC-LUT-NUT-01-ECON
+    process_name: Lutein - Nutraceutical Grade (Econo-Focused)
+    component_class: Carotenes & Xanthophylls
+    status: Pilot-Scale Econo-Focused
+    notes: This process is optimized for the lowest possible cost. It replaces high-CAPEX
+      SFE with traditional, low-cost hexane extraction and recovery. It retains the
+      cost-effective saponification and crystallization steps for purification.
+    default_workflow:
+      - MTHD-LUT-EXT-SLE-01
+      - MTHD-GEN-REC-EVAP-01
+      - MTHD-LUT-PUR-SAP-01
+      - MTHD-LUT-NEU-PH-01
+      - MTHD-LUT-PUR-CRY-01
+      - MTHD-LUT-FRM-MENC-01
+      - MTHD-GEN-PCK-PKG-01
+    methods:
+      - method_id: MTHD-LUT-EXT-SLE-01
+        stage: Extraction
+        technique: solidLiquidExtraction
+        required_asset_id: CC-EXT-001
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials:
+          - type: consumable
+            id: CONS-HEXANE-01
+        qc_checks: []
+        required_rule_ids:
+          - ruleExtractionStepDuration
+      - method_id: MTHD-GEN-REC-EVAP-01
+        stage: Solvent Recovery
+        technique: evaporation
+        required_asset_id: ROTAVAP-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light
+        required_materials: []
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-LUT-PUR-SAP-01
+        stage: Purification
+        technique: saponification
+        required_asset_id: REACT-VESSEL-01
+        operating_parameters:
+          optimalTempC: 70
+          environment: dark, low-oxygen, low-light
+        required_materials:
+          - type: consumable
+            id: CONS-NAOH-1M-01
+        qc_checks: []
+        required_rule_ids:
+          - rulePurificationStepDuration
+      - method_id: MTHD-LUT-NEU-PH-01
+        stage: Neutralization
+        technique: pHAdjustment
+        required_asset_id: REACT-VESSEL-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials:
+          - type: consumable
+            id: CONS-HCL-1M-01
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-LUT-PUR-CRY-01
+        stage: Final Purification
+        technique: crystallization
+        required_asset_id: CRYSTALLIZER-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials: []
+        qc_checks:
+          - method_id: QC-LUT-NUT-001
+            timing: in-process_control
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-LUT-FRM-MENC-01
+        stage: Formulation
+        technique: microencapsulation
+        required_asset_id: BEADLETTING-ENCAP-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials: []
+        qc_checks:
+          - method_id: QC-LUT-NUT-002
+            timing: final_product_release
+          - method_id: QC-LUT-NUT-003
+            timing: final_product_release
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-GEN-PCK-PKG-01
+        stage: Packaging & Storage
+        technique: packaging
+        required_asset_id: PACKAGING-SYS-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light
+        required_materials: []
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration
+  - process_id: PROC-LUT-NUT-01-ECO
+    process_name: Lutein - Nutraceutical Grade (Eco-Focused)
+    component_class: Carotenes & Xanthophylls
+    status: Pilot-Scale Eco-Focused
+    notes: This process is optimized for the lowest environmental footprint. It
+      uses bio-based d-Limonene as a green solvent and replaces crystallization
+      with an aqueous two-phase system (ATPS) to minimize organic solvent use.
+    default_workflow:
+      - MTHD-LUT-EXT-SLE-01
+      - MTHD-LUT-PUR-SAP-01
+      - MTHD-LUT-NEU-PH-01
+      - MTHD-LUT-PUR-ATPS-01
+      - MTHD-LUT-FRM-MENC-01
+      - MTHD-GEN-PCK-PKG-01
+    methods:
+      - method_id: MTHD-LUT-EXT-SLE-01
+        stage: Extraction
+        technique: solidLiquidExtraction
+        required_asset_id: CC-EXT-001
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials:
+          - type: solvent
+            id: TERP-LIMO-95
+        qc_checks: []
+        required_rule_ids:
+          - ruleExtractionStepDuration
+      - method_id: MTHD-LUT-PUR-SAP-01
+        stage: Purification
+        technique: saponification
+        required_asset_id: REACT-VESSEL-01
+        operating_parameters:
+          optimalTempC: 70
+          environment: dark, low-oxygen, low-light
+        required_materials:
+          - type: consumable
+            id: CONS-NAOH-1M-01
+        qc_checks: []
+        required_rule_ids:
+          - rulePurificationStepDuration
+      - method_id: MTHD-LUT-NEU-PH-01
+        stage: Neutralization
+        technique: pHAdjustment
+        required_asset_id: REACT-VESSEL-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials:
+          - type: consumable
+            id: CONS-HCL-1M-01
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-LUT-PUR-ATPS-01
+        stage: Final Purification
+        technique: aqueousTwoPhaseSystem
+        required_asset_id: CC-EXT-001
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials:
+          - type: consumable
+            id: CONS-DI-WATER-USP-01
+          - type: additive
+            id: ADD-NA2SO4
+        qc_checks:
+          - method_id: QC-LUT-NUT-001
+            timing: in-process_control
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-LUT-FRM-MENC-01
+        stage: Formulation
+        technique: microencapsulation
+        required_asset_id: BEADLETTING-ENCAP-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials: []
+        qc_checks:
+          - method_id: QC-LUT-NUT-002
+            timing: final_product_release
+          - method_id: QC-LUT-NUT-003
+            timing: final_product_release
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-GEN-PCK-PKG-01
+        stage: Packaging & Storage
+        technique: packaging
+        required_asset_id: PACKAGING-SYS-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light
+        required_materials: []
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration
+  - process_id: PROC-BGL-NUT-01-ECO
+    process_name: β-Glucan - Nutraceutical Grade (Eco-Focused)
+    component_class: Large Soluble Polysaccharides
+    status: Pilot-Scale Eco-Focused
+    notes: This process is optimized for the lowest environmental impact. It replaces
+      the harsh acid/alkali method with a gentle enzymatic purification, eliminating
+      bulk chemical use and producing a potentially more potent product.
+    default_workflow:
+      - MTHD-BGL-PUR-ENZ-01
+      - MTHD-BGL-WSH-DF-01
+      - MTHD-BGL-DRY-DRYML-01
+      - MTHD-GEN-PCK-PKG-01
+    methods:
+      - method_id: MTHD-BGL-PUR-ENZ-01
+        stage: Purification
+        technique: enzymaticDigestion
+        required_asset_id: REACT-VESSEL-01
+        operating_parameters:
+          optimalTempC: 50
+          environment: dark, low-oxygen, low-light
+        required_materials:
+          - type: consumable
+            id: CONS-KIT-PROTEASE-NUCLEASE-01
+        qc_checks: []
+        required_rule_ids:
+          - rulePurificationStepDuration
+      - method_id: MTHD-BGL-WSH-DF-01
+        stage: Washing & Concentration
+        technique: diafiltration
+        required_asset_id: TFF-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials:
+          - type: consumable
+            id: CONS-DI-WATER-USP-01
+        qc_checks:
+          - method_id: QC-BGL-NUT-001
+            timing: in-process_control
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-BGL-DRY-DRYML-01
+        stage: Final Processing
+        technique: dryingAndMilling
+        required_asset_id: DRY-MILL-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light
+        required_materials: []
+        qc_checks:
+          - method_id: QC-BGL-NUT-003
+            timing: final_product_release
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-GEN-PCK-PKG-01
+        stage: Packaging & Storage
+        technique: packaging
+        required_asset_id: PACKAGING-SYS-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light
+        required_materials: []
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration
+  - process_id: PROC-LUT-FOD-01-ECO
+    process_name: Lutein - Food Colorant Grade (Eco-Focused)
+    component_class: Carotenes & Xanthophylls
+    status: Proposed Process
+    notes: This process is optimized for producing a clean-label food colorant. It
+      uses bio-based d-Limonene and replaces high-purity crystallization with ATPS.
+      QC is focused on color strength and food-grade safety.
+    default_workflow:
+      - MTHD-LUT-EXT-SLE-01
+      - MTHD-LUT-PUR-SAP-01
+      - MTHD-LUT-NEU-PH-01
+      - MTHD-LUT-PUR-ATPS-01
+      - MTHD-LUT-FRM-MENC-01
+      - MTHD-GEN-PCK-PKG-01
+    methods:
+      - method_id: MTHD-LUT-EXT-SLE-01
+        stage: Extraction
+        technique: solidLiquidExtraction
+        required_asset_id: CC-EXT-001
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials:
+          - type: solvent
+            id: TERP-LIMO-95
+        qc_checks: []
+        required_rule_ids:
+          - ruleExtractionStepDuration
+      - method_id: MTHD-LUT-PUR-SAP-01
+        stage: Purification
+        technique: saponification
+        required_asset_id: REACT-VESSEL-01
+        operating_parameters:
+          optimalTempC: 70
+          environment: dark, low-oxygen, low-light
+        required_materials:
+          - type: consumable
+            id: CONS-NAOH-1M-01
+        qc_checks: []
+        required_rule_ids:
+          - rulePurificationStepDuration
+      - method_id: MTHD-LUT-NEU-PH-01
+        stage: Neutralization
+        technique: pHAdjustment
+        required_asset_id: REACT-VESSEL-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials:
+          - type: consumable
+            id: CONS-HCL-1M-01
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-LUT-PUR-ATPS-01
+        stage: Final Purification
+        technique: aqueousTwoPhaseSystem
+        required_asset_id: CC-EXT-001
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials:
+          - type: consumable
+            id: CONS-DI-WATER-USP-01
+          - type: additive
+            id: ADD-NA2SO4
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-LUT-FRM-MENC-01
+        stage: Formulation
+        technique: microencapsulation
+        required_asset_id: BEADLETTING-ENCAP-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials: []
+        qc_checks:
+          - method_id: QC-LUT-FOD-001
+            timing: final_product_release
+          - method_id: QC-LUT-FOD-002
+            timing: final_product_release
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-GEN-PCK-PKG-01
+        stage: Packaging & Storage
+        technique: packaging
+        required_asset_id: PACKAGING-SYS-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light
+        required_materials: []
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration
+  - process_id: PROC-LUT-FED-01-ECON
+    process_name: Lutein - Animal Feed Grade (Econo-Focused)
+    component_class: Carotenes & Xanthophylls
+    status: Proposed Process
+    notes: This process is optimized for the lowest possible cost to produce an animal
+      feed pigment. It uses hexane extraction and retains cost-effective purification
+      steps. It has been simplified by removing the final crystallization step to
+      further reduce cost and complexity.
+    default_workflow:
+      - MTHD-LUT-EXT-SLE-01
+      - MTHD-GEN-REC-EVAP-01
+      - MTHD-LUT-PUR-SAP-01
+      - MTHD-LUT-NEU-PH-01
+      - MTHD-LUT-FRM-MENC-01
+      - MTHD-GEN-PCK-PKG-01
+    methods:
+      - method_id: MTHD-LUT-EXT-SLE-01
+        stage: Extraction
+        technique: solidLiquidExtraction
+        required_asset_id: CC-EXT-001
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials:
+          - type: consumable
+            id: CONS-HEXANE-01
+        qc_checks: []
+        required_rule_ids:
+          - ruleExtractionStepDuration
+      - method_id: MTHD-GEN-REC-EVAP-01
+        stage: Solvent Recovery
+        technique: evaporation
+        required_asset_id: ROTAVAP-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light
+        required_materials: []
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-LUT-PUR-SAP-01
+        stage: Purification
+        technique: saponification
+        required_asset_id: REACT-VESSEL-01
+        operating_parameters:
+          optimalTempC: 70
+          environment: dark, low-oxygen, low-light
+        required_materials:
+          - type: consumable
+            id: CONS-NAOH-1M-01
+        qc_checks: []
+        required_rule_ids:
+          - rulePurificationStepDuration
+      - method_id: MTHD-LUT-NEU-PH-01
+        stage: Neutralization
+        technique: pHAdjustment
+        required_asset_id: REACT-VESSEL-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials:
+          - type: consumable
+            id: CONS-HCL-1M-01
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-LUT-FRM-MENC-01
+        stage: Formulation
+        technique: microencapsulation
+        required_asset_id: BEADLETTING-ENCAP-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials: []
+        qc_checks:
+          - method_id: QC-LUT-FED-001
+            timing: final_product_release
+          - method_id: QC-LUT-FED-002
+            timing: final_product_release
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-GEN-PCK-PKG-01
+        stage: Packaging & Storage
+        technique: packaging
+        required_asset_id: PACKAGING-SYS-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light
+        required_materials: []
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration
+  - process_id: PROC-BGL-COS-01-ECO
+    process_name: β-Glucan - Cosmetic Grade (Eco-Focused)
+    component_class: Large Soluble Polysaccharides
+    status: Proposed Process
+    notes: This process uses a gentle enzymatic purification to produce a high-purity
+      β-glucan suitable for cosmetic applications. It eliminates harsh chemicals
+      and focuses on QC for topical safety and purity.
+    default_workflow:
+      - MTHD-BGL-PUR-ENZ-01
+      - MTHD-BGL-WSH-DF-01
+      - MTHD-BGL-DRY-DRYML-01
+      - MTHD-GEN-PCK-PKG-01
+    methods:
+      - method_id: MTHD-BGL-PUR-ENZ-01
+        stage: Purification
+        technique: enzymaticDigestion
+        required_asset_id: REACT-VESSEL-01
+        operating_parameters:
+          optimalTempC: 50
+          environment: dark, low-oxygen, low-light
+        required_materials:
+          - type: consumable
+            id: CONS-KIT-PROTEASE-NUCLEASE-01
+        qc_checks: []
+        required_rule_ids:
+          - rulePurificationStepDuration
+      - method_id: MTHD-BGL-WSH-DF-01
+        stage: Washing & Concentration
+        technique: diafiltration
+        required_asset_id: TFF-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light, ambient-or-cold
+        required_materials:
+          - type: consumable
+            id: CONS-DI-WATER-USP-01
+        qc_checks:
+          - method_id: QC-BGL-COS-001
+            timing: in-process_control
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-BGL-DRY-DRYML-01
+        stage: Final Processing
+        technique: dryingAndMilling
+        required_asset_id: DRY-MILL-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light
+        required_materials: []
+        qc_checks:
+          - method_id: QC-BGL-COS-001
+            timing: final_product_release
+          - method_id: QC-BGL-COS-002
+            timing: final_product_release
+        required_rule_ids:
+          - ruleDefaultStepDuration
+      - method_id: MTHD-GEN-PCK-PKG-01
+        stage: Packaging & Storage
+        technique: packaging
+        required_asset_id: PACKAGING-SYS-01
+        operating_parameters:
+          environment: dark, low-oxygen, low-light
+        required_materials: []
+        qc_checks: []
+        required_rule_ids:
+          - ruleDefaultStepDuration

@@ -1,0 +1,110 @@
+schema_version: "1.0"
+assets:
+  - asset_id: TOOL-COLUMN-PACKING-01
+    display_name: Ceramic Raschig Rings, 15mm
+    asset_type: ColumnPacking
+    group: EXTRACTION
+    description: Re-classified from Consumable. Ceramic column packing is a durable material with a multi-year lifespan. Cost is representative for a pilot-scale column and is accounted for in the CAPEX of the parent asset.
+    connection_points: null
+    operational_parameters:
+      configuration_and_control: null
+      monitoring: null
+      operational_tasks: null
+      maintenance:
+        reliability_model: null
+        preventative_schedules:
+        - task_id: PM-001
+          task_name: Scheduled Replacement
+          trigger:
+            trigger_type: time_based
+            unit: months
+            interval: 60
+            description: null
+          materials_and_parts: null
+      labor_requirements: null
+      power_model: null
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 5
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 2000.0
+          impacts:
+          - metric: gwp
+            value: 30.0
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 450.0
+            unit: MJ
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - asset_id: TOOL-GC-COL-DB5-01
+    display_name: DB-5 GC Column, 30m, 0.25mm ID, 0.25µm film
+    asset_type: ChromatographyColumn
+    group: QUALITY_CONTROL
+    description: Durable general-purpose GC column.
+    connection_points: null
+    operational_parameters:
+      configuration_and_control: null
+      monitoring: null
+      operational_tasks: null
+      maintenance:
+        reliability_model: null
+        preventative_schedules:
+        - task_id: PM-001
+          task_name: Scheduled Replacement
+          trigger:
+            trigger_type: time_based
+            unit: months
+            interval: 24
+            description: null
+          materials_and_parts: null
+      labor_requirements: null
+      power_model: null
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 2
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 500.0
+          impacts:
+          - metric: gwp
+            value: 1.2
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 20.0
+            unit: MJ
+          - metric: water_use
+            value: 0.04
+            unit: m3
+          - metric: ep
+            value: 0.001
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.004
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.001
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []

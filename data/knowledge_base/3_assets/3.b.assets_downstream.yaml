@@ -1,0 +1,1910 @@
+schema_version: "1.0"
+assets:
+  - asset_id: TFF-01
+    display_name: Pilot-Scale TFF System
+    asset_type: TANGENTIAL_FLOW_FILTRATION
+    group: PURIFICATION
+    description: 'Suitable for process development and pilot-scale concentration of biologics. System is manually operated and relies on external sensors and control loops for automation. Note: Commercially available. Note on OPEX: Driven by high cost of single-use filter cassettes, electricity, and skilled labor.'
+    connection_points:
+    - port_id: FEED_INLET
+      port_type: LIQUID_INLET
+      description: Inlet for process fluid from upstream unit or feed tank.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: RETENTATE_OUTLET
+      port_type: LIQUID_OUTLET
+      description: Outlet for concentrated retentate stream.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: PERMEATE_OUTLET
+      port_type: LIQUID_OUTLET
+      description: Outlet for filtered permeate stream.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: POWER
+      port_type: ELECTRICAL
+      description: Main power connection.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    operational_parameters:
+      configuration_and_control:
+      - key: method
+        value: 0.0
+        unit: null
+        min: null
+        max: null
+        default: 0.0
+        group: null
+      - key: filter_cassette_id
+        value: 0.0
+        unit: null
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: diafiltration_buffer_id
+        value: 0.0
+        unit: null
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: feed_flow_rate
+        value: 10.0
+        unit: L/min
+        min: 1.0
+        max: 20.0
+        default: 10.0
+        group: null
+      - key: retentate_pressure_setpoint
+        value: 1.5
+        unit: bar
+        min: 0.2
+        max: 4.0
+        default: 1.5
+        group: null
+      - key: temperature_setpoint
+        value: 25.0
+        unit: °C
+        min: 4.0
+        max: 40.0
+        default: 25.0
+        group: null
+      monitoring: null
+      operational_tasks:
+      - task_id: OP-TFF-001
+        task_name: Setup and Prime
+        description: Install filter cassette and sterile tubing, prime the system with buffer.
+      - task_id: OP-TFF-002
+        task_name: Operation Monitoring
+        description: Monitor feed/retentate pressures and flow rates during processing.
+      - task_id: OP-TFF-003
+        task_name: CIP Cycle
+        description: Perform multi-step Clean-In-Place (CIP) protocol with cleaning agents and rinses.
+      maintenance:
+        reliability_model:
+          mtbf:
+            value: 7000.0
+            unit: hr
+          mttr:
+            value: 8.0
+            unit: hr
+        preventative_schedules:
+        - task_id: PM-TFF-001
+          task_name: Pump Head and Gasket Inspection
+          trigger:
+            trigger_type: time_based
+            unit: months
+            interval: 6
+            description: null
+          materials_and_parts: null
+      labor_requirements:
+      - linked_task_id: OP-TFF-001
+        task_description: Install filter cassette and sterile tubing, prime the system with buffer.
+        required_role_id: LABOR-OPERATOR-2
+        duration:
+          value: 45.0
+          unit: min
+      - linked_task_id: OP-TFF-002
+        task_description: Monitor feed/retentate pressures and flow rates during processing.
+        required_role_id: LABOR-OPERATOR-1
+        duration:
+          value: 20.0
+          unit: min/hr_op
+      - linked_task_id: OP-TFF-003
+        task_description: Perform multi-step Clean-In-Place (CIP) protocol with cleaning agents and rinses.
+        required_role_id: LABOR-OPERATOR-1
+        duration:
+          value: 120.0
+          unit: min
+      - linked_task_id: PM-TFF-001
+        task_description: Perform pump head and gasket inspection.
+        required_role_id: LABOR-MAINT-TECH-2
+        duration:
+          value: 90.0
+          unit: min
+      power_model:
+        description: Estimated power based on a system with a primary variable-speed feed pump, integrated controller, and an active temperature control unit. Standby power reflects the controller and sensors being active with pumps off. Cleaning cycle power reflects high-speed pump operation during CIP.
+        operating_power:
+          value: 2.5
+          unit: kW
+        standby_power:
+          value: 0.2
+          unit: kW
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 15
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 150000.0
+          impacts:
+          - metric: gwp
+            value: 2450.0
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 31500.0
+            unit: MJ
+          - metric: water_use
+            value: 4.2
+            unit: m3
+          - metric: ep
+            value: 1.2
+            unit: kg_PO4e
+          - metric: ap
+            value: 7.5
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.8
+            unit: kg_C2H4e
+        use_and_operation:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 45000.0
+          impacts:
+          - metric: gwp_per_year
+            value: 0.0
+            unit: kg_CO2e
+          - metric: water_use_per_year
+            value: 0.0
+            unit: m3
+          - metric: adp_fossil_per_year
+            value: 0.0
+            unit: MJ
+          - metric: ep_per_year
+            value: 0.0
+            unit: kg_PO4e
+        maintenance:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 6000.0
+          impacts:
+          - metric: gwp_per_year
+            value: 0.0
+            unit: kg_CO2e
+          - metric: e_waste_burden_per_year
+            value: 0.0
+            unit: kg
+        end_of_life:
+          costs:
+          - cost_type: terminal_value
+            value_usd: -1500.0
+          impacts:
+          - metric: recycling_rate
+            value: 0.0
+            unit: '%'
+          - metric: e_waste_burden
+            value: 0.0
+            unit: kg
+          - metric: hazardous_waste
+            value: 0.0
+            unit: kg
+  - asset_id: CC-EXT-001
+    display_name: Counter-Current Extraction Column
+    asset_type: COUNTER_CURRENT_EXTRACTION_COLUMN
+    group: EXTRACTION
+    description: 'Note: Commercially available. Note on OPEX: Dominated by electricity for heating/pumping and cost of solvents.'
+    connection_points:
+    - port_id: SLURRY_INLET
+      port_type: LIQUID_INLET
+      description: Inlet for the biomass slurry feed.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: SOLVENT_INLET
+      port_type: LIQUID_INLET
+      description: Inlet for the extraction solvent.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: EXTRACT_OUTLET
+      port_type: LIQUID_OUTLET
+      description: Outlet for the solvent phase containing the extracted product (extract).
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: RAFFINATE_OUTLET
+      port_type: LIQUID_OUTLET
+      description: Outlet for the depleted biomass slurry (raffinate).
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: POWER
+      port_type: ELECTRICAL
+      description: Main power connection.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: CONTROL_DATA
+      port_type: DATA
+      description: Connection to main PLC/control system.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    operational_parameters:
+      configuration_and_control:
+      - key: slurry_flow_rate
+        value: 50.0
+        unit: kg/hr
+        min: 1.0
+        max: 100.0
+        default: 50.0
+        group: null
+      - key: solvent_flow_rate
+        value: 50.0
+        unit: kg/hr
+        min: 1.0
+        max: 100.0
+        default: 50.0
+        group: null
+      - key: temperature_setpoint
+        value: 40.0
+        unit: °C
+        min: 0.0
+        max: 100.0
+        default: 40.0
+        group: null
+      - key: recirculation_ratio
+        value: 0.0
+        unit: ratio
+        min: 0.0
+        max: 1.0
+        default: 0.0
+        group: null
+      monitoring: null
+      operational_tasks:
+      - task_id: OP-EXT-001
+        task_name: Setup Per Batch
+        description: Prepare solvents, prime pumps, and configure control system for batch run.
+      - task_id: OP-EXT-002
+        task_name: Operation Monitoring
+        description: Monitor flow rates, temperatures, and pressures; take in-process samples.
+      - task_id: OP-EXT-003
+        task_name: Cleanup Per Batch
+        description: Drain and flush column, manage waste streams.
+      maintenance:
+        reliability_model:
+          mtbf:
+            value: 8000.0
+            unit: hr
+          mttr:
+            value: 12.0
+            unit: hr
+        preventative_schedules:
+        - task_id: PM-EXT-001
+          task_name: Pump Head and Seal Inspection
+          trigger:
+            trigger_type: time_based
+            unit: months
+            interval: 6
+            description: null
+          materials_and_parts: null
+        - task_id: PM-EXT-002
+          task_name: Column Packing Replacement
+          trigger:
+            trigger_type: time_based
+            unit: months
+            interval: 24
+            description: null
+          materials_and_parts:
+          - TOOL-COLUMN-PACKING-01
+      labor_requirements:
+      - linked_task_id: OP-EXT-001
+        task_description: Prepare solvents, prime pumps, and configure control system for batch run.
+        required_role_id: LABOR-OPERATOR-2
+        duration:
+          value: 90.0
+          unit: min
+      - linked_task_id: OP-EXT-002
+        task_description: Monitor flow rates, temperatures, and pressures; take in-process samples.
+        required_role_id: LABOR-OPERATOR-1
+        duration:
+          value: 20.0
+          unit: min/hr_op
+      - linked_task_id: OP-EXT-003
+        task_description: Drain and flush column, manage waste streams.
+        required_role_id: LABOR-OPERATOR-1
+        duration:
+          value: 120.0
+          unit: min
+      - linked_task_id: PM-EXT-001
+        task_description: Perform pump head and seal inspection.
+        required_role_id: LABOR-MAINT-TECH-2
+        duration:
+          value: 180.0
+          unit: min
+      - linked_task_id: PM-EXT-002
+        task_description: Perform column packing replacement.
+        required_role_id: LABOR-MAINT-TECH-2
+        duration:
+          value: 480.0
+          unit: min
+      power_model:
+        description: Power for pumps, heating/cooling jackets, and control system. Assumed average load.
+        operating_power:
+          value: 18.0
+          unit: kW
+        standby_power:
+          value: 0.8
+          unit: kW
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 20
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 220000.0
+          impacts:
+          - metric: gwp
+            value: 2900.0
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 38000.0
+            unit: MJ
+          - metric: water_use
+            value: 5.0
+            unit: m3
+          - metric: ep
+            value: 1.5
+            unit: kg_PO4e
+          - metric: ap
+            value: 8.8
+            unit: kg_SO2e
+          - metric: pocp
+            value: 1.0
+            unit: kg_C2H4e
+        use_and_operation:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 30000.0
+          impacts:
+          - metric: gwp_per_year
+            value: 0.0
+            unit: kg_CO2e
+          - metric: adp_fossil_per_year
+            value: 0.0
+            unit: MJ
+          - metric: ep_per_year
+            value: 0.0
+            unit: kg_PO4e
+          - metric: water_use_per_year
+            value: 0.0
+            unit: m3
+        maintenance:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 8000.0
+          impacts:
+          - metric: gwp_per_year
+            value: 0.0
+            unit: kg_CO2e
+          - metric: e_waste_burden_per_year
+            value: 0.0
+            unit: kg
+        end_of_life:
+          costs:
+          - cost_type: terminal_value
+            value_usd: -10000.0
+          impacts:
+          - metric: recycling_rate
+            value: 0.0
+            unit: '%'
+          - metric: hazardous_waste
+            value: 0.0
+            unit: kg
+          - metric: e_waste_burden
+            value: 0.0
+            unit: kg
+  - asset_id: SFE-SYSTEM-01
+    display_name: Supercritical Fluid Extraction System
+    asset_type: SUPERCRITICAL_FLUID_EXTRACTION
+    group: EXTRACTION
+    description: 'Pilot-scale system for clean extraction using supercritical CO2, with an ethanol co-solvent modifier. Note: Commercially available. Note on OPEX: High OPEX from high-pressure CO2 consumption, co-solvents, and very high electricity usage.'
+    connection_points:
+    - port_id: BIOMASS_INLET
+      port_type: SOLID_INLET
+      description: Port for loading biomass into the extraction vessel.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: CO2_INLET
+      port_type: LIQUID_INLET
+      description: Inlet for high-pressure liquid CO2.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: CO_SOLVENT_INLET
+      port_type: LIQUID_INLET
+      description: Inlet for the co-solvent (e.g., ethanol).
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: EXTRACT_OUTLET
+      port_type: LIQUID_OUTLET
+      description: Outlet from separator for the collected extract.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: SPENT_BIOMASS_OUTLET
+      port_type: SOLID_OUTLET
+      description: Port for removing spent biomass after extraction.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: POWER
+      port_type: ELECTRICAL
+      description: Main power connection.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    operational_parameters:
+      configuration_and_control:
+      - key: pressure_setpoint
+        value: 300.0
+        unit: bar
+        min: 100.0
+        max: 400.0
+        default: 300.0
+        group: null
+      - key: temperature_setpoint
+        value: 60.0
+        unit: °C
+        min: 35.0
+        max: 120.0
+        default: 60.0
+        group: null
+      - key: co2_flow_rate
+        value: 20.0
+        unit: kg/hr
+        min: 1.0
+        max: 50.0
+        default: 20.0
+        group: null
+      - key: co_solvent_percent
+        value: 5.0
+        unit: '%'
+        min: 0.0
+        max: 20.0
+        default: 5.0
+        group: null
+      monitoring: null
+      operational_tasks:
+      - task_id: OP-SFE-001
+        task_name: Setup and Load
+        description: Load biomass into extraction vessel, perform system leak checks.
+      - task_id: OP-SFE-002
+        task_name: Operation Monitoring
+        description: Monitor pressures, temperatures, and flow rates during extraction run.
+      - task_id: OP-SFE-003
+        task_name: Shutdown and Collection
+        description: Depressurize system, collect extract from separation vessels, and clean vessels.
+      maintenance:
+        reliability_model:
+          mtbf:
+            value: 4500.0
+            unit: hr
+          mttr:
+            value: 24.0
+            unit: hr
+        preventative_schedules:
+        - task_id: PM-SFE-001
+          task_name: High-Pressure Seal and Valve Inspection
+          trigger:
+            trigger_type: usage_based
+            unit: operating_hours
+            interval: 500
+            description: null
+          materials_and_parts: null
+      labor_requirements:
+      - linked_task_id: OP-SFE-001
+        task_description: Load biomass into extraction vessel, perform system leak checks.
+        required_role_id: LABOR-OPERATOR-2
+        duration:
+          value: 60.0
+          unit: min
+      - linked_task_id: OP-SFE-002
+        task_description: Monitor pressures, temperatures, and flow rates during extraction run.
+        required_role_id: LABOR-OPERATOR-1
+        duration:
+          value: 15.0
+          unit: min/hr_op
+      - linked_task_id: OP-SFE-003
+        task_description: Depressurize system, collect extract from separation vessels, and clean vessels.
+        required_role_id: LABOR-OPERATOR-2
+        duration:
+          value: 90.0
+          unit: min
+      - linked_task_id: PM-SFE-001
+        task_description: Perform high-pressure seal and valve inspection.
+        required_role_id: LABOR-MAINT-TECH-2
+        duration:
+          value: 240.0
+          unit: min
+      power_model:
+        description: null
+        operating_power:
+          value: 35.0
+          unit: kW
+        standby_power:
+          value: 1.5
+          unit: kW
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 15
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 450000.0
+          impacts:
+          - metric: gwp
+            value: 11800.0
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 145000.0
+            unit: MJ
+          - metric: water_use
+            value: 18.5
+            unit: m3
+          - metric: ep
+            value: 5.8
+            unit: kg_PO4e
+          - metric: ap
+            value: 37.0
+            unit: kg_SO2e
+          - metric: pocp
+            value: 4.0
+            unit: kg_C2H4e
+        use_and_operation:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 60000.0
+          impacts:
+          - metric: gwp_per_year
+            value: 0.0
+            unit: kg_CO2e
+          - metric: adp_fossil_per_year
+            value: 0.0
+            unit: MJ
+          - metric: ep_per_year
+            value: 0.0
+            unit: kg_PO4e
+          - metric: water_use_per_year
+            value: 0.0
+            unit: m3
+        maintenance:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 25000.0
+          impacts:
+          - metric: gwp_per_year
+            value: 0.0
+            unit: kg_CO2e
+          - metric: e_waste_burden_per_year
+            value: 0.0
+            unit: kg
+        end_of_life:
+          costs:
+          - cost_type: terminal_value
+            value_usd: -10000.0
+          impacts:
+          - metric: recycling_rate
+            value: 0.0
+            unit: '%'
+          - metric: e_waste_burden
+            value: 0.0
+            unit: kg
+          - metric: hazardous_waste
+            value: 0.0
+            unit: kg
+  - asset_id: REACT-VESSEL-01
+    display_name: 1000L Jacketed Reaction Vessel
+    asset_type: JACKETED_REACTION_VESSEL
+    group: PURIFICATION
+    description: 'Used for saponification and neutralization steps. Assumes integration with facility heating/cooling utilities. Note: Not commercially available.'
+    connection_points:
+    - port_id: MAIN_INLET
+      port_type: LIQUID_INLET
+      description: Main top port for charging reactants.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: REAGENT_DOSING_INLET
+      port_type: LIQUID_INLET
+      description: Separate inlet for controlled dosing of a reagent.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: BOTTOM_OUTLET
+      port_type: LIQUID_OUTLET
+      description: Outlet for draining the reactor contents.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: JACKET_INLET
+      port_type: UTILITY_LIQUID_INLET
+      description: Inlet for heating/cooling utility.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: JACKET_OUTLET
+      port_type: UTILITY_LIQUID_OUTLET
+      description: Outlet for heating/cooling utility.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: POWER
+      port_type: ELECTRICAL
+      description: Power for agitator and controls.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    operational_parameters:
+      configuration_and_control:
+      - key: agitator_speed
+        value: 100.0
+        unit: rpm
+        min: 10.0
+        max: 200.0
+        default: 100.0
+        group: null
+      - key: jacket_temperature_setpoint
+        value: 25.0
+        unit: °C
+        min: -10.0
+        max: 150.0
+        default: 25.0
+        group: null
+      - key: reagent_dosing_rate
+        value: 5.0
+        unit: L/min
+        min: 0.1
+        max: 20.0
+        default: 5.0
+        group: null
+      monitoring: null
+      operational_tasks:
+      - task_id: OP-REACT-001
+        task_name: Charge Reagents
+        description: Charge main reactants and solvents into the vessel.
+      - task_id: OP-REACT-002
+        task_name: Reaction Monitoring
+        description: Monitor reaction progress, temperature, and pH; take in-process control samples.
+      - task_id: OP-REACT-003
+        task_name: CIP Cycle
+        description: Perform multi-step Clean-In-Place (CIP) protocol.
+      maintenance:
+        reliability_model:
+          mtbf:
+            value: 20000.0
+            unit: hr
+          mttr:
+            value: 12.0
+            unit: hr
+        preventative_schedules:
+        - task_id: PM-REACT-001
+          task_name: Agitator Seal and Gearbox Inspection
+          trigger:
+            trigger_type: time_based
+            unit: months
+            interval: 12
+            description: null
+          materials_and_parts: null
+      labor_requirements:
+      - linked_task_id: OP-REACT-001
+        task_description: Charge main reactants and solvents into the vessel.
+        required_role_id: LABOR-OPERATOR-2
+        duration:
+          value: 60.0
+          unit: min
+      - linked_task_id: OP-REACT-002
+        task_description: Monitor reaction progress, temperature, and pH; take in-process control samples.
+        required_role_id: LABOR-OPERATOR-1
+        duration:
+          value: 15.0
+          unit: min/hr_op
+      - linked_task_id: OP-REACT-003
+        task_description: Perform multi-step Clean-In-Place (CIP) protocol.
+        required_role_id: LABOR-OPERATOR-1
+        duration:
+          value: 90.0
+          unit: min
+      - linked_task_id: PM-REACT-001
+        task_description: Perform agitator seal and gearbox inspection.
+        required_role_id: LABOR-MAINT-TECH-2
+        duration:
+          value: 180.0
+          unit: min
+      power_model:
+        description: null
+        operating_power:
+          value: 4.0
+          unit: kW
+        standby_power:
+          value: 0.1
+          unit: kW
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 25
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 60000.0
+          impacts:
+          - metric: gwp
+            value: 5900.0
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 78000.0
+            unit: MJ
+          - metric: water_use
+            value: 10.4
+            unit: m3
+          - metric: ep
+            value: 2.8
+            unit: kg_PO4e
+          - metric: ap
+            value: 18.4
+            unit: kg_SO2e
+          - metric: pocp
+            value: 2.2
+            unit: kg_C2H4e
+        use_and_operation:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 5000.0
+          impacts:
+          - metric: gwp_per_year
+            value: 0.0
+            unit: kg_CO2e
+          - metric: adp_fossil_per_year
+            value: 0.0
+            unit: MJ
+          - metric: ep_per_year
+            value: 0.0
+            unit: kg_PO4e
+          - metric: water_use_per_year
+            value: 0.0
+            unit: m3
+        maintenance:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 2000.0
+          impacts:
+          - metric: gwp_per_year
+            value: 0.0
+            unit: kg_CO2e
+          - metric: e_waste_burden_per_year
+            value: 0.0
+            unit: kg
+        end_of_life:
+          costs:
+          - cost_type: terminal_value
+            value_usd: -1500.0
+          impacts:
+          - metric: recycling_rate
+            value: 0.0
+            unit: '%'
+          - metric: e_waste_burden
+            value: 0.0
+            unit: kg
+          - metric: hazardous_waste
+            value: 0.0
+            unit: kg
+  - asset_id: CRYSTALLIZER-01
+    display_name: 500L Crystallization Reactor
+    asset_type: CRYSTALLIZER
+    group: PURIFICATION
+    description: 'A specialized jacketed vessel with a low-shear agitator and precise temperature control for crystallization. Note: Not commercially available.'
+    connection_points:
+    - port_id: SOLUTION_INLET
+      port_type: LIQUID_INLET
+      description: Inlet for the saturated solution.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: SLURRY_OUTLET
+      port_type: LIQUID_OUTLET
+      description: Bottom outlet for harvesting the crystal slurry.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: JACKET_INLET
+      port_type: UTILITY_LIQUID_INLET
+      description: Inlet for precise temperature control fluid.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: JACKET_OUTLET
+      port_type: UTILITY_LIQUID_OUTLET
+      description: Outlet for precise temperature control fluid.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: POWER
+      port_type: ELECTRICAL
+      description: Power for agitator and controls.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    operational_parameters:
+      configuration_and_control:
+      - key: dissolution_phase_target_temperature
+        value: 80.0
+        unit: °C
+        min: null
+        max: null
+        default: 80.0
+        group: dissolution_phase
+      - key: dissolution_phase_hold_duration
+        value: 60.0
+        unit: min
+        min: null
+        max: null
+        default: 60.0
+        group: dissolution_phase
+      - key: crystallization_phase_target_temperature
+        value: 10.0
+        unit: °C
+        min: null
+        max: null
+        default: 10.0
+        group: crystallization_phase
+      - key: crystallization_phase_cooling_ramp_rate
+        value: 5.0
+        unit: °C/hr
+        min: null
+        max: null
+        default: 5.0
+        group: crystallization_phase
+      - key: agitator_speed
+        value: 50.0
+        unit: rpm
+        min: 10.0
+        max: 150.0
+        default: 50.0
+        group: null
+      monitoring: null
+      operational_tasks:
+      - task_id: OP-CRYS-001
+        task_name: Setup and Charge
+        description: Charge solution, ensure system is clean and ready for operation.
+      - task_id: OP-CRYS-002
+        task_name: Monitoring
+        description: Monitor cooling profile and crystal growth, may involve in-process microscopy.
+      - task_id: OP-CRYS-003
+        task_name: Harvest and Clean
+        description: Harvest crystalline product and perform thorough cleaning of the vessel.
+      maintenance:
+        reliability_model:
+          mtbf:
+            value: 18000.0
+            unit: hr
+          mttr:
+            value: 12.0
+            unit: hr
+        preventative_schedules:
+        - task_id: PM-CRYS-001
+          task_name: Annual Temperature Sensor Calibration
+          trigger:
+            trigger_type: time_based
+            unit: months
+            interval: 12
+            description: null
+          materials_and_parts: null
+      labor_requirements:
+      - linked_task_id: OP-CRYS-001
+        task_description: Charge solution, ensure system is clean and ready for operation.
+        required_role_id: LABOR-OPERATOR-2
+        duration:
+          value: 45.0
+          unit: min
+      - linked_task_id: OP-CRYS-002
+        task_description: Monitor cooling profile and crystal growth, may involve in-process microscopy.
+        required_role_id: LABOR-SCIENTIST-3
+        duration:
+          value: 20.0
+          unit: min/hr_op
+      - linked_task_id: OP-CRYS-003
+        task_description: Harvest crystalline product and perform thorough cleaning of the vessel.
+        required_role_id: LABOR-OPERATOR-1
+        duration:
+          value: 120.0
+          unit: min
+      - linked_task_id: PM-CRYS-001
+        task_description: Perform annual temperature sensor calibration.
+        required_role_id: LABOR-MAINT-TECH-2
+        duration:
+          value: 240.0
+          unit: min
+      power_model:
+        description: null
+        operating_power:
+          value: 5.5
+          unit: kW
+        standby_power:
+          value: 0.2
+          unit: kW
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 25
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 95000.0
+          impacts:
+          - metric: gwp
+            value: 8200.0
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 110000.0
+            unit: MJ
+          - metric: water_use
+            value: 14.0
+            unit: m3
+          - metric: ep
+            value: 4.1
+            unit: kg_PO4e
+          - metric: ap
+            value: 27.5
+            unit: kg_SO2e
+          - metric: pocp
+            value: 3.0
+            unit: kg_C2H4e
+        use_and_operation:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 8000.0
+          impacts:
+          - metric: gwp_per_year
+            value: 0.0
+            unit: kg_CO2e
+          - metric: adp_fossil_per_year
+            value: 0.0
+            unit: MJ
+          - metric: ep_per_year
+            value: 0.0
+            unit: kg_PO4e
+          - metric: water_use_per_year
+            value: 0.0
+            unit: m3
+        maintenance:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 4000.0
+          impacts:
+          - metric: gwp_per_year
+            value: 0.0
+            unit: kg_CO2e
+          - metric: e_waste_burden_per_year
+            value: 0.0
+            unit: kg
+        end_of_life:
+          costs:
+          - cost_type: terminal_value
+            value_usd: -2000.0
+          impacts:
+          - metric: recycling_rate
+            value: 0.0
+            unit: '%'
+          - metric: e_waste_burden
+            value: 0.0
+            unit: kg
+          - metric: hazardous_waste
+            value: 0.0
+            unit: kg
+  - asset_id: BEADLETTING-ENCAP-01
+    display_name: Beadletting & Encapsulation Unit
+    asset_type: BEADLETTING_ENCAPSULATOR
+    group: FORMULATION
+    description: 'System for creating micro-encapsulated beadlets from a liquid formulation matrix. Note: Commercially available. Note on OPEX: OPEX includes cost of matrix materials (e.g., starches, gelatin) and electricity.'
+    connection_points:
+    - port_id: LIQUID_MATRIX_INLET
+      port_type: LIQUID_INLET
+      description: Inlet for the liquid formulation to be encapsulated.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: PRODUCT_OUTLET
+      port_type: SOLID_OUTLET
+      description: Outlet for the final, dried beadlets.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: DRYING_AIR_INLET
+      port_type: GAS_INLET
+      description: Inlet for conditioned drying air.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: POWER
+      port_type: ELECTRICAL
+      description: Main power connection.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    operational_parameters:
+      configuration_and_control:
+      - key: liquid_feed_rate
+        value: 5.0
+        unit: kg/hr
+        min: 1.0
+        max: 10.0
+        default: 5.0
+        group: null
+      - key: nozzle_frequency
+        value: 500.0
+        unit: Hz
+        min: 100.0
+        max: 2000.0
+        default: 500.0
+        group: null
+      - key: drying_air_temperature
+        value: 60.0
+        unit: °C
+        min: 30.0
+        max: 100.0
+        default: 60.0
+        group: null
+      monitoring: null
+      operational_tasks:
+      - task_id: OP-BEAD-001
+        task_name: Setup and Formulation
+        description: Prepare liquid matrix formulation and prime the system.
+      - task_id: OP-BEAD-002
+        task_name: Operation Monitoring
+        description: Monitor beadlet formation and collect in-process samples for particle size analysis.
+      - task_id: OP-BEAD-003
+        task_name: Cleanup
+        description: Thorough cleaning of the nozzle, feed lines, and collection chamber.
+      maintenance:
+        reliability_model:
+          mtbf:
+            value: 7000.0
+            unit: hr
+          mttr:
+            value: 8.0
+            unit: hr
+        preventative_schedules:
+        - task_id: PM-BEAD-001
+          task_name: Nozzle Inspection and Sonic Cleaning
+          trigger:
+            trigger_type: usage_based
+            unit: operating_hours
+            interval: 200
+            description: null
+          materials_and_parts: null
+      labor_requirements:
+      - linked_task_id: OP-BEAD-001
+        task_description: Prepare liquid matrix formulation and prime the system.
+        required_role_id: LABOR-OPERATOR-2
+        duration:
+          value: 120.0
+          unit: min
+      - linked_task_id: OP-BEAD-002
+        task_description: Monitor beadlet formation and collect in-process samples for particle size analysis.
+        required_role_id: LABOR-OPERATOR-1
+        duration:
+          value: 30.0
+          unit: min/hr_op
+      - linked_task_id: OP-BEAD-003
+        task_description: Thorough cleaning of the nozzle, feed lines, and collection chamber.
+        required_role_id: LABOR-OPERATOR-1
+        duration:
+          value: 90.0
+          unit: min
+      - linked_task_id: PM-BEAD-001
+        task_description: Perform nozzle inspection and sonic cleaning.
+        required_role_id: LABOR-OPERATOR-2
+        duration:
+          value: 60.0
+          unit: min
+      power_model:
+        description: null
+        operating_power:
+          value: 7.0
+          unit: kW
+        standby_power:
+          value: 0.3
+          unit: kW
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 15
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 130000.0
+          impacts:
+          - metric: gwp
+            value: 3100.0
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 41000.0
+            unit: MJ
+          - metric: water_use
+            value: 5.5
+            unit: m3
+          - metric: ep
+            value: 1.5
+            unit: kg_PO4e
+          - metric: ap
+            value: 9.8
+            unit: kg_SO2e
+          - metric: pocp
+            value: 1.2
+            unit: kg_C2H4e
+        use_and_operation:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 22000.0
+          impacts:
+          - metric: gwp_per_year
+            value: 0.0
+            unit: kg_CO2e
+          - metric: adp_fossil_per_year
+            value: 0.0
+            unit: MJ
+          - metric: ep_per_year
+            value: 0.0
+            unit: kg_PO4e
+          - metric: water_use_per_year
+            value: 0.0
+            unit: m3
+        maintenance:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 6000.0
+          impacts:
+          - metric: gwp_per_year
+            value: 0.0
+            unit: kg_CO2e
+          - metric: e_waste_burden_per_year
+            value: 0.0
+            unit: kg
+        end_of_life:
+          costs:
+          - cost_type: terminal_value
+            value_usd: -2500.0
+          impacts:
+          - metric: recycling_rate
+            value: 0.0
+            unit: '%'
+          - metric: e_waste_burden
+            value: 0.0
+            unit: kg
+          - metric: hazardous_waste
+            value: 0.0
+            unit: kg
+  - asset_id: PACKAGING-SYS-01
+    display_name: Semi-Automated Packaging System
+    asset_type: PACKAGING_SYSTEM
+    group: PACKAGING_AND_STORAGE
+    description: 'A flexible system for filling and sealing bags or pouches with powdered or beadletized final product. Note: Commercially available. Note on OPEX: OPEX is primarily for packaging materials (bags, labels) and labor.'
+    connection_points:
+    - port_id: PRODUCT_INLET
+      port_type: SOLID_INLET
+      description: Hopper inlet for bulk powder or beadlet product.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: PACKAGING_MATERIAL_INLET
+      port_type: SOLID_INLET
+      description: Feed for roll stock of bags/pouches.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: FINISHED_UNIT_OUTLET
+      port_type: SOLID_OUTLET
+      description: Outlet for filled and sealed packages.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: POWER
+      port_type: ELECTRICAL
+      description: Main power connection.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    operational_parameters:
+      configuration_and_control:
+      - key: target_weight
+        value: 1000.0
+        unit: g
+        min: 100.0
+        max: 5000.0
+        default: 1000.0
+        group: null
+      - key: sealer_temperature
+        value: 150.0
+        unit: °C
+        min: 80.0
+        max: 250.0
+        default: 150.0
+        group: null
+      - key: sealing_time
+        value: 1.5
+        unit: s
+        min: 0.1
+        max: 5.0
+        default: 1.5
+        group: null
+      monitoring: null
+      operational_tasks:
+      - task_id: OP-PACK-001
+        task_name: Setup and Changeover
+        description: Change auger/tooling for new product, load bag roll stock.
+      - task_id: OP-PACK-002
+        task_name: Operation
+        description: Supply product to hopper, oversee operation, and pack finished bags into cases.
+      - task_id: OP-PACK-003
+        task_name: Cleanup
+        description: Clean hopper, auger, and all product contact parts.
+      maintenance:
+        reliability_model:
+          mtbf:
+            value: 3500.0
+            unit: hr
+          mttr:
+            value: 4.0
+            unit: hr
+        preventative_schedules:
+        - task_id: PM-PACK-001
+          task_name: Sealer Bar and Actuator Inspection
+          trigger:
+            trigger_type: time_based
+            unit: months
+            interval: 3
+            description: null
+          materials_and_parts: null
+      labor_requirements:
+      - linked_task_id: OP-PACK-001
+        task_description: Change auger/tooling for new product, load bag roll stock.
+        required_role_id: LABOR-OPERATOR-2
+        duration:
+          value: 45.0
+          unit: min
+      - linked_task_id: OP-PACK-002
+        task_description: Supply product to hopper, oversee operation, and pack finished bags into cases.
+        required_role_id: LABOR-OPERATOR-1
+        duration:
+          value: 45.0
+          unit: min/hr_op
+      - linked_task_id: OP-PACK-003
+        task_description: Clean hopper, auger, and all product contact parts.
+        required_role_id: LABOR-OPERATOR-1
+        duration:
+          value: 60.0
+          unit: min
+      - linked_task_id: PM-PACK-001
+        task_description: Perform sealer bar and actuator inspection.
+        required_role_id: LABOR-MAINT-TECH-2
+        duration:
+          value: 90.0
+          unit: min
+      power_model:
+        description: null
+        operating_power:
+          value: 3.5
+          unit: kW
+        standby_power:
+          value: 0.2
+          unit: kW
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 10
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 85000.0
+          impacts:
+          - metric: gwp
+            value: 2650.0
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 35000.0
+            unit: MJ
+          - metric: water_use
+            value: 4.5
+            unit: m3
+          - metric: ep
+            value: 1.3
+            unit: kg_PO4e
+          - metric: ap
+            value: 8.3
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.9
+            unit: kg_C2H4e
+        use_and_operation:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 15000.0
+          impacts:
+          - metric: gwp_per_year
+            value: 0.0
+            unit: kg_CO2e
+          - metric: adp_fossil_per_year
+            value: 0.0
+            unit: MJ
+          - metric: ep_per_year
+            value: 0.0
+            unit: kg_PO4e
+          - metric: water_use_per_year
+            value: 0.0
+            unit: m3
+        maintenance:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 5000.0
+          impacts:
+          - metric: gwp_per_year
+            value: 0.0
+            unit: kg_CO2e
+          - metric: e_waste_burden_per_year
+            value: 0.0
+            unit: kg
+        end_of_life:
+          costs:
+          - cost_type: terminal_value
+            value_usd: -1500.0
+          impacts:
+          - metric: recycling_rate
+            value: 0.0
+            unit: '%'
+          - metric: e_waste_burden
+            value: 0.0
+            unit: kg
+          - metric: hazardous_waste
+            value: 0.0
+            unit: kg
+  - asset_id: ROTAVAP-01
+    display_name: Pilot-Scale Rotary Evaporator
+    asset_type: ROTARY_EVAPORATOR
+    group: PURIFICATION
+    description: '20L rotary evaporator for solvent recovery in the Econo-Focused Lutein process. Assumes connection to facility vacuum and chiller lines. Note: Commercially available. Note on OPEX: OPEX includes electricity and periodic replacement of glassware and seals.'
+    connection_points:
+    - port_id: SAMPLE_INLET
+      port_type: LIQUID_INLET
+      description: Port to load liquid into the rotating flask.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: VACUUM_PORT
+      port_type: GAS_OUTLET
+      description: Connection to facility or local vacuum source.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: COOLANT_INLET
+      port_type: UTILITY_LIQUID_INLET
+      description: Inlet for cooling fluid to the condenser.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: COOLANT_OUTLET
+      port_type: UTILITY_LIQUID_OUTLET
+      description: Outlet for cooling fluid from the condenser.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: POWER
+      port_type: ELECTRICAL
+      description: Power for bath heater and rotation motor.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    operational_parameters:
+      configuration_and_control:
+      - key: bath_temperature_setpoint
+        value: 60.0
+        unit: °C
+        min: 20.0
+        max: 180.0
+        default: 60.0
+        group: null
+      - key: rotation_speed
+        value: 100.0
+        unit: rpm
+        min: 10.0
+        max: 150.0
+        default: 100.0
+        group: null
+      - key: vacuum_setpoint
+        value: 50.0
+        unit: mbar
+        min: 1.0
+        max: 1013.0
+        default: 50.0
+        group: null
+      monitoring: null
+      operational_tasks:
+      - task_id: OP-ROTO-001
+        task_name: Setup
+        description: Assemble glassware, load flask, and connect utility lines.
+      - task_id: OP-ROTO-002
+        task_name: Operation and Monitoring
+        description: Start and monitor the evaporation process.
+      - task_id: OP-ROTO-003
+        task_name: Shutdown and Clean
+        description: Drain product and cleaning of all glassware.
+      maintenance:
+        reliability_model:
+          mtbf:
+            value: 10000.0
+            unit: hr
+          mttr:
+            value: 2.0
+            unit: hr
+        preventative_schedules:
+        - task_id: PM-ROTO-001
+          task_name: Vacuum Seal Inspection and Replacement
+          trigger:
+            trigger_type: time_based
+            unit: months
+            interval: 6
+            description: null
+          materials_and_parts:
+          - CONS-ROTAVAP-SEAL-01
+      labor_requirements:
+      - linked_task_id: OP-ROTO-001
+        task_description: Assemble glassware, load flask, and connect utility lines.
+        required_role_id: LABOR-OPERATOR-1
+        duration:
+          value: 30.0
+          unit: min
+      - linked_task_id: OP-ROTO-002
+        task_description: Start and monitor the evaporation process.
+        required_role_id: LABOR-OPERATOR-1
+        duration:
+          value: 10.0
+          unit: min/hr_op
+      - linked_task_id: OP-ROTO-003
+        task_description: Drain product and cleaning of all glassware.
+        required_role_id: LABOR-OPERATOR-1
+        duration:
+          value: 45.0
+          unit: min
+      - linked_task_id: PM-ROTO-001
+        task_description: Perform vacuum seal inspection and replacement.
+        required_role_id: LABOR-MAINT-TECH-2
+        duration:
+          value: 45.0
+          unit: min
+      power_model:
+        description: null
+        operating_power:
+          value: 1.5
+          unit: kW
+        standby_power:
+          value: 0.1
+          unit: kW
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 10
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 25000.0
+          impacts:
+          - metric: gwp
+            value: 620.0
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 9500.0
+            unit: MJ
+          - metric: water_use
+            value: 1.8
+            unit: m3
+          - metric: ep
+            value: 0.3
+            unit: kg_PO4e
+          - metric: ap
+            value: 2.1
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.18
+            unit: kg_C2H4e
+        use_and_operation:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 4000.0
+          impacts:
+          - metric: gwp_per_year
+            value: 0.0
+            unit: kg_CO2e
+          - metric: adp_fossil_per_year
+            value: 0.0
+            unit: MJ
+          - metric: ep_per_year
+            value: 0.0
+            unit: kg_PO4e
+          - metric: water_use_per_year
+            value: 0.0
+            unit: m3
+        maintenance:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 1500.0
+          impacts:
+          - metric: gwp_per_year
+            value: 0.0
+            unit: kg_CO2e
+          - metric: e_waste_burden_per_year
+            value: 0.0
+            unit: kg
+        end_of_life:
+          costs:
+          - cost_type: terminal_value
+            value_usd: -500.0
+          impacts:
+          - metric: recycling_rate
+            value: 0.0
+            unit: '%'
+          - metric: e_waste_burden
+            value: 0.0
+            unit: kg
+          - metric: hazardous_waste
+            value: 0.0
+            unit: kg
+  - asset_id: DRY-MILL-01
+    display_name: Tray Dryer & Mill Combo
+    asset_type: DRYING_AND_MILLING
+    group: MILLING
+    description: 'Integrated system for drying wet cake from TFF and milling it to final particle size for β-Glucan. Note: Commercially available. Note on OPEX: High electricity consumption for heating and milling.'
+    connection_points:
+    - port_id: DRYER_INLET
+      port_type: SOLID_INLET
+      description: Door for loading trays of wet cake into the dryer.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: MILL_INLET
+      port_type: SOLID_INLET
+      description: Inlet for feeding dried cake into the mill.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: MILLED_POWDER_OUTLET
+      port_type: SOLID_OUTLET
+      description: Outlet for collecting the final milled powder.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: POWER
+      port_type: ELECTRICAL
+      description: Main power connection for dryer and mill.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    operational_parameters:
+      configuration_and_control:
+      - key: drying_temperature_setpoint
+        value: 70.0
+        unit: °C
+        min: 30.0
+        max: 150.0
+        default: 70.0
+        group: null
+      - key: drying_time
+        value: 12.0
+        unit: hr
+        min: 1.0
+        max: 48.0
+        default: 12.0
+        group: null
+      - key: mill_speed
+        value: 3000.0
+        unit: rpm
+        min: 500.0
+        max: 5000.0
+        default: 3000.0
+        group: null
+      - key: mill_screen_size
+        value: 250.0
+        unit: µm
+        min: 50.0
+        max: 2000.0
+        default: 250.0
+        group: null
+      monitoring: null
+      operational_tasks:
+      - task_id: OP-DMILL-001
+        task_name: Load Dryer
+        description: Load wet cake onto trays and place in dryer.
+      - task_id: OP-DMILL-002
+        task_name: Operate Mill
+        description: Unload dried cake and feed into the integrated mill.
+      - task_id: OP-DMILL-003
+        task_name: Cleanup
+        description: Clean dryer trays/chamber and disassemble/clean mill components.
+      maintenance:
+        reliability_model:
+          mtbf:
+            value: 6000.0
+            unit: hr
+          mttr:
+            value: 8.0
+            unit: hr
+        preventative_schedules:
+        - task_id: PM-DMILL-001
+          task_name: Mill Screen and Hammer Inspection
+          trigger:
+            trigger_type: usage_based
+            unit: operating_hours
+            interval: 400
+            description: null
+          materials_and_parts: null
+      labor_requirements:
+      - linked_task_id: OP-DMILL-001
+        task_description: Load wet cake onto trays and place in dryer.
+        required_role_id: LABOR-OPERATOR-1
+        duration:
+          value: 45.0
+          unit: min
+      - linked_task_id: OP-DMILL-002
+        task_description: Unload dried cake and feed into the integrated mill.
+        required_role_id: LABOR-OPERATOR-1
+        duration:
+          value: 90.0
+          unit: min
+      - linked_task_id: OP-DMILL-003
+        task_description: Clean dryer trays/chamber and disassemble/clean mill components.
+        required_role_id: LABOR-OPERATOR-1
+        duration:
+          value: 120.0
+          unit: min
+      - linked_task_id: PM-DMILL-001
+        task_description: Perform mill screen and hammer inspection.
+        required_role_id: LABOR-MAINT-TECH-2
+        duration:
+          value: 60.0
+          unit: min
+      power_model:
+        description: null
+        operating_power:
+          value: 12.0
+          unit: kW
+        standby_power:
+          value: 0.5
+          unit: kW
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 15
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 110000.0
+          impacts:
+          - metric: gwp
+            value: 7900.0
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 98000.0
+            unit: MJ
+          - metric: water_use
+            value: 13.0
+            unit: m3
+          - metric: ep
+            value: 4.0
+            unit: kg_PO4e
+          - metric: ap
+            value: 25.5
+            unit: kg_SO2e
+          - metric: pocp
+            value: 2.8
+            unit: kg_C2H4e
+        use_and_operation:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 12000.0
+          impacts:
+          - metric: gwp_per_year
+            value: 0.0
+            unit: kg_CO2e
+          - metric: adp_fossil_per_year
+            value: 0.0
+            unit: MJ
+          - metric: ep_per_year
+            value: 0.0
+            unit: kg_PO4e
+          - metric: water_use_per_year
+            value: 0.0
+            unit: m3
+        maintenance:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 6000.0
+          impacts:
+          - metric: gwp_per_year
+            value: 0.0
+            unit: kg_CO2e
+          - metric: e_waste_burden_per_year
+            value: 0.0
+            unit: kg
+        end_of_life:
+          costs:
+          - cost_type: terminal_value
+            value_usd: -2000.0
+          impacts:
+          - metric: recycling_rate
+            value: 0.0
+            unit: '%'
+          - metric: e_waste_burden
+            value: 0.0
+            unit: kg
+          - metric: hazardous_waste
+            value: 0.0
+            unit: kg

@@ -1,0 +1,11 @@
+targets:
+  - molecule_name: "Lutein"
+    component_class: "Carotenes & Xanthophylls"
+    objective: MaximizeYield
+    process_id: "PROC-LUT-NUT-01"
+    target_amount_grams: 10.0
+  - molecule_name: "beta-glucans"
+    component_class: "Large Soluble Polysaccharides"
+    objective: MaximizeYield
+    process_id: "PROC-BGL-NUT-01"
+    target_amount_grams: 10.0

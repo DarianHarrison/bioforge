@@ -1,0 +1,965 @@
+schema_version: "1.0"
+assets:
+  - asset_id: CV-SW-01
+    display_name: Computer Vision Software
+    asset_type: COMPUTER_VISION_SOFTWARE
+    group: QUALITY_CONTROL
+    description: A software package for analyzing images from microscopes. The TEA/LCA profile is an estimation for a perpetual license with annual maintenance, as this asset was not in the original reference file. This asset is commercially available.
+    connection_points: []
+    operational_parameters:
+      configuration_and_control: []
+      monitoring: []
+      operational_tasks:
+      - task_id: OP-CV-SW-01-1
+        task_name: Analysis Protocol Setup
+        description: Create and validate an automated analysis protocol for a specific cell type and assay.
+      - task_id: OP-CV-SW-01-2
+        task_name: Image Analysis Review
+        description: Review and confirm results from an automated analysis batch.
+      maintenance:
+        reliability_model:
+          mtbf:
+            value: 50000.0
+            unit: hr
+          mttr:
+            value: 4.0
+            unit: hr
+        preventative_schedules: null
+      labor_requirements:
+      - linked_task_id: OP-CV-SW-01-1
+        task_description: Create and validate an automated analysis protocol for a specific cell type and assay.
+        required_role_id: LABOR-SCIENTIST-3
+        duration:
+          value: 240.0
+          unit: min
+      - linked_task_id: OP-CV-SW-01-2
+        task_description: Review and confirm results from an automated analysis batch.
+        required_role_id: LABOR-QC-ANALYST-1
+        duration:
+          value: 60.0
+          unit: min/100_images
+      - linked_task_id: PM-CV-SW-01-1
+        task_description: Software Update and Validation
+        required_role_id: LABOR-SCIENTIST-3
+        duration:
+          value: 120.0
+          unit: min
+      power_model:
+        description: As a pure software asset, direct power consumption is 0. Power usage is attributed to the host computer system (e.g. CV-HW-01).
+        operating_power:
+          value: 0.0
+          unit: kW
+        standby_power:
+          value: 0.0
+          unit: kW
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 7
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 18000.0
+          impacts:
+          - metric: gwp
+            value: 0.0
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 0.0
+            unit: MJ
+          - metric: water_use
+            value: 0.0
+            unit: m3
+          - metric: ep
+            value: 0.0
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.0
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.0
+            unit: kg_C2H4e
+        use_and_operation:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 500.0
+          impacts:
+          - metric: gwp_per_year
+            value: 0.0
+            unit: kg_CO2e
+        maintenance:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 3000.0
+          impacts:
+          - metric: e_waste_burden_per_year
+            value: 0.0
+            unit: kg
+        end_of_life:
+          costs:
+          - cost_type: terminal_value
+            value_usd: 0.0
+          impacts:
+          - metric: e_waste_burden
+            value: 0.0
+            unit: kg
+          - metric: recycling_rate
+            value: 0.0
+            unit: '%'
+  - asset_id: CAM-01
+    display_name: Remote Monitoring Camera
+    asset_type: REMOTE_MONITORING_CAMERA
+    group: QUALITY_CONTROL
+    description: A standard Power-over-Ethernet (PoE) IP camera with Pan-Tilt-Zoom (PTZ) capabilities, suitable for industrial or lab environments. This asset is commercially available.
+    connection_points: []
+    operational_parameters:
+      configuration_and_control:
+      - key: stream_resolution
+        value: 0.0
+        unit: null
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: field_of_view_target
+        value: 0.0
+        unit: null
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: stream_active
+        value: 0.0
+        unit: null
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: move_to_preset
+        value: 0.0
+        unit: null
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: capture_still_image
+        value: 0.0
+        unit: null
+        min: null
+        max: null
+        default: null
+        group: null
+      monitoring:
+      - key: firmware_version
+        value: 0.0
+        unit: version
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: last_reboot_timestamp
+        value: 1757241600.0
+        unit: unix_timestamp
+        min: null
+        max: null
+        default: null
+        group: null
+      operational_tasks:
+      - task_id: OP-CAM-01-1
+        task_name: Annual Cleaning
+        description: Clean the camera lens and housing.
+      maintenance:
+        reliability_model:
+          mtbf:
+            value: 60000.0
+            unit: hr
+          mttr:
+            value: 1.0
+            unit: hr
+        preventative_schedules: null
+      labor_requirements:
+      - linked_task_id: OP-CAM-01-1
+        task_description: Clean the camera lens and housing.
+        required_role_id: LABOR-MAINT-TECH-2
+        duration:
+          value: 15.0
+          unit: min
+      - linked_task_id: PM-CAM-01-1
+        task_description: Lens and Housing Cleaning
+        required_role_id: LABOR-MAINT-TECH-2
+        duration:
+          value: 15.0
+          unit: min
+      power_model:
+        description: Estimated power based on a standard Power over Ethernet (PoE) IP camera. Power consumption is constant when active.
+        operating_power:
+          value: 0.01
+          unit: kW
+        standby_power:
+          value: 0.01
+          unit: kW
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 5
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 1500.0
+          impacts:
+          - metric: gwp
+            value: 45.0
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 800.0
+            unit: MJ
+          - metric: water_use
+            value: 1.5
+            unit: m3
+          - metric: ep
+            value: 0.02
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.0
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.0
+            unit: kg_C2H4e
+        use_and_operation:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 10.0
+          impacts:
+          - metric: gwp_per_year
+            value: 35.0
+            unit: kg_CO2e
+          - metric: adp_fossil_per_year
+            value: 744.6
+            unit: MJ
+          - metric: water_use_per_year
+            value: 0.09
+            unit: m3
+          - metric: ep_per_year
+            value: 0.009
+            unit: kg_PO4e
+        maintenance:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 0.0
+          impacts:
+          - metric: e_waste_burden_per_year
+            value: 0.0
+            unit: kg
+        end_of_life:
+          costs:
+          - cost_type: terminal_value
+            value_usd: -10.0
+          impacts:
+          - metric: e_waste_burden
+            value: 0.5
+            unit: kg
+          - metric: recycling_rate
+            value: 0.0
+            unit: '%'
+  - asset_id: INV-MIC-001
+    display_name: Automated Inverted Microscope
+    asset_type: INVERTED_MICROSCOPE
+    group: QUALITY_CONTROL
+    description: A fully motorized inverted microscope, often including a stage-top incubator for live-cell imaging over extended periods. This asset is commercially available.
+    connection_points: []
+    operational_parameters:
+      configuration_and_control:
+      - key: objective_lens_tool_id
+        value: 0.0
+        unit: null
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: culture_vessel_id
+        value: 0.0
+        unit: null
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: phase_contrast_ring_id
+        value: 0.0
+        unit: null
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: light_source_active
+        value: 0.0
+        unit: null
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: light_intensity_percent
+        value: 0.0
+        unit: '%'
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: focus_position_microns
+        value: 0.0
+        unit: µm
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: run_automated_scan
+        value: 0.0
+        unit: null
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: environmental_control
+        value: 0.0
+        unit: null
+        min: null
+        max: null
+        default: null
+        group: null
+      monitoring:
+      - key: current_magnification
+        value: 0.0
+        unit: x
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: is_focused
+        value: 0.0
+        unit: boolean
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: stage_position
+        value: 0.0
+        unit: mm
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: last_cleaning_date
+        value: 1757241600.0
+        unit: unix_timestamp
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: last_alignment_check_date
+        value: 1757241600.0
+        unit: unix_timestamp
+        min: null
+        max: null
+        default: null
+        group: null
+      operational_tasks:
+      - task_id: OP-INV-MIC-001-1
+        task_name: Daily Check
+        description: Place culture vessel on stage for a quick confluency/contamination check.
+      - task_id: OP-INV-MIC-001-2
+        task_name: Timelapse Setup
+        description: Set up a multi-day time-lapse imaging experiment.
+      maintenance:
+        reliability_model:
+          mtbf:
+            value: 15000.0
+            unit: hr
+          mttr:
+            value: 24.0
+            unit: hr
+        preventative_schedules: null
+      labor_requirements:
+      - linked_task_id: OP-INV-MIC-001-1
+        task_description: Place culture vessel on stage for a quick confluency/contamination check.
+        required_role_id: LABOR-QC-ANALYST-1
+        duration:
+          value: 5.0
+          unit: min/vessel
+      - linked_task_id: OP-INV-MIC-001-2
+        task_description: Set up a multi-day time-lapse imaging experiment.
+        required_role_id: LABOR-SCIENTIST-3
+        duration:
+          value: 60.0
+          unit: min
+      - linked_task_id: PM-INV-MIC-001-1
+        task_description: Professional Optical Cleaning and Alignment
+        required_role_id: LABOR-MAINT-TECH-2
+        duration:
+          value: 180.0
+          unit: min
+      power_model:
+        description: Power consumption for a standard automated inverted microscope.
+        operating_power:
+          value: 0.05
+          unit: kW
+        standby_power:
+          value: 0.01
+          unit: kW
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 10
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 75000.0
+          impacts:
+          - metric: gwp
+            value: 2500.0
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 40000.0
+            unit: MJ
+          - metric: water_use
+            value: 80.0
+            unit: m3
+          - metric: ep
+            value: 1.5
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.0
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.0
+            unit: kg_C2H4e
+        use_and_operation:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 3000.0
+          impacts:
+          - metric: gwp_per_year
+            value: 20.0
+            unit: kg_CO2e
+          - metric: adp_fossil_per_year
+            value: 425.0
+            unit: MJ
+          - metric: water_use_per_year
+            value: 0.05
+            unit: m3
+          - metric: ep_per_year
+            value: 0.005
+            unit: kg_PO4e
+        maintenance:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 5000.0
+          impacts:
+          - metric: e_waste_burden_per_year
+            value: 0.0
+            unit: kg
+        end_of_life:
+          costs:
+          - cost_type: terminal_value
+            value_usd: 4000.0
+          impacts:
+          - metric: e_waste_burden
+            value: 50.0
+            unit: kg
+          - metric: recycling_rate
+            value: 0.0
+            unit: '%'
+  - asset_id: PH-02
+    display_name: Inline pH Sensor (Instance 2)
+    asset_type: PH_SENSOR
+    group: QUALITY_CONTROL
+    description: A standard industrial pH probe and transmitter. This asset is commercially available.
+    connection_points: []
+    operational_parameters:
+      configuration_and_control:
+      - key: probe_tool_id
+        value: 0.0
+        unit: null
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: connected_to_asset_id
+        value: 0.0
+        unit: null
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: perform_2_point_calibration
+        value: 0.0
+        unit: null
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: get_current_reading
+        value: 0.0
+        unit: null
+        min: null
+        max: null
+        default: null
+        group: null
+      monitoring:
+      - key: last_calibration_date
+        value: 1757241600.0
+        unit: unix_timestamp
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: next_calibration_due_date
+        value: 1757241600.0
+        unit: unix_timestamp
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: calibration_status
+        value: 0.0
+        unit: status
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: current_reading
+        value: 0.0
+        unit: pH
+        min: null
+        max: null
+        default: null
+        group: null
+      operational_tasks:
+      - task_id: OP-PH-02-1
+        task_name: Calibration Routine
+        description: Perform a 2-point calibration using standard buffers.
+      maintenance:
+        reliability_model:
+          mtbf:
+            value: 40000.0
+            unit: hr
+          mttr:
+            value: 1.0
+            unit: hr
+        preventative_schedules: null
+      labor_requirements:
+      - linked_task_id: OP-PH-02-1
+        task_description: Perform a 2-point calibration using standard buffers.
+        required_role_id: LABOR-OPERATOR-2
+        duration:
+          value: 15.0
+          unit: min
+      - linked_task_id: PM-PH-02-1
+        task_description: Probe Replacement
+        required_role_id: LABOR-OPERATOR-2
+        duration:
+          value: 20.0
+          unit: min
+      power_model:
+        description: Power consumption for a standard pH sensor.
+        operating_power:
+          value: 0.01
+          unit: kW
+        standby_power:
+          value: 0.01
+          unit: kW
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 10
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 3000.0
+          impacts:
+          - metric: gwp
+            value: 60.0
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 1000.0
+            unit: MJ
+          - metric: water_use
+            value: 2.0
+            unit: m3
+          - metric: ep
+            value: 0.03
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.0
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.0
+            unit: kg_C2H4e
+        use_and_operation:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 400.0
+          impacts:
+          - metric: gwp_per_year
+            value: 35.0
+            unit: kg_CO2e
+          - metric: adp_fossil_per_year
+            value: 744.6
+            unit: MJ
+          - metric: water_use_per_year
+            value: 0.09
+            unit: m3
+          - metric: ep_per_year
+            value: 0.009
+            unit: kg_PO4e
+        maintenance:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 200.0
+          impacts:
+          - metric: e_waste_burden_per_year
+            value: 0.2
+            unit: kg
+        end_of_life:
+          costs:
+          - cost_type: terminal_value
+            value_usd: -20.0
+          impacts:
+          - metric: e_waste_burden
+            value: 1.0
+            unit: kg
+          - metric: recycling_rate
+            value: 0.0
+            unit: '%'
+  - asset_id: DO-PROBE-01
+    display_name: Optical Dissolved Oxygen Sensor (Mettler Toledo)
+    asset_type: DISSOLVED_OXYGEN_SENSOR
+    group: QUALITY_CONTROL
+    description: 'Mettler Toledo InPro 6800i. Serial: SN-DO11223. Probe in Port B on Bioreactor #1. This asset is commercially available.'
+    connection_points: []
+    operational_parameters:
+      configuration_and_control: []
+      monitoring: []
+      operational_tasks:
+      - task_id: OP-DO-PROBE-01-1
+        task_name: Calibration Routine
+        description: Perform a 2-point calibration using zero (N2) and span (Air) gas.
+      - task_id: OP-DO-PROBE-01-2
+        task_name: Sensor Cap Replacement
+        description: Replace the consumable optical sensor cap.
+      maintenance:
+        reliability_model:
+          mtbf:
+            value: 40000.0
+            unit: hr
+          mttr:
+            value: 1.0
+            unit: hr
+        preventative_schedules: null
+      labor_requirements:
+      - linked_task_id: OP-DO-PROBE-01-1
+        task_description: Perform a 2-point calibration using zero (N2) and span (Air) gas.
+        required_role_id: LABOR-OPERATOR-2
+        duration:
+          value: 20.0
+          unit: min
+      - linked_task_id: OP-DO-PROBE-01-2
+        task_description: Replace the consumable optical sensor cap.
+        required_role_id: LABOR-OPERATOR-2
+        duration:
+          value: 10.0
+          unit: min
+      - linked_task_id: PM-DO-PROBE-01-1
+        task_description: Sensor Cap Replacement
+        required_role_id: LABOR-OPERATOR-2
+        duration:
+          value: 10.0
+          unit: min
+      power_model:
+        description: Power consumption for an optical DO sensor.
+        operating_power:
+          value: 0.02
+          unit: kW
+        standby_power:
+          value: 0.01
+          unit: kW
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 10
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 6000.0
+          impacts:
+          - metric: gwp
+            value: 120.0
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 2000.0
+            unit: MJ
+          - metric: water_use
+            value: 4.0
+            unit: m3
+          - metric: ep
+            value: 0.06
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.0
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.0
+            unit: kg_C2H4e
+        use_and_operation:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 1200.0
+          impacts:
+          - metric: gwp_per_year
+            value: 70.1
+            unit: kg_CO2e
+          - metric: adp_fossil_per_year
+            value: 1489.2
+            unit: MJ
+          - metric: water_use_per_year
+            value: 0.18
+            unit: m3
+          - metric: ep_per_year
+            value: 0.018
+            unit: kg_PO4e
+        maintenance:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 300.0
+          impacts:
+          - metric: e_waste_burden_per_year
+            value: 0.1
+            unit: kg
+        end_of_life:
+          costs:
+          - cost_type: terminal_value
+            value_usd: -50.0
+          impacts:
+          - metric: e_waste_burden
+            value: 2.0
+            unit: kg
+          - metric: recycling_rate
+            value: 0.0
+            unit: '%'
+  - asset_id: CO2-PROBE-01
+    display_name: CO2 Sensor (Vaisala)
+    asset_type: CO2_SENSOR
+    group: QUALITY_CONTROL
+    description: 'Vaisala GMP251. Serial: SN-CO266778. Probe for measuring dissolved CO2 in Bioreactor #1. This asset is commercially available.'
+    connection_points: []
+    operational_parameters:
+      configuration_and_control: []
+      monitoring: []
+      operational_tasks:
+      - task_id: OP-CO2-PROBE-01-1
+        task_name: Calibration Routine
+        description: Perform a 2-point calibration using zero and span gas.
+      maintenance:
+        reliability_model:
+          mtbf:
+            value: 40000.0
+            unit: hr
+          mttr:
+            value: 1.0
+            unit: hr
+        preventative_schedules: null
+      labor_requirements:
+      - linked_task_id: OP-CO2-PROBE-01-1
+        task_description: Perform a 2-point calibration using zero and span gas.
+        required_role_id: LABOR-OPERATOR-2
+        duration:
+          value: 20.0
+          unit: min
+      - linked_task_id: PM-CO2-PROBE-01-1
+        task_description: Probe Replacement
+        required_role_id: LABOR-MAINT-TECH-2
+        duration:
+          value: 20.0
+          unit: min
+      power_model:
+        description: Power consumption for a standard CO2 sensor.
+        operating_power:
+          value: 0.02
+          unit: kW
+        standby_power:
+          value: 0.01
+          unit: kW
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 10
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 10000.0
+          impacts:
+          - metric: gwp
+            value: 180.0
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 3000.0
+            unit: MJ
+          - metric: water_use
+            value: 6.0
+            unit: m3
+          - metric: ep
+            value: 0.09
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.0
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.0
+            unit: kg_C2H4e
+        use_and_operation:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 1500.0
+          impacts:
+          - metric: gwp_per_year
+            value: 70.1
+            unit: kg_CO2e
+          - metric: adp_fossil_per_year
+            value: 1489.2
+            unit: MJ
+          - metric: water_use_per_year
+            value: 0.18
+            unit: m3
+          - metric: ep_per_year
+            value: 0.018
+            unit: kg_PO4e
+        maintenance:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 400.0
+          impacts:
+          - metric: e_waste_burden_per_year
+            value: 1.0
+            unit: kg
+        end_of_life:
+          costs:
+          - cost_type: terminal_value
+            value_usd: -50.0
+          impacts:
+          - metric: e_waste_burden
+            value: 2.0
+            unit: kg
+          - metric: recycling_rate
+            value: 0.0
+            unit: '%'
+  - asset_id: TEMP-01
+    display_name: Temperature Probe (Omega)
+    asset_type: TEMPERATURE_PROBE
+    group: QUALITY_CONTROL
+    description: 'Omega PR-21SL. Serial: SN-T-34567. High-precision temperature probe for process control. This asset is commercially available.'
+    connection_points: []
+    operational_parameters:
+      configuration_and_control: []
+      monitoring: []
+      operational_tasks:
+      - task_id: OP-TEMP-01-1
+        task_name: Annual Verification
+        description: Verify probe accuracy against a certified reference thermometer.
+      maintenance:
+        reliability_model:
+          mtbf:
+            value: 80000.0
+            unit: hr
+          mttr:
+            value: 1.0
+            unit: hr
+        preventative_schedules: null
+      labor_requirements:
+      - linked_task_id: OP-TEMP-01-1
+        task_description: Verify probe accuracy against a certified reference thermometer.
+        required_role_id: LABOR-MAINT-TECH-2
+        duration:
+          value: 30.0
+          unit: min
+      - linked_task_id: PM-TEMP-01-1
+        task_description: Annual Accuracy Verification
+        required_role_id: LABOR-MAINT-TECH-2
+        duration:
+          value: 30.0
+          unit: min
+      power_model:
+        description: Power consumption for a standard temperature probe.
+        operating_power:
+          value: 0.01
+          unit: kW
+        standby_power:
+          value: 0.01
+          unit: kW
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 15
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 1000.0
+          impacts:
+          - metric: gwp
+            value: 25.0
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 400.0
+            unit: MJ
+          - metric: water_use
+            value: 0.8
+            unit: m3
+          - metric: ep
+            value: 0.01
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.0
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.0
+            unit: kg_C2H4e
+        use_and_operation:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 150.0
+          impacts:
+          - metric: gwp_per_year
+            value: 35.0
+            unit: kg_CO2e
+          - metric: adp_fossil_per_year
+            value: 744.6
+            unit: MJ
+          - metric: water_use_per_year
+            value: 0.09
+            unit: m3
+          - metric: ep_per_year
+            value: 0.009
+            unit: kg_PO4e
+        maintenance:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 150.0
+          impacts:
+          - metric: e_waste_burden_per_year
+            value: 0.0
+            unit: kg
+        end_of_life:
+          costs:
+          - cost_type: terminal_value
+            value_usd: -10.0
+          impacts:
+          - metric: e_waste_burden
+            value: 0.3
+            unit: kg
+          - metric: recycling_rate
+            value: 0.0
+            unit: '%'

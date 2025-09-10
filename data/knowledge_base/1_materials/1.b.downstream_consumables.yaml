@@ -1,0 +1,662 @@
+schema_version: "1.0"
+materials:
+  - material_id: ADD-NA2SO4
+    material_name: Sodium sulfate
+    material_class: Chemical
+    material_subtype: Additive
+    material_category: PurchasedRawMaterial
+    unit: kg
+    metadata:
+      process_role: ATPS_Former
+      vendor: null
+      part_number: null
+      notes: Used as a salting-out agent to induce an aqueous two-phase system (ATPS), a key step in the Eco-Focused Lutein process.
+      identifiers:
+        cas_number: 7757-82-6
+        chebi_id: CHEBI:32149
+        pubchem_cid: '24436'
+    specifications: []
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 0.25
+          impacts:
+          - metric: gwp
+            value: 0.2
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 3.0
+            unit: MJ
+          - metric: water_use
+            value: 0.02
+            unit: m3
+          - metric: ep
+            value: 0.0
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.001
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.0
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: CONS-HCL-1M-01
+    material_name: Hydrochloric Acid, 1M, Sterile
+    material_class: Chemical
+    material_subtype: pHReagent
+    material_category: PurchasedRawMaterial
+    unit: L
+    metadata:
+      process_role: Neutralization Agent
+      vendor: null
+      part_number: null
+      notes: 'Used for neutralization in both Lutein and β-glucan processes. Note: ''BASE-HCL'' is a placeholder and should be a fully defined consumable.'
+      identifiers:
+        cas_number: 7647-01-0
+        chebi_id: CHEBI:17883
+        pubchem_cid: '313'
+    specifications:
+    - key: density
+      value: 1.016
+      unit: kg/L
+    formulation:
+      formulation_type: Solution
+      solvent_id: MEDIA-WFI-WATER
+      components:
+      - component_id: BASE-HCL
+        value: 3.59
+        unit: '%_by_weight'
+      - component_id: MEDIA-WFI-WATER
+        value: 96.41
+        unit: '%_by_weight'
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 1.52
+          impacts:
+          - metric: gwp
+            value: 0.41
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 5.6
+            unit: MJ
+          - metric: water_use
+            value: 1.05
+            unit: m3
+          - metric: ep
+            value: 0.0002
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.0006
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.0001
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: CONS-NAOH-1M-01
+    material_name: Sodium Hydroxide, 1M, Sterile
+    material_class: Chemical
+    material_subtype: pHReagent
+    material_category: PurchasedRawMaterial
+    unit: L
+    metadata:
+      process_role: Saponification / Extraction Agent
+      vendor: null
+      part_number: null
+      notes: Used for saponification in Lutein processes and as a primary extraction agent in β-glucan processes.
+      identifiers:
+        cas_number: 1310-73-2
+        chebi_id: CHEBI:32145
+        pubchem_cid: '14798'
+    specifications:
+    - key: density
+      value: 1.04
+      unit: kg/L
+    formulation:
+      formulation_type: Solution
+      solvent_id: MEDIA-WFI-WATER
+      components:
+      - component_id: CTRL-NAOH
+        value: 3.85
+        unit: '%_by_weight'
+      - component_id: MEDIA-WFI-WATER
+        value: 96.15
+        unit: '%_by_weight'
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 1.55
+          impacts:
+          - metric: gwp
+            value: 0.43
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 5.8
+            unit: MJ
+          - metric: water_use
+            value: 1.05
+            unit: m3
+          - metric: ep
+            value: 0.0002
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.0006
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.0001
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: CONS-ETOH-BUFFER-01
+    material_name: Ethanol, 70%, Sterile
+    material_class: Chemical
+    material_subtype: Solvent
+    material_category: PurchasedRawMaterial
+    unit: L
+    metadata:
+      process_role: Extraction Solvent
+      vendor: null
+      part_number: null
+      notes: Used as a co-solvent in Supercritical Fluid Extraction for the Lutein Gold Standard process. Assumes 70% by weight.
+      identifiers:
+        cas_number: 64-17-5
+        chebi_id: CHEBI:16236
+        pubchem_cid: '702'
+    specifications:
+    - key: density
+      value: 0.87
+      unit: kg/L
+    formulation:
+      formulation_type: Solution
+      solvent_id: MEDIA-WFI-WATER
+      components:
+      - component_id: MEDIA-ETHANOL
+        value: 70.0
+        unit: '%_by_weight'
+      - component_id: MEDIA-WFI-WATER
+        value: 30.0
+        unit: '%_by_weight'
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 2.2
+          impacts:
+          - metric: gwp
+            value: 1.3
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 20.2
+            unit: MJ
+          - metric: water_use
+            value: 1.72
+            unit: m3
+          - metric: ep
+            value: 0.0
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.0
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.0
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: CONS-HEXANE-01
+    material_name: n-Hexane, 95%, Technical Grade
+    material_class: Chemical
+    material_subtype: Solvent
+    material_category: PurchasedRawMaterial
+    unit: L
+    metadata:
+      process_role: Extraction Solvent
+      vendor: null
+      part_number: null
+      notes: Low-cost solvent used in the Lutein Econo-Focused process.
+      identifiers:
+        cas_number: 110-54-3
+        chebi_id: CHEBI:29021
+        pubchem_cid: '8058'
+    specifications:
+    - key: density
+      value: 0.659
+      unit: kg/L
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 1.8
+          impacts:
+          - metric: gwp
+            value: 2.5
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 55.0
+            unit: MJ
+          - metric: water_use
+            value: 0.05
+            unit: m3
+          - metric: ep
+            value: 0.0
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.0
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.0
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: CONS-DI-WATER-USP-01
+    material_name: Deionized Water, USP Grade
+    material_class: Chemical
+    material_subtype: Solvent
+    material_category: PurchasedRawMaterial
+    unit: L
+    metadata:
+      process_role: Washing Agent
+      vendor: null
+      part_number: null
+      notes: Used as the diafiltration wash solution for all β-glucan processes.
+      identifiers:
+        cas_number: 7732-18-5
+        chebi_id: CHEBI:15377
+        pubchem_cid: '962'
+    specifications:
+    - key: density
+      value: 1.0
+      unit: kg/L
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 0.02
+          impacts:
+          - metric: gwp
+            value: 0.35
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 4.8
+            unit: MJ
+          - metric: water_use
+            value: 1.2
+            unit: m3
+          - metric: ep
+            value: 0.0
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.0
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.0
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: CONS-KIT-PROTEASE-NUCLEASE-01
+    material_name: Protease/Nuclease Enzyme Mix
+    material_class: Biological
+    material_subtype: Enzyme
+    material_category: PurchasedRawMaterial
+    unit: kg
+    metadata:
+      process_role: Purification Agent
+      vendor: null
+      part_number: null
+      notes: Key reagent for the β-Glucan Eco-Focused process, replacing harsh acid/alkali steps.
+      identifiers:
+        cas_number: null
+        chebi_id: null
+        pubchem_cid: null
+    specifications: []
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 250.0
+          impacts:
+          - metric: gwp
+            value: 3.5
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 55.0
+            unit: MJ
+          - metric: water_use
+            value: 0.12
+            unit: m3
+          - metric: ep
+            value: 0.0
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.0
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.0
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: CONS-CAL-CAROT-MIX-01
+    material_name: Carotenoid Standard Mix (Lutein, Zeaxanthin)
+    material_class: Chemical
+    material_subtype: CalibrationStandard
+    material_category: PurchasedRawMaterial
+    unit: mL
+    metadata:
+      process_role: HPLC Calibration Standard
+      vendor: null
+      part_number: null
+      notes: Required for QC methods QC-CHAR-LUT-NUT-S01 and QC-DSP-LUT-NUT-001.
+      identifiers:
+        cas_number: null
+        chebi_id: null
+        pubchem_cid: null
+    specifications: []
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 250.0
+          impacts:
+          - metric: gwp
+            value: 0.06
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 0.9
+            unit: MJ
+          - metric: water_use
+            value: 0.0
+            unit: m3
+          - metric: ep
+            value: 0.0
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.0
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.0
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: CONS-ICPMS-STD-HM1
+    material_name: Multi-Element Heavy Metal Standard for ICP-MS
+    material_class: Chemical
+    material_subtype: CalibrationStandard
+    material_category: PurchasedRawMaterial
+    unit: kit
+    metadata:
+      process_role: ICP-MS Calibration
+      vendor: null
+      part_number: null
+      notes: Required by QC method QC-DSP-LUT-NUT-003 for heavy metals safety screen. TEA/LCA values are estimates for planning purposes.
+      identifiers:
+        cas_number: null
+        chebi_id: null
+        pubchem_cid: null
+    specifications: []
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 175.0
+          impacts:
+          - metric: gwp
+            value: 0.15
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 2.5
+            unit: MJ
+          - metric: water_use
+            value: 0.0
+            unit: m3
+          - metric: ep
+            value: 0.0
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.0
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.0
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: CONS-KIT-BGLUCAN-MEGA-01
+    material_name: Megazyme Yeast Beta-Glucan Assay Kit
+    material_class: Biological
+    material_subtype: AssayKit
+    material_category: PurchasedRawMaterial
+    unit: kit
+    metadata:
+      process_role: Purity Assay
+      vendor: null
+      part_number: null
+      notes: Required by QC method QC-DSP-BGL-NUT-001 for β-glucan purity testing. TEA/LCA values are estimates for planning purposes.
+      identifiers:
+        cas_number: null
+        chebi_id: null
+        pubchem_cid: null
+    specifications: []
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 450.0
+          impacts:
+          - metric: gwp
+            value: 0.3
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 4.0
+            unit: MJ
+          - metric: water_use
+            value: 0.0
+            unit: m3
+          - metric: ep
+            value: 0.0
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.0
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.0
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: CONS-ELISA-TNFA-KIT-01
+    material_name: Human TNF-alpha ELISA Kit
+    material_class: Biological
+    material_subtype: AssayKit
+    material_category: PurchasedRawMaterial
+    unit: kit
+    metadata:
+      process_role: Bioassay
+      vendor: null
+      part_number: null
+      notes: Required by QC method QC-DSP-BGL-NUT-003 for the β-glucan immune potency bioassay. TEA/LCA values are estimates for planning purposes.
+      identifiers:
+        cas_number: null
+        chebi_id: null
+        pubchem_cid: null
+    specifications: []
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 550.0
+          impacts:
+          - metric: gwp
+            value: 0.75
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 12.0
+            unit: MJ
+          - metric: water_use
+            value: 0.0
+            unit: m3
+          - metric: ep
+            value: 0.0
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.0
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.0
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: TERP-LIMO-95
+    material_name: d-Limonene, 95%
+    material_class: Chemical
+    material_subtype: Solvent
+    material_category: PurchasedRawMaterial
+    unit: kg
+    metadata:
+      process_role: Hydrophobic Extraction Solvent
+      vendor: null
+      part_number: null
+      notes: A renewable hexane alternative, excellent for lipids and carotenoids like Lutein.
+      identifiers:
+        cas_number: 5989-27-5
+        chebi_id: CHEBI:15384
+        pubchem_cid: '440917'
+    specifications:
+    - key: polarity_score
+      value: 1.5
+      unit: null
+    - key: viscosity_at_40C
+      value: 0.9
+      unit: cSt
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 4.0
+          impacts:
+          - metric: gwp
+            value: 2.5
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 45.0
+            unit: MJ
+          - metric: water_use
+            value: 0.85
+            unit: m3
+          - metric: ep
+            value: 0.002
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.004
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.012
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []

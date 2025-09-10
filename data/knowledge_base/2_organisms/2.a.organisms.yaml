@@ -1,0 +1,2460 @@
+schema_version: "1.0"
+organisms:
+  - organism_id: ORG-ECOLI
+    organism_name: Escherichia coli
+    organism_type: Bacteria
+    strain_details:
+      description: Recombinant strain (e.g., BL21(DE3)) engineered with a carotenoid
+        biosynthesis pathway for lutein production.
+      is_engineered: true
+    initial_biomass:
+      value: 0.1
+      unit: g
+    static_properties:
+      elemental_composition:
+        carbon: 0.5128
+        hydrogen: 0.0747
+        oxygen: 0.2262
+        nitrogen: 0.1443
+        phosphorus: 0.0317
+        sulfur: 0.0102
+      macromolecular_summary:
+        protein: 56.6
+        carbohydrate: 6.2
+        lipid: 9.4
+        nucleic_acid: 24.3
+        ash: 3.5
+      morphology:
+        nominal_diameter:
+          value: 1
+          unit: um
+      targeted_molecular_classes:
+        terpenoids_and_carotenoids:
+        - molecule: Lutein
+          concentration_mg_g_dw: 2.5
+        cell_wall_components: []
+    dynamic_parameters:
+      growth_rate_per_hr: 0.8
+      environmental_tolerances:
+        photosynthetic_light_response: null
+        temperature:
+          optimal:
+            value: 37
+            unit: celsius
+          range:
+            min: 20
+            max: 42
+        ph:
+          optimal: 7
+          range:
+            min: 4.4
+            max: 9
+        chemical:
+        - molecule_id: CHEBI:16236
+          molecule_name: ethanol
+          minimum_inhibitory_concentration:
+            value: 50
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 35
+            unit: g/L
+        - molecule_id: CHEBI:32138
+          molecule_name: potassium nitrate
+          minimum_inhibitory_concentration:
+            value: 10
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 5
+            unit: g/L
+        - molecule_id: CHEBI:26710
+          molecule_name: sodium chloride
+          minimum_inhibitory_concentration:
+            value: 80
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 50
+            unit: g/L
+      metabolic_exchange:
+        media_consumption:
+        - molecule_id: CHEBI:17234
+          molecule_name: D-glucose
+          max_exchange_rate:
+            value: 10
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: null
+        - molecule_id: CHEBI:17234
+          molecule_name: D-glucose
+          max_exchange_rate:
+            value: 18
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Anaerobic
+            light: null
+            notes: null
+        - molecule_id: CHEBI:132204
+          molecule_name: ammonia
+          max_exchange_rate:
+            value: 10.5
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: nitrogen-limited
+        - molecule_id: CHEBI:43474
+          molecule_name: phosphate
+          max_exchange_rate:
+            value: 0.6
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: phosphate-limited
+        media_secretion:
+        - molecule_id: CHEBI:30089
+          molecule_name: acetate
+          max_exchange_rate:
+            value: 7.5
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: glucose overflow
+        - molecule_id: CHEBI:30089
+          molecule_name: acetate
+          max_exchange_rate:
+            value: 15
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Anaerobic
+            light: null
+            notes: null
+        - molecule_id: CHEBI:16236
+          molecule_name: ethanol
+          max_exchange_rate:
+            value: 15
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Anaerobic
+            light: null
+            notes: null
+        - molecule_id: CHEBI:16527
+          molecule_name: formate
+          max_exchange_rate:
+            value: 2
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Anaerobic
+            light: null
+            notes: null
+        - molecule_id: CHEBI:422
+          molecule_name: L-lactate
+          max_exchange_rate:
+            value: 2
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Anaerobic
+            light: null
+            notes: null
+        gas_consumption:
+        - gas_id: CHEBI:15379
+          gas_name: oxygen
+          max_exchange_rate:
+            value: 15
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: non-limited
+        gas_secretion:
+        - gas_id: CHEBI:16526
+          gas_name: carbon dioxide
+          max_exchange_rate:
+            value: 18
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: null
+        - gas_id: CHEBI:16526
+          gas_name: carbon dioxide
+          max_exchange_rate:
+            value: 2.5
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Anaerobic
+            light: null
+            notes: null
+  - organism_id: ORG-SCERE
+    organism_name: Saccharomyces cerevisiae
+    organism_type: Microfungi
+    strain_details: null
+    initial_biomass:
+      value: 0.1
+      unit: g
+    static_properties:
+      elemental_composition:
+        carbon: 0.4953
+        hydrogen: 0.0693
+        oxygen: 0.3253
+        nitrogen: 0.0892
+        phosphorus: 0.0168
+        sulfur: 0.0042
+      macromolecular_summary:
+        protein: 45
+        carbohydrate: 35
+        lipid: 7
+        nucleic_acid: 6.7
+        ash: 6.3
+      morphology:
+        nominal_diameter:
+          value: 7.5
+          unit: um
+      targeted_molecular_classes:
+        terpenoids_and_carotenoids: []
+        cell_wall_components:
+        - molecule: beta-glucans
+          concentration_mg_g_dw: 200
+    dynamic_parameters:
+      growth_rate_per_hr: 0.4
+      environmental_tolerances:
+        photosynthetic_light_response: null
+        temperature:
+          optimal:
+            value: 30
+            unit: celsius
+          range:
+            min: 20
+            max: 38
+        ph:
+          optimal: 4.5
+          range:
+            min: 2.5
+            max: 6
+        chemical:
+        - molecule_id: CHEBI:16236
+          molecule_name: ethanol
+          minimum_inhibitory_concentration:
+            value: 120
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 80
+            unit: g/L
+        - molecule_id: CHEBI:15366
+          molecule_name: acetic acid
+          minimum_inhibitory_concentration:
+            value: 5
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 2.5
+            unit: g/L
+      metabolic_exchange:
+        media_consumption:
+        - molecule_id: CHEBI:17234
+          molecule_name: D-glucose
+          max_exchange_rate:
+            value: 1.5
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: respiratory
+        - molecule_id: CHEBI:17234
+          molecule_name: D-glucose
+          max_exchange_rate:
+            value: 20
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Anaerobic
+            light: null
+            notes: fermentative (also occurs under aerobic conditions)
+        media_secretion:
+        - molecule_id: CHEBI:16236
+          molecule_name: ethanol
+          max_exchange_rate:
+            value: 35
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Anaerobic
+            light: null
+            notes: fermentative (also occurs under aerobic conditions)
+        - molecule_id: CHEBI:17754
+          molecule_name: glycerol
+          max_exchange_rate:
+            value: 2.5
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Anaerobic
+            light: null
+            notes: fermentative (also occurs under aerobic conditions)
+        - molecule_id: CHEBI:30089
+          molecule_name: acetate
+          max_exchange_rate:
+            value: 1
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Anaerobic
+            light: null
+            notes: fermentative (also occurs under aerobic conditions)
+        gas_consumption:
+        - gas_id: CHEBI:15379
+          gas_name: oxygen
+          max_exchange_rate:
+            value: 4
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: respiratory
+        gas_secretion:
+        - gas_id: CHEBI:16526
+          gas_name: carbon dioxide
+          max_exchange_rate:
+            value: 36
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Anaerobic
+            light: null
+            notes: fermentative (also occurs under aerobic conditions)
+        - gas_id: CHEBI:16526
+          gas_name: carbon dioxide
+          max_exchange_rate:
+            value: 5
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: respiratory
+  - organism_id: ORG-BSUBT
+    organism_name: Bacillus subtilis
+    organism_type: Bacteria
+    strain_details:
+      description: Recombinant strain (e.g., 168) engineered with a carotenoid biosynthesis
+        pathway for lutein production.
+      is_engineered: true
+    initial_biomass:
+      value: 0.1
+      unit: g
+    static_properties:
+      elemental_composition:
+        carbon: 0.5219
+        hydrogen: 0.0724
+        oxygen: 0.2283
+        nitrogen: 0.1376
+        phosphorus: 0.0285
+        sulfur: 0.0071
+      macromolecular_summary:
+        protein: 55.7
+        carbohydrate: 10.3
+        lipid: 6.2
+        nucleic_acid: 20.6
+        ash: 7.2
+      morphology:
+        nominal_diameter:
+          value: 0.7
+          unit: um
+      targeted_molecular_classes:
+        terpenoids_and_carotenoids:
+        - molecule: Lutein
+          concentration_mg_g_dw: 1.8
+        cell_wall_components: []
+    dynamic_parameters:
+      growth_rate_per_hr: 0.65
+      environmental_tolerances:
+        photosynthetic_light_response: null
+        temperature:
+          optimal:
+            value: 35
+            unit: celsius
+          range:
+            min: 15
+            max: 55
+        ph:
+          optimal: 7.5
+          range:
+            min: 5.5
+            max: 8.5
+        chemical:
+        - molecule_id: CHEBI:26710
+          molecule_name: sodium chloride
+          minimum_inhibitory_concentration:
+            value: 100
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 70
+            unit: g/L
+        - molecule_id: CHEBI:15882
+          molecule_name: phenol
+          minimum_inhibitory_concentration:
+            value: 1.5
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 0.9
+            unit: g/L
+      metabolic_exchange:
+        media_consumption:
+        - molecule_id: CHEBI:17234
+          molecule_name: D-glucose
+          max_exchange_rate:
+            value: 7
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: null
+        media_secretion:
+        - molecule_id: CHEBI:30089
+          molecule_name: acetate
+          max_exchange_rate:
+            value: 4.5
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: glucose overflow
+        - molecule_id: CHEBI:15688
+          molecule_name: 2,3-butanediol
+          max_exchange_rate:
+            value: 1.8
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: late exponential phase
+        - molecule_id: CHEBI:16515
+          molecule_name: acetoin
+          max_exchange_rate:
+            value: 1.2
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: MicroAerobic
+            light: null
+            notes: null
+        gas_consumption:
+        - gas_id: CHEBI:15379
+          gas_name: oxygen
+          max_exchange_rate:
+            value: 12
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: non-limited
+        gas_secretion:
+        - gas_id: CHEBI:16526
+          gas_name: carbon dioxide
+          max_exchange_rate:
+            value: 14
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: null
+  - organism_id: ORG-CGLUT
+    organism_name: Corynebacterium glutamicum
+    organism_type: Bacteria
+    strain_details: null
+    initial_biomass:
+      value: 0.1
+      unit: g
+    static_properties:
+      elemental_composition:
+        carbon: 0.5178
+        hydrogen: 0.0743
+        oxygen: 0.2458
+        nitrogen: 0.136
+        phosphorus: 0.0209
+        sulfur: 0.0052
+      macromolecular_summary:
+        protein: 59.2
+        carbohydrate: 11.2
+        lipid: 9.2
+        nucleic_acid: 15.3
+        ash: 5.1
+      morphology:
+        nominal_diameter:
+          value: 1
+          unit: um
+      targeted_molecular_classes:
+        terpenoids_and_carotenoids:
+        - molecule: Lutein
+          concentration_mg_g_dw: 2
+        cell_wall_components: []
+    dynamic_parameters:
+      growth_rate_per_hr: 0.45
+      environmental_tolerances:
+        photosynthetic_light_response: null
+        temperature:
+          optimal:
+            value: 30
+            unit: celsius
+          range:
+            min: 18
+            max: 40
+        ph:
+          optimal: 7
+          range:
+            min: 6
+            max: 9
+        chemical:
+        - molecule_id: CHEBI:16236
+          molecule_name: ethanol
+          minimum_inhibitory_concentration:
+            value: 50
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 30
+            unit: g/L
+        - molecule_id: CHEBI:18237
+          molecule_name: L-glutamic acid
+          minimum_inhibitory_concentration:
+            value: 150
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 120
+            unit: g/L
+      metabolic_exchange:
+        media_consumption:
+        - molecule_id: CHEBI:17234
+          molecule_name: D-glucose
+          max_exchange_rate:
+            value: 7.5
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: growth phase
+        media_secretion:
+        - molecule_id: CHEBI:18237
+          molecule_name: L-glutamic acid
+          max_exchange_rate:
+            value: 2.5
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: production phase (biotin-limited)
+        - molecule_id: CHEBI:422
+          molecule_name: L-lactate
+          max_exchange_rate:
+            value: 0.5
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: overflow byproduct
+        gas_consumption:
+        - gas_id: CHEBI:15379
+          gas_name: oxygen
+          max_exchange_rate:
+            value: 10
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: non-limited
+        gas_secretion:
+        - gas_id: CHEBI:16526
+          gas_name: carbon dioxide
+          max_exchange_rate:
+            value: 15
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: null
+  - organism_id: ORG-PTRI
+    organism_name: Phaeodactylum tricornutum
+    organism_type: Microalgae
+    strain_details: null
+    initial_biomass:
+      value: 0.1
+      unit: g
+    static_properties:
+      elemental_composition:
+        carbon: 0.5337
+        hydrogen: 0.0746
+        oxygen: 0.2902
+        nitrogen: 0.0829
+        phosphorus: 0.0114
+        sulfur: 0.0073
+      macromolecular_summary:
+        protein: 40
+        carbohydrate: 25
+        lipid: 22
+        nucleic_acid: 5
+        ash: 8
+      morphology:
+        nominal_diameter:
+          value: 3.5
+          unit: um
+      targeted_molecular_classes:
+        terpenoids_and_carotenoids: []
+        cell_wall_components:
+        - molecule: beta-glucans
+          concentration_mg_g_dw: 300
+    dynamic_parameters:
+      growth_rate_per_hr: 0.058
+      environmental_tolerances:
+        photosynthetic_light_response:
+          par_wavelength_range_nm:
+          - 400
+          - 700
+          saturation_ppfd:
+            value: 150
+            unit: μmol/m²/s
+          photoinhibition_ppfd:
+            value: 800
+            unit: μmol/m²/s
+        temperature:
+          optimal:
+            value: 20
+            unit: celsius
+          range:
+            min: 10
+            max: 28
+        ph:
+          optimal: 8.2
+          range:
+            min: 7
+            max: 9.5
+        chemical:
+        - molecule_id: CHEBI:23377
+          molecule_name: copper(II) sulfate
+          minimum_inhibitory_concentration:
+            value: 0.0005
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 0.0002
+            unit: g/L
+        - molecule_id: CHEBI:31206
+          molecule_name: atrazine
+          minimum_inhibitory_concentration:
+            value: 0.08
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 0.04
+            unit: g/L
+      metabolic_exchange:
+        media_consumption:
+        - molecule_id: CHEBI:16526
+          molecule_name: carbon dioxide
+          max_exchange_rate:
+            value: 2
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, light-saturated
+        - molecule_id: CHEBI:49740
+          molecule_name: nitrate
+          max_exchange_rate:
+            value: 0.25
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, light-saturated
+        - molecule_id: CHEBI:43474
+          molecule_name: phosphate
+          max_exchange_rate:
+            value: 0.018
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, light-saturated
+        media_secretion:
+        - molecule_id: CHEBI:17823
+          molecule_name: D-mannitol
+          max_exchange_rate:
+            value: 0.2
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, represents ~10% of fixed carbon
+        gas_consumption:
+        - gas_id: CHEBI:15379
+          gas_name: oxygen
+          max_exchange_rate:
+            value: 0.3
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Dark
+            notes: respiration
+        gas_secretion:
+        - gas_id: CHEBI:15379
+          gas_name: oxygen
+          max_exchange_rate:
+            value: 2.2
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, light-saturated
+  - organism_id: ORG-CVULG
+    organism_name: Chlorella vulgaris
+    organism_type: Microalgae
+    strain_details: null
+    initial_biomass:
+      value: 0.1
+      unit: g
+    static_properties:
+      elemental_composition:
+        carbon: 0.5086
+        hydrogen: 0.0763
+        oxygen: 0.3052
+        nitrogen: 0.0915
+        phosphorus: 0.0132
+        sulfur: 0.0051
+      macromolecular_summary:
+        protein: 52
+        carbohydrate: 15
+        lipid: 20
+        nucleic_acid: 5
+        ash: 8
+      morphology:
+        nominal_diameter:
+          value: 6
+          unit: um
+      targeted_molecular_classes:
+        terpenoids_and_carotenoids: []
+        cell_wall_components:
+        - molecule: beta-glucans
+          concentration_mg_g_dw: 150
+    dynamic_parameters:
+      growth_rate_per_hr: 0.083
+      environmental_tolerances:
+        photosynthetic_light_response:
+          par_wavelength_range_nm:
+          - 400
+          - 700
+          saturation_ppfd:
+            value: 250
+            unit: μmol/m²/s
+          photoinhibition_ppfd:
+            value: 1200
+            unit: μmol/m²/s
+        temperature:
+          optimal:
+            value: 28
+            unit: celsius
+          range:
+            min: 15
+            max: 35
+        ph:
+          optimal: 6.5
+          range:
+            min: 4
+            max: 10
+        chemical:
+        - molecule_id: CHEBI:23377
+          molecule_name: copper(II) sulfate
+          minimum_inhibitory_concentration:
+            value: 0.0008
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 0.0003
+            unit: g/L
+        - molecule_id: CHEBI:31206
+          molecule_name: atrazine
+          minimum_inhibitory_concentration:
+            value: 0.2
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 0.1
+            unit: g/L
+      metabolic_exchange:
+        media_consumption:
+        - molecule_id: CHEBI:16526
+          molecule_name: carbon dioxide
+          max_exchange_rate:
+            value: 3.5
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, light-saturated
+        - molecule_id: CHEBI:49740
+          molecule_name: nitrate
+          max_exchange_rate:
+            value: 0.45
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, light-saturated
+        - molecule_id: CHEBI:17234
+          molecule_name: D-glucose
+          max_exchange_rate:
+            value: 2.1
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Dark
+            notes: heterotrophic
+        media_secretion: []
+        gas_consumption:
+        - gas_id: CHEBI:15379
+          gas_name: oxygen
+          max_exchange_rate:
+            value: 1.8
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Dark
+            notes: heterotrophic
+        gas_secretion:
+        - gas_id: CHEBI:15379
+          gas_name: oxygen
+          max_exchange_rate:
+            value: 3.8
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, light-saturated
+        - gas_id: CHEBI:16526
+          gas_name: carbon dioxide
+          max_exchange_rate:
+            value: 2
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Dark
+            notes: heterotrophic
+  - organism_id: ORG-SYNPCC
+    organism_name: Synechocystis sp. PCC 6803
+    organism_type: Bacteria
+    strain_details: null
+    initial_biomass:
+      value: 0.1
+      unit: g
+    static_properties:
+      elemental_composition:
+        carbon: 0.5188
+        hydrogen: 0.0729
+        oxygen: 0.2552
+        nitrogen: 0.125
+        phosphorus: 0.0229
+        sulfur: 0.0052
+      macromolecular_summary:
+        protein: 58
+        carbohydrate: 16
+        lipid: 12
+        nucleic_acid: 8
+        ash: 6
+      morphology:
+        nominal_diameter:
+          value: 1.8
+          unit: um
+      targeted_molecular_classes:
+        terpenoids_and_carotenoids:
+        - molecule: Lutein
+          concentration_mg_g_dw: 4.5
+        cell_wall_components: []
+    dynamic_parameters:
+      growth_rate_per_hr: 0.075
+      environmental_tolerances:
+        photosynthetic_light_response:
+          par_wavelength_range_nm:
+          - 400
+          - 700
+          saturation_ppfd:
+            value: 100
+            unit: μmol/m²/s
+          photoinhibition_ppfd:
+            value: 500
+            unit: μmol/m²/s
+        temperature:
+          optimal:
+            value: 32
+            unit: celsius
+          range:
+            min: 20
+            max: 42
+        ph:
+          optimal: 8
+          range:
+            min: 7
+            max: 10.5
+        chemical:
+        - molecule_id: CHEBI:26710
+          molecule_name: sodium chloride
+          minimum_inhibitory_concentration:
+            value: 35
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 20
+            unit: g/L
+        - molecule_id: CHEBI:16039
+          molecule_name: diuron
+          minimum_inhibitory_concentration:
+            value: 0.3
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 0.15
+            unit: g/L
+      metabolic_exchange:
+        media_consumption:
+        - molecule_id: CHEBI:16526
+          molecule_name: carbon dioxide
+          max_exchange_rate:
+            value: 2.2
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, light-saturated
+        - molecule_id: CHEBI:17234
+          molecule_name: D-glucose
+          max_exchange_rate:
+            value: 0.8
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Dark
+            notes: heterotrophic
+        media_secretion:
+        - molecule_id: CHEBI:30089
+          molecule_name: acetate
+          max_exchange_rate:
+            value: 0.05
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, byproduct
+        gas_consumption:
+        - gas_id: CHEBI:15379
+          gas_name: oxygen
+          max_exchange_rate:
+            value: 0.75
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Dark
+            notes: heterotrophic
+        gas_secretion:
+        - gas_id: CHEBI:15379
+          gas_name: oxygen
+          max_exchange_rate:
+            value: 2.4
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, light-saturated
+  - organism_id: ORG-DSALI
+    organism_name: Dunaliella salina
+    organism_type: Microalgae
+    strain_details: null
+    initial_biomass:
+      value: 0.1
+      unit: g
+    static_properties:
+      elemental_composition:
+        carbon: 0.5021
+        hydrogen: 0.0717
+        oxygen: 0.3279
+        nitrogen: 0.082
+        phosphorus: 0.0102
+        sulfur: 0.0061
+      macromolecular_summary:
+        protein: 45
+        carbohydrate: 30
+        lipid: 15
+        nucleic_acid: 4
+        ash: 6
+      morphology:
+        nominal_diameter:
+          value: 11
+          unit: um
+      targeted_molecular_classes:
+        terpenoids_and_carotenoids:
+        - molecule: Lutein
+          concentration_mg_g_dw: 6.5
+        cell_wall_components: []
+    dynamic_parameters:
+      growth_rate_per_hr: 0.035
+      environmental_tolerances:
+        photosynthetic_light_response:
+          par_wavelength_range_nm:
+          - 400
+          - 700
+          saturation_ppfd:
+            value: 400
+            unit: μmol/m²/s
+          photoinhibition_ppfd:
+            value: 2500
+            unit: μmol/m²/s
+        temperature:
+          optimal:
+            value: 30
+            unit: celsius
+          range:
+            min: 10
+            max: 40
+        ph:
+          optimal: 7.5
+          range:
+            min: 6
+            max: 9
+        chemical:
+        - molecule_id: CHEBI:26710
+          molecule_name: sodium chloride
+          minimum_inhibitory_concentration:
+            value: 300
+            unit: g/L
+          inhibitory_concentration_50: null
+      metabolic_exchange:
+        media_consumption:
+        - molecule_id: CHEBI:16526
+          molecule_name: carbon dioxide
+          max_exchange_rate:
+            value: 1.8
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, light-saturated, optimal salinity
+        media_secretion:
+        - molecule_id: CHEBI:17754
+          molecule_name: glycerol
+          max_exchange_rate:
+            value: 0.1
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, osmolyte secretion under high salinity
+        gas_consumption: []
+        gas_secretion:
+        - gas_id: CHEBI:15379
+          gas_name: oxygen
+          max_exchange_rate:
+            value: 2
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, light-saturated
+  - organism_id: ORG-HPLUV
+    organism_name: Haematococcus pluvialis
+    organism_type: Microalgae
+    strain_details: null
+    initial_biomass:
+      value: 0.1
+      unit: g
+    static_properties:
+      elemental_composition:
+        carbon: 0.4913
+        hydrogen: 0.0716
+        oxygen: 0.3378
+        nitrogen: 0.087
+        phosphorus: 0.0123
+        sulfur: 0.0051
+      macromolecular_summary:
+        protein: 42
+        carbohydrate: 25
+        lipid: 23
+        nucleic_acid: 4
+        ash: 6
+      morphology:
+        nominal_diameter:
+          value: 20
+          unit: um
+      targeted_molecular_classes:
+        terpenoids_and_carotenoids:
+        - molecule: Lutein
+          concentration_mg_g_dw: 5
+        cell_wall_components: []
+    dynamic_parameters:
+      growth_rate_per_hr: 0.032
+      environmental_tolerances:
+        photosynthetic_light_response:
+          par_wavelength_range_nm:
+          - 400
+          - 700
+          saturation_ppfd:
+            value: 80
+            unit: μmol/m²/s
+          photoinhibition_ppfd:
+            value: 400
+            unit: μmol/m²/s
+        temperature:
+          optimal:
+            value: 22
+            unit: celsius
+          range:
+            min: 15
+            max: 28
+        ph:
+          optimal: 7
+          range:
+            min: 6
+            max: 8.5
+        chemical:
+        - molecule_id: CHEBI:32140
+          molecule_name: sodium nitrate
+          minimum_inhibitory_concentration:
+            value: 2.5
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 1.5
+            unit: g/L
+        - molecule_id: CHEBI:32138
+          molecule_name: potassium nitrate
+          minimum_inhibitory_concentration:
+            value: 4
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 2
+            unit: g/L
+      metabolic_exchange:
+        media_consumption:
+        - molecule_id: CHEBI:16526
+          molecule_name: carbon dioxide
+          max_exchange_rate:
+            value: 1.5
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, green vegetative stage
+        - molecule_id: CHEBI:30089
+          molecule_name: acetate
+          max_exchange_rate:
+            value: 2.5
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: mixotrophic, red cyst stage (astaxanthin production)
+        media_secretion: []
+        gas_consumption: []
+        gas_secretion:
+        - gas_id: CHEBI:15379
+          gas_name: oxygen
+          max_exchange_rate:
+            value: 1.6
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, green vegetative stage
+  - organism_id: ORG-NOCUL
+    organism_name: Nannochloropsis oculata
+    organism_type: Microalgae
+    strain_details: null
+    initial_biomass:
+      value: 0.1
+      unit: g
+    static_properties:
+      elemental_composition:
+        carbon: 0.5323
+        hydrogen: 0.0783
+        oxygen: 0.2714
+        nitrogen: 0.0992
+        phosphorus: 0.0125
+        sulfur: 0.0063
+      macromolecular_summary:
+        protein: 45
+        carbohydrate: 14
+        lipid: 30
+        nucleic_acid: 5
+        ash: 6
+      morphology:
+        nominal_diameter:
+          value: 3
+          unit: um
+      targeted_molecular_classes:
+        terpenoids_and_carotenoids: []
+        cell_wall_components:
+        - molecule: beta-glucans
+          concentration_mg_g_dw: 225
+    dynamic_parameters:
+      growth_rate_per_hr: 0.05
+      environmental_tolerances:
+        photosynthetic_light_response:
+          par_wavelength_range_nm:
+          - 400
+          - 700
+          saturation_ppfd:
+            value: 200
+            unit: μmol/m²/s
+          photoinhibition_ppfd:
+            value: 1000
+            unit: μmol/m²/s
+        temperature:
+          optimal:
+            value: 24
+            unit: celsius
+          range:
+            min: 12
+            max: 30
+        ph:
+          optimal: 8
+          range:
+            min: 7
+            max: 9
+        chemical:
+        - molecule_id: CHEBI:31206
+          molecule_name: atrazine
+          minimum_inhibitory_concentration:
+            value: 0.05
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 0.025
+            unit: g/L
+        - molecule_id: CHEBI:26710
+          molecule_name: sodium chloride
+          minimum_inhibitory_concentration:
+            value: 60
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 45
+            unit: g/L
+      metabolic_exchange:
+        media_consumption:
+        - molecule_id: CHEBI:16526
+          molecule_name: carbon dioxide
+          max_exchange_rate:
+            value: 4
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, light-saturated, nutrient-replete
+        - molecule_id: CHEBI:49740
+          molecule_name: nitrate
+          max_exchange_rate:
+            value: 0.55
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, light-saturated, nutrient-replete
+        media_secretion: []
+        gas_consumption: []
+        gas_secretion:
+        - gas_id: CHEBI:15379
+          gas_name: oxygen
+          max_exchange_rate:
+            value: 4.5
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, light-saturated
+  - organism_id: ORG-EGRAC
+    organism_name: Euglena gracilis
+    organism_type: Microalgae
+    strain_details: null
+    initial_biomass:
+      value: 0.1
+      unit: g
+    static_properties:
+      elemental_composition:
+        carbon: 0.4989
+        hydrogen: 0.0707
+        oxygen: 0.3326
+        nitrogen: 0.0852
+        phosphorus: 0.0156
+        sulfur: 0.0073
+      macromolecular_summary:
+        protein: 40
+        carbohydrate: 35
+        lipid: 15
+        nucleic_acid: 4
+        ash: 6
+      morphology:
+        nominal_diameter:
+          value: 30
+          unit: um
+      targeted_molecular_classes:
+        terpenoids_and_carotenoids: []
+        cell_wall_components:
+        - molecule: beta-glucans
+          concentration_mg_g_dw: 450
+    dynamic_parameters:
+      growth_rate_per_hr: 0.11
+      environmental_tolerances:
+        photosynthetic_light_response:
+          par_wavelength_range_nm:
+          - 400
+          - 700
+          saturation_ppfd:
+            value: 100
+            unit: μmol/m²/s
+          photoinhibition_ppfd:
+            value: 600
+            unit: μmol/m²/s
+        temperature:
+          optimal:
+            value: 25
+            unit: celsius
+          range:
+            min: 15
+            max: 32
+        ph:
+          optimal: 3.5
+          range:
+            min: 3
+            max: 8
+        chemical:
+        - molecule_id: CHEBI:31206
+          molecule_name: atrazine
+          minimum_inhibitory_concentration:
+            value: 0.5
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 0.2
+            unit: g/L
+        - molecule_id: CHEBI:26710
+          molecule_name: sodium chloride
+          minimum_inhibitory_concentration:
+            value: 9
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 4.5
+            unit: g/L
+      metabolic_exchange:
+        media_consumption:
+        - molecule_id: CHEBI:16526
+          molecule_name: carbon dioxide
+          max_exchange_rate:
+            value: 1.2
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, light-saturated
+        - molecule_id: CHEBI:16236
+          molecule_name: ethanol
+          max_exchange_rate:
+            value: 4.5
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Dark
+            notes: heterotrophic
+        - molecule_id: CHEBI:30089
+          molecule_name: acetate
+          max_exchange_rate:
+            value: 3
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Dark
+            notes: heterotrophic
+        media_secretion: []
+        gas_consumption:
+        - gas_id: CHEBI:15379
+          gas_name: oxygen
+          max_exchange_rate:
+            value: 8
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Dark
+            notes: heterotrophic, on ethanol
+        gas_secretion:
+        - gas_id: CHEBI:15379
+          gas_name: oxygen
+          max_exchange_rate:
+            value: 1.3
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, light-saturated
+        - gas_id: CHEBI:16526
+          gas_name: carbon dioxide
+          max_exchange_rate:
+            value: 5
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Dark
+            notes: heterotrophic, on ethanol
+  - organism_id: ORG-AFAEC
+    organism_name: Alcaligenes faecalis
+    organism_type: Bacteria
+    strain_details: null
+    initial_biomass:
+      value: 0.1
+      unit: g
+    static_properties:
+      elemental_composition:
+        carbon: 0.5361
+        hydrogen: 0.0722
+        oxygen: 0.2268
+        nitrogen: 0.1289
+        phosphorus: 0.0258
+        sulfur: 0.0103
+      macromolecular_summary:
+        protein: 56
+        carbohydrate: 20
+        lipid: 9
+        nucleic_acid: 8
+        ash: 7
+      morphology:
+        nominal_diameter:
+          value: 0.9
+          unit: um
+      targeted_molecular_classes:
+        terpenoids_and_carotenoids: []
+        cell_wall_components:
+        - molecule: beta-glucans
+          concentration_mg_g_dw: 550
+    dynamic_parameters:
+      growth_rate_per_hr: 0.25
+      environmental_tolerances:
+        photosynthetic_light_response: null
+        temperature:
+          optimal:
+            value: 30
+            unit: celsius
+          range:
+            min: 10
+            max: 40
+        ph:
+          optimal: 8
+          range:
+            min: 6
+            max: 10
+        chemical:
+        - molecule_id: CHEBI:15882
+          molecule_name: phenol
+          minimum_inhibitory_concentration:
+            value: 1
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 0.6
+            unit: g/L
+        - molecule_id: CHEBI:23377
+          molecule_name: copper(II) sulfate
+          minimum_inhibitory_concentration:
+            value: 0.015
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 0.008
+            unit: g/L
+      metabolic_exchange:
+        media_consumption:
+        - molecule_id: CHEBI:30799
+          molecule_name: citrate
+          max_exchange_rate:
+            value: 3
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: null
+        - molecule_id: CHEBI:49740
+          molecule_name: nitrate
+          max_exchange_rate:
+            value: 5.5
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Anoxic
+            light: null
+            notes: denitrification
+        media_secretion: []
+        gas_consumption:
+        - gas_id: CHEBI:15379
+          gas_name: oxygen
+          max_exchange_rate:
+            value: 12
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: on citrate
+        gas_secretion:
+        - gas_id: CHEBI:16526
+          gas_name: carbon dioxide
+          max_exchange_rate:
+            value: 15
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: on citrate
+        - gas_id: CHEBI:17997
+          gas_name: dinitrogen
+          max_exchange_rate:
+            value: 2.7
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Anoxic
+            light: null
+            notes: denitrification
+  - organism_id: ORG-APULL
+    organism_name: Aureobasidium pullulans
+    organism_type: Microfungi
+    strain_details: null
+    initial_biomass:
+      value: 0.1
+      unit: g
+    static_properties:
+      elemental_composition:
+        carbon: 0.4625
+        hydrogen: 0.0668
+        oxygen: 0.4111
+        nitrogen: 0.0462
+        phosphorus: 0.0103
+        sulfur: 0.0031
+      macromolecular_summary:
+        protein: 25
+        carbohydrate: 55
+        lipid: 8
+        nucleic_acid: 4
+        ash: 8
+      morphology:
+        nominal_diameter:
+          value: 7
+          unit: um
+      targeted_molecular_classes:
+        terpenoids_and_carotenoids: []
+        cell_wall_components:
+        - molecule: beta-glucans
+          concentration_mg_g_dw: 350
+    dynamic_parameters:
+      growth_rate_per_hr: 0.15
+      environmental_tolerances:
+        photosynthetic_light_response: null
+        temperature:
+          optimal:
+            value: 25
+            unit: celsius
+          range:
+            min: 5
+            max: 35
+        ph:
+          optimal: 5.5
+          range:
+            min: 2
+            max: 10
+        chemical:
+        - molecule_id: CHEBI:26710
+          molecule_name: sodium chloride
+          minimum_inhibitory_concentration:
+            value: 120
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 80
+            unit: g/L
+        - molecule_id: CHEBI:16236
+          molecule_name: ethanol
+          minimum_inhibitory_concentration:
+            value: 60
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 40
+            unit: g/L
+      metabolic_exchange:
+        media_consumption:
+        - molecule_id: CHEBI:17992
+          molecule_name: sucrose
+          max_exchange_rate:
+            value: 1.2
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: pullulan production
+        media_secretion:
+        - molecule_id: CHEBI:8624
+          molecule_name: pullulan
+          max_exchange_rate:
+            value: 1.5
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: nitrogen-limited
+        gas_consumption:
+        - gas_id: CHEBI:15379
+          gas_name: oxygen
+          max_exchange_rate:
+            value: 4
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: null
+        gas_secretion:
+        - gas_id: CHEBI:16526
+          gas_name: carbon dioxide
+          max_exchange_rate:
+            value: 4.2
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: null
+  - organism_id: ORG-GLUCID
+    organism_name: Ganoderma lucidum
+    organism_type: Microfungi
+    strain_details: null
+    initial_biomass:
+      value: 0.1
+      unit: g
+    static_properties:
+      elemental_composition:
+        carbon: 0.4513
+        hydrogen: 0.0667
+        oxygen: 0.4308
+        nitrogen: 0.041
+        phosphorus: 0.0082
+        sulfur: 0.002
+      macromolecular_summary:
+        protein: 20
+        carbohydrate: 60
+        lipid: 5
+        nucleic_acid: 3
+        ash: 12
+      morphology:
+        nominal_diameter:
+          value: 3.5
+          unit: um
+      targeted_molecular_classes:
+        terpenoids_and_carotenoids: []
+        cell_wall_components:
+        - molecule: beta-glucans
+          concentration_mg_g_dw: 130
+    dynamic_parameters:
+      growth_rate_per_hr: 0.045
+      environmental_tolerances:
+        photosynthetic_light_response: null
+        temperature:
+          optimal:
+            value: 28
+            unit: celsius
+          range:
+            min: 18
+            max: 35
+        ph:
+          optimal: 4.5
+          range:
+            min: 3
+            max: 6.5
+        chemical:
+        - molecule_id: CHEBI:15366
+          molecule_name: acetic acid
+          minimum_inhibitory_concentration:
+            value: 2
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 1
+            unit: g/L
+        - molecule_id: CHEBI:30116
+          molecule_name: cycloheximide
+          minimum_inhibitory_concentration:
+            value: 0.005
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 0.002
+            unit: g/L
+      metabolic_exchange:
+        media_consumption:
+        - molecule_id: CHEBI:17234
+          molecule_name: D-glucose
+          max_exchange_rate:
+            value: 0.6
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: submerged culture
+        media_secretion:
+        - molecule_id: CHEBI:23940
+          molecule_name: exopolysaccharide
+          max_exchange_rate:
+            value: 0.15
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: submerged culture
+        gas_consumption:
+        - gas_id: CHEBI:15379
+          gas_name: oxygen
+          max_exchange_rate:
+            value: 1.5
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: submerged culture
+        gas_secretion:
+        - gas_id: CHEBI:16526
+          gas_name: carbon dioxide
+          max_exchange_rate:
+            value: 1.6
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: submerged culture
+  - organism_id: ORG-LEDOD
+    organism_name: Lentinula edodes
+    organism_type: Microfungi
+    strain_details: null
+    initial_biomass:
+      value: 0.1
+      unit: g
+    static_properties:
+      elemental_composition:
+        carbon: 0.456
+        hydrogen: 0.0628
+        oxygen: 0.4357
+        nitrogen: 0.0355
+        phosphorus: 0.0081
+        sulfur: 0.002
+      macromolecular_summary:
+        protein: 18
+        carbohydrate: 65
+        lipid: 4
+        nucleic_acid: 2
+        ash: 11
+      morphology:
+        nominal_diameter:
+          value: 3
+          unit: um
+      targeted_molecular_classes:
+        terpenoids_and_carotenoids: []
+        cell_wall_components:
+        - molecule: beta-glucans
+          concentration_mg_g_dw: 150
+    dynamic_parameters:
+      growth_rate_per_hr: 0.027
+      environmental_tolerances:
+        photosynthetic_light_response: null
+        temperature:
+          optimal:
+            value: 25
+            unit: celsius
+          range:
+            min: 15
+            max: 30
+        ph:
+          optimal: 5
+          range:
+            min: 3.5
+            max: 7
+        chemical:
+        - molecule_id: CHEBI:16236
+          molecule_name: ethanol
+          minimum_inhibitory_concentration:
+            value: 30
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 15
+            unit: g/L
+        - molecule_id: CHEBI:9428
+          molecule_name: tannic acid
+          minimum_inhibitory_concentration:
+            value: 0.5
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 0.2
+            unit: g/L
+      metabolic_exchange:
+        media_consumption:
+        - molecule_id: CHEBI:17234
+          molecule_name: D-glucose
+          max_exchange_rate:
+            value: 0.5
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: submerged culture
+        media_secretion:
+        - molecule_id: CHEBI:23940
+          molecule_name: exopolysaccharide
+          max_exchange_rate:
+            value: 0.1
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: submerged culture
+        gas_consumption:
+        - gas_id: CHEBI:15379
+          gas_name: oxygen
+          max_exchange_rate:
+            value: 1.2
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: submerged culture
+        gas_secretion:
+        - gas_id: CHEBI:16526
+          gas_name: carbon dioxide
+          max_exchange_rate:
+            value: 1.3
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: submerged culture
+  - organism_id: ORG-AGROSP
+    organism_name: Agrobacterium spp.
+    organism_type: Bacteria
+    strain_details: null
+    initial_biomass:
+      value: 0.1
+      unit: g
+    static_properties:
+      elemental_composition:
+        carbon: 0.5181
+        hydrogen: 0.0725
+        oxygen: 0.2383
+        nitrogen: 0.1347
+        phosphorus: 0.0259
+        sulfur: 0.0104
+      macromolecular_summary:
+        protein: 58
+        carbohydrate: 15
+        lipid: 9
+        nucleic_acid: 12
+        ash: 6
+      morphology:
+        nominal_diameter:
+          value: 0.8
+          unit: um
+      targeted_molecular_classes:
+        terpenoids_and_carotenoids: []
+        cell_wall_components:
+        - molecule: beta-glucans
+          concentration_mg_g_dw: 600
+    dynamic_parameters:
+      growth_rate_per_hr: 0.3
+      environmental_tolerances:
+        photosynthetic_light_response: null
+        temperature:
+          optimal:
+            value: 28
+            unit: celsius
+          range:
+            min: 15
+            max: 35
+        ph:
+          optimal: 6.5
+          range:
+            min: 5.5
+            max: 8
+        chemical:
+        - molecule_id: CHEBI:26710
+          molecule_name: sodium chloride
+          minimum_inhibitory_concentration:
+            value: 25
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 15
+            unit: g/L
+        - molecule_id: CHEBI:6104
+          molecule_name: kanamycin A
+          minimum_inhibitory_concentration:
+            value: 0.05
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 0.025
+            unit: g/L
+      metabolic_exchange:
+        media_consumption:
+        - molecule_id: CHEBI:17992
+          molecule_name: sucrose
+          max_exchange_rate:
+            value: 4
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: rich media
+        - molecule_id: CHEBI:16803
+          molecule_name: acetosyringone
+          max_exchange_rate:
+            value: 0.1
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: plant-interaction induction
+        media_secretion:
+        - molecule_id: CHEBI:23414
+          molecule_name: curdlan
+          max_exchange_rate:
+            value: 0.3
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: nitrogen-limited
+        gas_consumption:
+        - gas_id: CHEBI:15379
+          gas_name: oxygen
+          max_exchange_rate:
+            value: 15
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: on sucrose
+        gas_secretion:
+        - gas_id: CHEBI:16526
+          gas_name: carbon dioxide
+          max_exchange_rate:
+            value: 16
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: on sucrose
+  - organism_id: ORG-BJAPO
+    organism_name: Bradyrhizobium japonicum
+    organism_type: Bacteria
+    strain_details: null
+    initial_biomass:
+      value: 0.1
+      unit: g
+    static_properties:
+      elemental_composition:
+        carbon: 0.5063
+        hydrogen: 0.0738
+        oxygen: 0.2743
+        nitrogen: 0.116
+        phosphorus: 0.0211
+        sulfur: 0.0084
+      macromolecular_summary:
+        protein: 52
+        carbohydrate: 22
+        lipid: 10
+        nucleic_acid: 10
+        ash: 6
+      morphology:
+        nominal_diameter:
+          value: 0.7
+          unit: um
+      targeted_molecular_classes:
+        terpenoids_and_carotenoids: []
+        cell_wall_components:
+        - molecule: beta-glucans
+          concentration_mg_g_dw: 200
+    dynamic_parameters:
+      growth_rate_per_hr: 0.06
+      environmental_tolerances:
+        photosynthetic_light_response: null
+        temperature:
+          optimal:
+            value: 28
+            unit: celsius
+          range:
+            min: 15
+            max: 37
+        ph:
+          optimal: 6.8
+          range:
+            min: 5
+            max: 8.5
+        chemical:
+        - molecule_id: CHEBI:26710
+          molecule_name: sodium chloride
+          minimum_inhibitory_concentration:
+            value: 10
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 6
+            unit: g/L
+        - molecule_id: CHEBI:30114
+          molecule_name: streptomycin
+          minimum_inhibitory_concentration:
+            value: 0.005
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 0.002
+            unit: g/L
+      metabolic_exchange:
+        media_consumption:
+        - molecule_id: CHEBI:16337
+          molecule_name: succinate
+          max_exchange_rate:
+            value: 1.5
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: MicroAerobic
+            light: null
+            notes: symbiotic bacteroid
+        - molecule_id: CHEBI:17633
+          molecule_name: L-arabinose
+          max_exchange_rate:
+            value: 1
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: null
+            notes: free-living
+        media_secretion:
+        - molecule_id: CHEBI:132204
+          molecule_name: ammonia
+          max_exchange_rate:
+            value: 0.8
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: MicroAerobic
+            light: null
+            notes: symbiotic bacteroid
+        gas_consumption:
+        - gas_id: CHEBI:15379
+          gas_name: oxygen
+          max_exchange_rate:
+            value: 0.5
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: MicroAerobic
+            light: null
+            notes: symbiotic bacteroid
+        - gas_id: CHEBI:17997
+          gas_name: dinitrogen
+          max_exchange_rate:
+            value: 0.4
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: MicroAerobic
+            light: null
+            notes: symbiotic bacteroid
+        gas_secretion: []
+  - organism_id: ORG-CPROT
+    organism_name: Chlorella protothecoides
+    organism_type: Microalgae
+    strain_details: null
+    initial_biomass:
+      value: 0.1
+      unit: g
+    static_properties:
+      elemental_composition:
+        carbon: 0.65
+        hydrogen: 0.1
+        oxygen: 0.22
+        nitrogen: 0.015
+        phosphorus: 0.004
+        sulfur: 0.001
+      macromolecular_summary:
+        protein: 8
+        carbohydrate: 15
+        lipid: 70
+        nucleic_acid: 2
+        ash: 5
+      morphology:
+        nominal_diameter:
+          value: 8.5
+          unit: um
+      targeted_molecular_classes:
+        terpenoids_and_carotenoids:
+        - molecule: Lutein
+          concentration_mg_g_dw: 11.5
+        cell_wall_components: []
+    dynamic_parameters:
+      growth_rate_per_hr: 0.12
+      environmental_tolerances:
+        photosynthetic_light_response: null
+        temperature:
+          optimal:
+            value: 28
+            unit: celsius
+          range:
+            min: 20
+            max: 35
+        ph:
+          optimal: 6.5
+          range:
+            min: 5
+            max: 8
+        chemical:
+        - molecule_id: CHEBI:17234
+          molecule_name: D-glucose
+          minimum_inhibitory_concentration:
+            value: 200
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 150
+            unit: g/L
+        - molecule_id: CHEBI:5253
+          molecule_name: lincomycin
+          minimum_inhibitory_concentration:
+            value: 1
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 0.5
+            unit: g/L
+      metabolic_exchange:
+        media_consumption:
+        - molecule_id: CHEBI:17234
+          molecule_name: D-glucose
+          max_exchange_rate:
+            value: 4.5
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Dark
+            notes: heterotrophic, lipid accumulation
+        media_secretion: []
+        gas_consumption:
+        - gas_id: CHEBI:15379
+          gas_name: oxygen
+          max_exchange_rate:
+            value: 3
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Dark
+            notes: heterotrophic, lipid accumulation
+        gas_secretion:
+        - gas_id: CHEBI:16526
+          gas_name: carbon dioxide
+          max_exchange_rate:
+            value: 4
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Dark
+            notes: heterotrophic, lipid accumulation
+  - organism_id: ORG-LACTOSP
+    organism_name: Lactobacillus spp.
+    organism_type: Bacteria
+    strain_details: null
+    initial_biomass:
+      value: 0.1
+      unit: g
+    static_properties:
+      elemental_composition:
+        carbon: 0.4927
+        hydrogen: 0.0681
+        oxygen: 0.2621
+        nitrogen: 0.1258
+        phosphorus: 0.0262
+        sulfur: 0.0063
+      macromolecular_summary:
+        protein: 55
+        carbohydrate: 18
+        lipid: 6
+        nucleic_acid: 13
+        ash: 8
+      morphology:
+        nominal_diameter:
+          value: 0.9
+          unit: um
+      targeted_molecular_classes:
+        terpenoids_and_carotenoids: []
+        cell_wall_components:
+        - molecule: beta-glucans
+          concentration_mg_g_dw: 100
+    dynamic_parameters:
+      growth_rate_per_hr: 0.8
+      environmental_tolerances:
+        photosynthetic_light_response: null
+        temperature:
+          optimal:
+            value: 37
+            unit: celsius
+          range:
+            min: 25
+            max: 45
+        ph:
+          optimal: 5.8
+          range:
+            min: 4
+            max: 7
+        chemical:
+        - molecule_id: CHEBI:422
+          molecule_name: L-lactate
+          minimum_inhibitory_concentration:
+            value: 20
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 12
+            unit: g/L
+        - molecule_id: CHEBI:26710
+          molecule_name: sodium chloride
+          minimum_inhibitory_concentration:
+            value: 80
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 50
+            unit: g/L
+      metabolic_exchange:
+        media_consumption:
+        - molecule_id: CHEBI:17234
+          molecule_name: D-glucose
+          max_exchange_rate:
+            value: 22
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Anaerobic
+            light: null
+            notes: homofermentative
+        - molecule_id: CHEBI:17234
+          molecule_name: D-glucose
+          max_exchange_rate:
+            value: 15
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Anaerobic
+            light: null
+            notes: heterofermentative
+        media_secretion:
+        - molecule_id: CHEBI:422
+          molecule_name: L-lactate
+          max_exchange_rate:
+            value: 42
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Anaerobic
+            light: null
+            notes: homofermentative
+        - molecule_id: CHEBI:422
+          molecule_name: L-lactate
+          max_exchange_rate:
+            value: 14
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Anaerobic
+            light: null
+            notes: heterofermentative
+        - molecule_id: CHEBI:16236
+          molecule_name: ethanol
+          max_exchange_rate:
+            value: 14
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Anaerobic
+            light: null
+            notes: heterofermentative
+        gas_consumption: []
+        gas_secretion:
+        - gas_id: CHEBI:16526
+          gas_name: carbon dioxide
+          max_exchange_rate:
+            value: 14
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Anaerobic
+            light: null
+            notes: heterofermentative
+  - organism_id: ORG-MURSPP
+    organism_name: Muriellopsis spp.
+    organism_type: Microalgae
+    strain_details: null
+    initial_biomass:
+      value: 0.1
+      unit: g
+    static_properties:
+      elemental_composition:
+        carbon: 0.5094
+        hydrogen: 0.0728
+        oxygen: 0.3016
+        nitrogen: 0.0936
+        phosphorus: 0.0156
+        sulfur: 0.0083
+      macromolecular_summary:
+        protein: 48
+        carbohydrate: 18
+        lipid: 22
+        nucleic_acid: 5
+        ash: 7
+      morphology:
+        nominal_diameter:
+          value: 4
+          unit: um
+      targeted_molecular_classes:
+        terpenoids_and_carotenoids:
+        - molecule: Lutein
+          concentration_mg_g_dw: 10
+        cell_wall_components: []
+    dynamic_parameters:
+      growth_rate_per_hr: 0.09
+      environmental_tolerances:
+        photosynthetic_light_response:
+          par_wavelength_range_nm:
+          - 400
+          - 700
+          saturation_ppfd:
+            value: 450
+            unit: μmol/m²/s
+          photoinhibition_ppfd:
+            value: 1500
+            unit: μmol/m²/s
+        temperature:
+          optimal:
+            value: 30
+            unit: celsius
+          range:
+            min: 20
+            max: 38
+        ph:
+          optimal: 8
+          range:
+            min: 7
+            max: 10
+        chemical:
+        - molecule_id: CHEBI:32139
+          molecule_name: sodium bicarbonate
+          minimum_inhibitory_concentration:
+            value: 20
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 12
+            unit: g/L
+        - molecule_id: CHEBI:32140
+          molecule_name: sodium nitrate
+          minimum_inhibitory_concentration:
+            value: 3
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 2
+            unit: g/L
+      metabolic_exchange:
+        media_consumption:
+        - molecule_id: CHEBI:16526
+          molecule_name: carbon dioxide
+          max_exchange_rate:
+            value: 3.8
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, light-saturated, lutein production
+        - molecule_id: CHEBI:49740
+          molecule_name: nitrate
+          max_exchange_rate:
+            value: 0.48
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, light-saturated
+        media_secretion: []
+        gas_consumption: []
+        gas_secretion:
+        - gas_id: CHEBI:15379
+          gas_name: oxygen
+          max_exchange_rate:
+            value: 4.2
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, light-saturated
+  - organism_id: ORG-SALME
+    organism_name: Scenedesmus almeriensis
+    organism_type: Microalgae
+    strain_details: null
+    initial_biomass:
+      value: 0.1
+      unit: g
+    static_properties:
+      elemental_composition:
+        carbon: 0.5284
+        hydrogen: 0.0748
+        oxygen: 0.2592
+        nitrogen: 0.0798
+        phosphorus: 0.012
+        sulfur: 0.007
+      macromolecular_summary:
+        protein: 45
+        carbohydrate: 20
+        lipid: 25
+        nucleic_acid: 5
+        ash: 5
+      morphology:
+        nominal_diameter:
+          value: 15
+          unit: um
+      targeted_molecular_classes:
+        terpenoids_and_carotenoids:
+        - molecule: Lutein
+          concentration_mg_g_dw: 8.5
+        cell_wall_components: []
+    dynamic_parameters:
+      growth_rate_per_hr: 0.1
+      environmental_tolerances:
+        photosynthetic_light_response:
+          par_wavelength_range_nm:
+          - 400
+          - 700
+          saturation_ppfd:
+            value: 500
+            unit: μmol/m²/s
+          photoinhibition_ppfd:
+            value: 2200
+            unit: μmol/m²/s
+        temperature:
+          optimal:
+            value: 35
+            unit: celsius
+          range:
+            min: 20
+            max: 45
+        ph:
+          optimal: 8.5
+          range:
+            min: 7
+            max: 11
+        chemical:
+        - molecule_id: CHEBI:31206
+          molecule_name: atrazine
+          minimum_inhibitory_concentration:
+            value: 0.3
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 0.15
+            unit: g/L
+        - molecule_id: CHEBI:32139
+          molecule_name: sodium bicarbonate
+          minimum_inhibitory_concentration:
+            value: 25
+            unit: g/L
+          inhibitory_concentration_50:
+            value: 16
+            unit: g/L
+      metabolic_exchange:
+        media_consumption:
+        - molecule_id: CHEBI:16526
+          molecule_name: carbon dioxide
+          max_exchange_rate:
+            value: 3.7
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, light- & temperature-saturated
+        - molecule_id: CHEBI:49740
+          molecule_name: nitrate
+          max_exchange_rate:
+            value: 0.48
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, nutrient-replete
+        media_secretion: []
+        gas_consumption: []
+        gas_secretion:
+        - gas_id: CHEBI:15379
+          gas_name: oxygen
+          max_exchange_rate:
+            value: 4.1
+            unit: mmol/g_dw/hr
+          conditions:
+            aeration: Aerobic
+            light: Light
+            notes: phototrophic, light- & temperature-saturated

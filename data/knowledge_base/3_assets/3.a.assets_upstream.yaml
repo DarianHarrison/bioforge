@@ -1,0 +1,576 @@
+schema_version: "1.0"
+assets:
+  - asset_id: LN2-CELL-BANK-01
+    display_name: LN2 Cell Bank Freezer
+    asset_type: LN2_FREEZER
+    group: CULTIVATION
+    description: Commercially available. Standard vapor-phase liquid nitrogen freezer for long-term cell storage.
+    connection_points:
+    - port_id: POWER
+      port_type: ELECTRICAL
+      description: Main power for monitoring and auto-fill system.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: LN2_INLET
+      port_type: UTILITY_LIQUID_INLET
+      description: Inlet from bulk liquid nitrogen supply for auto-fill.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: CONTROL_DATA
+      port_type: DATA
+      description: Connection for temperature and level alarm system.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    operational_parameters:
+      configuration_and_control:
+      - key: low_level_autofill_trigger_percent
+        value: 20.0
+        unit: '%'
+        min: null
+        max: null
+        default: 20.0
+        group: null
+      - key: high_temp_alarm
+        value: -150.0
+        unit: °C
+        min: null
+        max: null
+        default: -150.0
+        group: null
+      - key: manual_fill_active
+        value: 0.0
+        unit: null
+        min: null
+        max: null
+        default: 0.0
+        group: null
+      - key: defog_cycle_active
+        value: 0.0
+        unit: null
+        min: null
+        max: null
+        default: 0.0
+        group: null
+      monitoring: null
+      operational_tasks:
+      - task_id: OP-LN2-001
+        task_name: Inventory Management
+        description: Retrieve or store cryoboxes; update inventory.
+      - task_id: OP-LN2-002
+        task_name: Weekly Check
+        description: Visual inspection, check LN2 levels, review logs.
+      maintenance:
+        reliability_model:
+          mtbf:
+            value: 40000.0
+            unit: hr
+          mttr:
+            value: 4.0
+            unit: hr
+        preventative_schedules:
+        - task_id: PM-LN2-001
+          task_name: Vacuum Jacket Integrity Check
+          trigger:
+            trigger_type: time_based
+            unit: months
+            interval: 12
+            description: null
+          materials_and_parts: null
+      labor_requirements:
+      - linked_task_id: OP-LN2-001
+        task_description: Retrieve or store cryoboxes; update inventory.
+        required_role_id: LABOR-QC-ANALYST-1
+        duration:
+          value: 5.0
+          unit: min/box
+      - linked_task_id: OP-LN2-002
+        task_description: Visual inspection, check LN2 levels, review logs.
+        required_role_id: LABOR-OPERATOR-1
+        duration:
+          value: 15.0
+          unit: min
+      - linked_task_id: PM-LN2-001
+        task_description: Perform annual vacuum jacket integrity check.
+        required_role_id: LABOR-MAINT-TECH-2
+        duration:
+          value: 120.0
+          unit: min
+      power_model:
+        description: Power consumption is for the electronic monitoring system (temperature, LN2 level) and the intermittent operation of the auto-fill solenoid valve. The cooling itself is passive and requires no direct power.
+        operating_power:
+          value: 0.05
+          unit: kW
+        standby_power:
+          value: 0.05
+          unit: kW
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 20
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 20000.0
+          impacts:
+          - metric: gwp
+            value: 1500.0
+            unit: kg_CO2e
+        use_and_operation:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 5000.0
+          impacts:
+          - metric: gwp_per_year
+            value: 2100.0
+            unit: kg_CO2e
+        maintenance:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 300.0
+          impacts:
+          - metric: gwp_per_year
+            value: 10.0
+            unit: kg_CO2e
+        end_of_life:
+          costs:
+          - cost_type: terminal_value
+            value_usd: -300.0
+          impacts:
+          - metric: recycling_rate
+            value: 85.0
+            unit: '%'
+  - asset_id: CULTIVATION-LOOP-01
+    display_name: Microorganism Culture Loop 1
+    asset_type: VERTICAL_PLATE_BIOREACTOR
+    group: CULTIVATION
+    description: Commercially available. While standard bioreactors are common, a 500L vertical-plate system for attached growth is a specialized design, often requiring custom fabrication or significant modification from a vendor.
+    connection_points:
+    - port_id: MEDIA_INLET
+      port_type: LIQUID_INLET
+      description: Inlet for sterile media.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: INOCULUM_PORT
+      port_type: LIQUID_INLET
+      description: Aseptic port for inoculum addition.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: HARVEST_OUTLET
+      port_type: LIQUID_OUTLET
+      description: Outlet for harvesting the culture.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: GAS_INLET
+      port_type: GAS_INLET
+      description: Inlet for sterile air/gas mix.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: GAS_OUTLET
+      port_type: GAS_OUTLET
+      description: Exhaust gas outlet.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: POWER
+      port_type: ELECTRICAL
+      description: Main power connection.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    operational_parameters:
+      configuration_and_control:
+      - key: culture_method
+        value: 0.0
+        unit: null
+        min: null
+        max: null
+        default: 0.0
+        group: null
+      - key: initial_media_id
+        value: 0.0
+        unit: null
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: recirculation_flow_rate
+        value: 0.0
+        unit: L/min
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: temperature_setpoint
+        value: 25.0
+        unit: °C
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: ph_setpoint
+        value: 7.0
+        unit: pH
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: feed_rate
+        value: 0.0
+        unit: mL/hr
+        min: null
+        max: null
+        default: null
+        group: null
+      monitoring: null
+      operational_tasks:
+      - task_id: OP-CLOOP-001
+        task_name: Pre-Run Setup
+        description: System assembly, sensor calibration, media preparation and loading.
+      - task_id: OP-CLOOP-002
+        task_name: Inoculation
+        description: Aseptic transfer of inoculum into the bioreactor.
+      - task_id: OP-CLOOP-003
+        task_name: CIP/SIP Cycle
+        description: Executing the automated Clean-in-Place and Steam-in-Place cycles.
+      maintenance:
+        reliability_model:
+          mtbf:
+            value: 8000.0
+            unit: hr
+          mttr:
+            value: 24.0
+            unit: hr
+        preventative_schedules:
+        - task_id: PM-CLOOP-001
+          task_name: Full Gasket and Seal Replacement
+          trigger:
+            trigger_type: time_based
+            unit: months
+            interval: 24
+            description: null
+          materials_and_parts: null
+        - task_id: PM-CLOOP-002
+          task_name: Sensor Calibration
+          trigger:
+            trigger_type: usage_based
+            unit: batch
+            interval: 1
+            description: null
+          materials_and_parts:
+          - CONS-PH-BUFFER-4
+          - CONS-PH-BUFFER-7
+      labor_requirements:
+      - linked_task_id: OP-CLOOP-001
+        task_description: System assembly, sensor calibration, media preparation and loading.
+        required_role_id: LABOR-OPERATOR-2
+        duration:
+          value: 240.0
+          unit: min
+      - linked_task_id: OP-CLOOP-002
+        task_description: Aseptic transfer of inoculum into the bioreactor.
+        required_role_id: LABOR-OPERATOR-2
+        duration:
+          value: 30.0
+          unit: min
+      - linked_task_id: OP-CLOOP-003
+        task_description: Executing the automated Clean-in-Place and Steam-in-Place cycles.
+        required_role_id: LABOR-OPERATOR-2
+        duration:
+          value: 480.0
+          unit: min
+      - linked_task_id: PM-CLOOP-001
+        task_description: Perform full gasket and seal replacement.
+        required_role_id: LABOR-MAINT-TECH-2
+        duration:
+          value: 480.0
+          unit: min
+      - linked_task_id: PM-CLOOP-002
+        task_description: Perform sensor calibration.
+        required_role_id: LABOR-OPERATOR-2
+        duration:
+          value: 90.0
+          unit: min
+      power_model:
+        description: Estimated power based on a large recirculation pump, a tank agitator, and a substantial temperature control unit for the 500L tank. A separate, higher power state is defined for the energy-intensive steam-in-place (SIP) sterilization cycle.
+        operating_power:
+          value: 4.1
+          unit: kW
+        standby_power:
+          value: 0.3
+          unit: kW
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 15
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 350000.0
+          impacts:
+          - metric: gwp
+            value: 45000.0
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 800000.0
+            unit: MJ
+          - metric: water_use
+            value: 50.0
+            unit: m3
+          - metric: ep
+            value: 0.0
+            unit: kg_PO4e
+        use_and_operation:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 150000.0
+          impacts:
+          - metric: gwp_per_year
+            value: 20000.0
+            unit: kg_CO2e
+          - metric: adp_fossil_per_year
+            value: 0.0
+            unit: MJ
+          - metric: water_use_per_year
+            value: 120.0
+            unit: m3
+          - metric: ep_per_year
+            value: 5.0
+            unit: kg_PO4e
+        maintenance:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 20000.0
+          impacts:
+          - metric: gwp_per_year
+            value: 500.0
+            unit: kg_CO2e
+          - metric: e_waste_burden_per_year
+            value: 8.0
+            unit: kg
+        end_of_life:
+          costs:
+          - cost_type: terminal_value
+            value_usd: -8000.0
+          impacts:
+          - metric: recycling_rate
+            value: 70.0
+            unit: '%'
+          - metric: hazardous_waste
+            value: 25.0
+            unit: kg
+          - metric: e_waste_burden
+            value: 50.0
+            unit: kg
+  - asset_id: GRIND-001
+    display_name: Cryo-Capable Biomass Grinder
+    asset_type: CRYO_BIOMASS_GRINDER
+    group: MILLING
+    description: Commercially available. High-torque grinder for reducing biomass particle size, with liquid nitrogen inlet for cryo-milling of tough materials.
+    connection_points:
+    - port_id: BIOMASS_INLET
+      port_type: SOLID_INLET
+      description: Inlet for biomass to be ground.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: GROUND_BIOMASS_OUTLET
+      port_type: SOLID_OUTLET
+      description: Outlet for processed biomass.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: LN2_INLET
+      port_type: UTILITY_LIQUID_INLET
+      description: Inlet for liquid nitrogen for cryo-milling.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    - port_id: POWER
+      port_type: ELECTRICAL
+      description: Main power connection.
+      flow_capacities:
+      - direction: 3
+        rate:
+          value: 0.0
+          unit: N/A
+        material_id: null
+    operational_parameters:
+      configuration_and_control:
+      - key: milling_method
+        value: 1.0
+        unit: null
+        min: null
+        max: null
+        default: 1.0
+        group: null
+      - key: output_sieve_size
+        value: 500.0
+        unit: µm
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: motor_speed
+        value: 0.0
+        unit: rpm
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: process_duration
+        value: 0.0
+        unit: s
+        min: null
+        max: null
+        default: null
+        group: null
+      - key: cryogen_flow_rate
+        value: 0.0
+        unit: L/min
+        min: null
+        max: null
+        default: null
+        group: null
+      monitoring: null
+      operational_tasks:
+      - task_id: OP-GRIND-001
+        task_name: Setup Per Batch
+        description: Assemble grinding plates, load biomass, and configure run parameters.
+      - task_id: OP-GRIND-002
+        task_name: Operation Monitoring
+        description: Supervise the grinding operation.
+      - task_id: OP-GRIND-003
+        task_name: Cleanup Per Batch
+        description: Disassemble and clean grinding chamber and plates.
+      maintenance:
+        reliability_model:
+          mtbf:
+            value: 6000.0
+            unit: hr
+          mttr:
+            value: 8.0
+            unit: hr
+        preventative_schedules:
+        - task_id: PM-GRIND-001
+          task_name: Motor and Bearing Inspection
+          trigger:
+            trigger_type: usage_based
+            unit: operating_hours
+            interval: 1000
+            description: null
+          materials_and_parts: null
+      labor_requirements:
+      - linked_task_id: OP-GRIND-001
+        task_description: Assemble grinding plates, load biomass, and configure run parameters.
+        required_role_id: LABOR-OPERATOR-1
+        duration:
+          value: 30.0
+          unit: min
+      - linked_task_id: OP-GRIND-002
+        task_description: Supervise the grinding operation.
+        required_role_id: LABOR-OPERATOR-1
+        duration:
+          value: 10.0
+          unit: min/hr_op
+      - linked_task_id: OP-GRIND-003
+        task_description: Disassemble and clean grinding chamber and plates.
+        required_role_id: LABOR-OPERATOR-1
+        duration:
+          value: 60.0
+          unit: min
+      - linked_task_id: PM-GRIND-001
+        task_description: Perform motor and bearing inspection.
+        required_role_id: LABOR-MAINT-TECH-2
+        duration:
+          value: 120.0
+          unit: min
+      power_model:
+        description: Estimated power based on a heavy-duty motor required for grinding tough biomass. Operating power reflects the motor under significant load.
+        operating_power:
+          value: 3.2
+          unit: kW
+        standby_power:
+          value: 0.1
+          unit: kW
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 15
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 80000.0
+          impacts:
+          - metric: gwp
+            value: 12500.0
+            unit: kg_CO2e
+        use_and_operation:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 30000.0
+          impacts:
+          - metric: gwp_per_year
+            value: 8000.0
+            unit: kg_CO2e
+        maintenance:
+          costs:
+          - cost_type: opex_per_year
+            value_usd: 5000.0
+          impacts:
+          - metric: gwp_per_year
+            value: 400.0
+            unit: kg_CO2e
+        end_of_life:
+          costs:
+          - cost_type: terminal_value
+            value_usd: -500.0
+          impacts:
+          - metric: recycling_rate
+            value: 80.0
+            unit: '%'

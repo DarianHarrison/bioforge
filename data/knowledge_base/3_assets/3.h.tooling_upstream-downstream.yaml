@@ -1,0 +1,350 @@
+schema_version: "1.0"
+assets:
+  - asset_id: TOOL-OBJ-LENS-20X-PH-01
+    display_name: 20x Plan Achromat Phase Contrast Objective Lens
+    asset_type: ObjectiveLens
+    group: QUALITY_CONTROL
+    description: Re-classified from Consumable. Microscope objectives are core, long-term optical components. Its cost is accounted for in the CAPEX of the parent asset, not as an operational consumable.
+    connection_points: null
+    operational_parameters:
+      configuration_and_control: null
+      monitoring: null
+      operational_tasks: null
+      maintenance:
+        reliability_model: null
+        preventative_schedules:
+        - task_id: PM-001
+          task_name: Scheduled Replacement
+          trigger:
+            trigger_type: time_based
+            unit: months
+            interval: 120
+            description: null
+          materials_and_parts: null
+      labor_requirements: null
+      power_model: null
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 10
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 350.0
+          impacts:
+          - metric: gwp
+            value: 3.5
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 52.5
+            unit: MJ
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - asset_id: TOOL-PH-PROBE-GEL-01
+    display_name: Inline pH Probe, Gel-filled, 12mm
+    asset_type: SensorProbe
+    group: QUALITY_CONTROL
+    description: Re-classified from Consumable. This is a durable sensor with a typical lifespan of 12-18 months, representing a periodic maintenance cost.
+    connection_points: null
+    operational_parameters:
+      configuration_and_control: null
+      monitoring: null
+      operational_tasks: null
+      maintenance:
+        reliability_model: null
+        preventative_schedules:
+        - task_id: PM-001
+          task_name: Scheduled Replacement
+          trigger:
+            trigger_type: time_based
+            unit: months
+            interval: 15
+            description: null
+          materials_and_parts: null
+      labor_requirements: null
+      power_model: null
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 1
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 400.0
+          impacts:
+          - metric: gwp
+            value: 4.0
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 60.0
+            unit: MJ
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - asset_id: TOOL-REF-THERM-01
+    display_name: Certified Digital Reference Thermometer
+    asset_type: CalibrationStandard
+    group: QUALITY_CONTROL
+    description: Re-classified from Consumable. A certified thermometer is a piece of durable metrology equipment.
+    connection_points: null
+    operational_parameters:
+      configuration_and_control: null
+      monitoring: null
+      operational_tasks: null
+      maintenance:
+        reliability_model: null
+        preventative_schedules:
+        - task_id: PM-001
+          task_name: Factory Recalibration for Certification
+          trigger:
+            trigger_type: time_based
+            unit: months
+            interval: 36
+            description: null
+          materials_and_parts: null
+      labor_requirements: null
+      power_model: null
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 10
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 500.0
+          impacts:
+          - metric: gwp
+            value: 5.0
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 75.0
+            unit: MJ
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - asset_id: MOD-PLATE-STD-01
+    display_name: Standard Grinding Plate Set
+    asset_type: GrindingPlate
+    group: MILLING
+    description: Durable plate set for standard wet or dry milling applications. Its cost is accounted for in the CAPEX of the parent asset or as a periodic maintenance cost.
+    connection_points: null
+    operational_parameters:
+      configuration_and_control: null
+      monitoring: null
+      operational_tasks: null
+      maintenance:
+        reliability_model: null
+        preventative_schedules:
+        - task_id: PM-001
+          task_name: Scheduled Replacement
+          trigger:
+            trigger_type: time_based
+            unit: months
+            interval: 36
+            description: null
+          materials_and_parts: null
+      labor_requirements: null
+      power_model: null
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 3
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 1200.0
+          impacts:
+          - metric: gwp
+            value: 9.6
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 144.0
+            unit: MJ
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - asset_id: MOD-PLATE-CRYO-01
+    display_name: Cryo-Milling Grinding Plate Set
+    asset_type: GrindingPlate
+    group: MILLING
+    description: Durable plate set made from specialized materials for cryo-milling applications. Its cost is accounted for in the CAPEX of the parent asset or as a periodic maintenance cost.
+    connection_points: null
+    operational_parameters:
+      configuration_and_control: null
+      monitoring: null
+      operational_tasks: null
+      maintenance:
+        reliability_model: null
+        preventative_schedules:
+        - task_id: PM-001
+          task_name: Scheduled Replacement
+          trigger:
+            trigger_type: time_based
+            unit: months
+            interval: 36
+            description: null
+          materials_and_parts: null
+      labor_requirements: null
+      power_model: null
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 3
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 1800.0
+          impacts:
+          - metric: gwp
+            value: 14.4
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 216.0
+            unit: MJ
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - asset_id: TOOL-COLUMN-PACKING-01
+    display_name: Ceramic Raschig Rings, 15mm
+    asset_type: ColumnPacking
+    group: EXTRACTION
+    description: Re-classified from Consumable. Ceramic column packing is a durable material with a multi-year lifespan. Cost is representative for a pilot-scale column and is accounted for in the CAPEX of the parent asset.
+    connection_points: null
+    operational_parameters:
+      configuration_and_control: null
+      monitoring: null
+      operational_tasks: null
+      maintenance:
+        reliability_model: null
+        preventative_schedules:
+        - task_id: PM-001
+          task_name: Scheduled Replacement
+          trigger:
+            trigger_type: time_based
+            unit: months
+            interval: 60
+            description: null
+          materials_and_parts: null
+      labor_requirements: null
+      power_model: null
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 5
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 2000.0
+          impacts:
+          - metric: gwp
+            value: 30.0
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 450.0
+            unit: MJ
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - asset_id: TOOL-GC-COL-DB5-01
+    display_name: DB-5 GC Column, 30m, 0.25mm ID, 0.25µm film
+    asset_type: ChromatographyColumn
+    group: QUALITY_CONTROL
+    description: Durable general-purpose GC column.
+    connection_points: null
+    operational_parameters:
+      configuration_and_control: null
+      monitoring: null
+      operational_tasks: null
+      maintenance:
+        reliability_model: null
+        preventative_schedules:
+        - task_id: PM-001
+          task_name: Scheduled Replacement
+          trigger:
+            trigger_type: time_based
+            unit: months
+            interval: 24
+            description: null
+          materials_and_parts: null
+      labor_requirements: null
+      power_model: null
+    techno_economic_and_lca_profile:
+      expected_lifespan:
+        value: 2
+        unit: years
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: capex
+            value_usd: 500.0
+          impacts:
+          - metric: gwp
+            value: 1.2
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 20.0
+            unit: MJ
+          - metric: water_use
+            value: 0.04
+            unit: m3
+          - metric: ep
+            value: 0.001
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.004
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.001
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []

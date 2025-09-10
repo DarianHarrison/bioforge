@@ -1,0 +1,17 @@
+[package]
+name = "bioforge-schemas"
+version = "0.0.1"
+authors = ["Darian Harrison", "Daraian Harrison <darianharrison89@gmail.com>"]
+edition = "2021"
+description = "A Framework for Sustainable Bioprocess Design"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+# repository = "https://github.com/DarianHarrison/bioforge-schemas"
+keywords = ["bioprocess", "automation", "digital-twin", "tea", "lca"]
+categories = ["science", "simulation", "data-structures"]
+
+
+[dependencies]
+# Public dependencies
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"

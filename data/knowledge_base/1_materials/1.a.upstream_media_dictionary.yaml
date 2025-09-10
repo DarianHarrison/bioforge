@@ -1,0 +1,1022 @@
+schema_version: "1.0"
+materials:
+  - material_id: MEDIA-NA-BICARB
+    material_name: Sodium Bicarbonate
+    material_class: Chemical
+    material_subtype: Buffer
+    material_category: PurchasedRawMaterial
+    unit: kg
+    metadata:
+      process_role: pH Regulation
+      vendor: null
+      part_number: null
+      notes: Primary buffering agent in many cell culture systems, working in conjunction with a controlled CO₂ atmosphere.
+      identifiers:
+        cas_number: 144-55-8
+        chebi_id: CHEBI:32139
+        pubchem_cid: '516892'
+    specifications:
+    - key: molecular_weight
+      value: 84.01
+      unit: Da
+    - key: diffusion_coefficient
+      value: 0.0000118
+      unit: cm2/s
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 0.85
+          impacts:
+          - metric: gwp
+            value: 1.3
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 18.0
+            unit: MJ
+          - metric: water_use
+            value: 0.08
+            unit: m3
+          - metric: ep
+            value: 0.0
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.002
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.001
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: MEDIA-FE-NITRATE
+    material_name: Ferric Nitrate (Fe(NO3)3·9H2O)
+    material_class: Chemical
+    material_subtype: Nutrient
+    material_category: PurchasedRawMaterial
+    unit: kg
+    metadata:
+      process_role: Ion
+      vendor: null
+      part_number: null
+      notes: Common source of iron for cell culture media. The nonahydrate form is most common.
+      identifiers:
+        cas_number: 7782-61-8
+        chebi_id: CHEBI:77833
+        pubchem_cid: '25255'
+    specifications:
+    - key: molecular_weight
+      value: 404.0
+      unit: Da
+    - key: diffusion_coefficient
+      value: 6e-6
+      unit: cm2/s
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 9.5
+          impacts:
+          - metric: gwp
+            value: 2.5
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 40.0
+            unit: MJ
+          - metric: water_use
+            value: 0.2
+            unit: m3
+          - metric: ep
+            value: 0.002
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.005
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.002
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: MEDIA-NAH2PO4
+    material_name: Sodium Phosphate, Monobasic (NaH2PO4)
+    material_class: Chemical
+    material_subtype: Nutrient
+    material_category: PurchasedRawMaterial
+    unit: kg
+    metadata:
+      process_role: Ion / Buffer
+      vendor: null
+      part_number: null
+      notes: Provides phosphate and sodium ions; often used with dibasic sodium phosphate to create a phosphate buffer system. Values are for the anhydrous form.
+      identifiers:
+        cas_number: 7558-80-7
+        chebi_id: CHEBI:37585
+        pubchem_cid: '24204'
+    specifications:
+    - key: molecular_weight
+      value: 119.98
+      unit: Da
+    - key: diffusion_coefficient
+      value: 0.000011
+      unit: cm2/s
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 1.3
+          impacts:
+          - metric: gwp
+            value: 1.8
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 25.0
+            unit: MJ
+          - metric: water_use
+            value: 0.1
+            unit: m3
+          - metric: ep
+            value: 0.55
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.003
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.001
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: MEDIA-GLUCOSE
+    material_name: D-Glucose (Dextrose)
+    material_class: Chemical
+    material_subtype: Nutrient
+    material_category: PurchasedRawMaterial
+    unit: kg
+    metadata:
+      process_role: Carbon Source
+      vendor: null
+      part_number: null
+      notes: The most common carbon and energy source for heterotrophic cell culture.
+      identifiers:
+        cas_number: 50-99-7
+        chebi_id: CHEBI:17234
+        pubchem_cid: '5793'
+    specifications:
+    - key: molecular_weight
+      value: 180.16
+      unit: Da
+    - key: diffusion_coefficient
+      value: 6.7e-6
+      unit: cm2/s
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 0.8
+          impacts:
+          - metric: gwp
+            value: 1.5
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 28.0
+            unit: MJ
+          - metric: water_use
+            value: 2.1
+            unit: m3
+          - metric: ep
+            value: 0.002
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.005
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.001
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: CTRL-PEN-STREP
+    material_name: Penicillin-Streptomycin
+    material_class: Chemical
+    material_subtype: Control Agent
+    material_category: PurchasedRawMaterial
+    unit: kg
+    metadata:
+      process_role: Antibiotic
+      vendor: null
+      part_number: null
+      notes: A combination product containing Penicillin (a β-lactam) and Streptomycin (an aminoglycoside). Values represent the combined active ingredients.
+      identifiers:
+        cas_number: null
+        chebi_id: null
+        pubchem_cid: null
+    specifications: []
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 18000.0
+          impacts:
+          - metric: gwp
+            value: 80.0
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 950.0
+            unit: MJ
+          - metric: water_use
+            value: 75.0
+            unit: m3
+          - metric: ep
+            value: 0.2
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.4
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.1
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: CTRL-NH4OH
+    material_name: Ammonium Hydroxide (NH₄OH)
+    material_class: Chemical
+    material_subtype: Control Agent
+    material_category: PurchasedRawMaterial
+    unit: kg
+    metadata:
+      process_role: Base / Nitrogen Source
+      vendor: null
+      part_number: null
+      notes: Ammonia gas dissolved in water. Used for pH control and as a nitrogen source. Values are normalized to a per-kg of NH₃ basis.
+      identifiers:
+        cas_number: 1336-21-6
+        chebi_id: CHEBI:18219
+        pubchem_cid: '14923'
+    specifications:
+    - key: molecular_weight
+      value: 35.05
+      unit: Da
+    - key: diffusion_coefficient
+      value: 0.000017
+      unit: cm2/s
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 0.7
+          impacts:
+          - metric: gwp
+            value: 2.5
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 40.0
+            unit: MJ
+          - metric: water_use
+            value: 0.1
+            unit: m3
+          - metric: ep
+            value: 0.002
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.01
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.001
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: CTRL-H3PO4
+    material_name: Phosphoric Acid (H₃PO₄)
+    material_class: Chemical
+    material_subtype: Control Agent
+    material_category: PurchasedRawMaterial
+    unit: kg
+    metadata:
+      process_role: Acid / Phosphorus Source
+      vendor: null
+      part_number: null
+      notes: Used for pH control and as a source of phosphate.
+      identifiers:
+        cas_number: 7664-38-2
+        chebi_id: CHEBI:26078
+        pubchem_cid: '1004'
+    specifications:
+    - key: molecular_weight
+      value: 98.0
+      unit: Da
+    - key: diffusion_coefficient
+      value: 9.2e-6
+      unit: cm2/s
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 1.2
+          impacts:
+          - metric: gwp
+            value: 1.8
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 22.0
+            unit: MJ
+          - metric: water_use
+            value: 0.08
+            unit: m3
+          - metric: ep
+            value: 0.45
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.004
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.001
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: CTRL-CO2-GAS
+    material_name: CO₂ Gas Injection
+    material_class: Chemical
+    material_subtype: Control Agent
+    material_category: PurchasedRawMaterial
+    unit: kg
+    metadata:
+      process_role: Acid / Carbon Source
+      vendor: null
+      part_number: null
+      notes: Used for pH control in alkaline cultures and as the primary carbon source for autotrophs.
+      identifiers:
+        cas_number: 124-38-9
+        chebi_id: CHEBI:16526
+        pubchem_cid: '280'
+    specifications:
+    - key: molecular_weight
+      value: 44.01
+      unit: Da
+    - key: diffusion_coefficient
+      value: 0.0000192
+      unit: cm2/s
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 0.25
+          impacts:
+          - metric: gwp
+            value: 0.2
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 2.5
+            unit: MJ
+          - metric: water_use
+            value: 0.01
+            unit: m3
+          - metric: ep
+            value: 0.0
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.0
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.0
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: MEDIA-NANO3
+    material_name: NaNO₃ (Sodium Nitrate)
+    material_class: Chemical
+    material_subtype: Nutrient
+    material_category: PurchasedRawMaterial
+    unit: kg
+    metadata:
+      process_role: Nitrogen Source
+      vendor: null
+      part_number: null
+      notes: A common inorganic nitrogen source, particularly for microalgae and plant cell culture.
+      identifiers:
+        cas_number: 7631-99-4
+        chebi_id: CHEBI:32142
+        pubchem_cid: '24268'
+    specifications:
+    - key: molecular_weight
+      value: 84.99
+      unit: Da
+    - key: diffusion_coefficient
+      value: 0.000013
+      unit: cm2/s
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 0.7
+          impacts:
+          - metric: gwp
+            value: 2.2
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 35.0
+            unit: MJ
+          - metric: water_use
+            value: 0.1
+            unit: m3
+          - metric: ep
+            value: 0.001
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.004
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.001
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: MEDIA-K2HPO4
+    material_name: K₂HPO₄ (Dipotassium Phosphate)
+    material_class: Chemical
+    material_subtype: Nutrient
+    material_category: PurchasedRawMaterial
+    unit: kg
+    metadata:
+      process_role: Phosphorus Source / Buffer
+      vendor: null
+      part_number: null
+      notes: Provides phosphorus and potassium. Often used with monopotassium phosphate to create a buffer.
+      identifiers:
+        cas_number: 7758-11-4
+        chebi_id: CHEBI:32031
+        pubchem_cid: '24450'
+    specifications:
+    - key: molecular_weight
+      value: 174.18
+      unit: Da
+    - key: diffusion_coefficient
+      value: 0.00001
+      unit: cm2/s
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 1.4
+          impacts:
+          - metric: gwp
+            value: 1.8
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 25.0
+            unit: MJ
+          - metric: water_use
+            value: 0.1
+            unit: m3
+          - metric: ep
+            value: 0.55
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.003
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.001
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: MEDIA-KH2PO4
+    material_name: KH₂PO₄ (Monopotassium Phosphate)
+    material_class: Chemical
+    material_subtype: Nutrient
+    material_category: PurchasedRawMaterial
+    unit: kg
+    metadata:
+      process_role: Phosphorus Source / Buffer
+      vendor: null
+      part_number: null
+      notes: Provides phosphorus and potassium. Often used with dipotassium phosphate to create a buffer.
+      identifiers:
+        cas_number: 7778-77-0
+        chebi_id: CHEBI:63036
+        pubchem_cid: '516951'
+    specifications:
+    - key: molecular_weight
+      value: 136.09
+      unit: Da
+    - key: diffusion_coefficient
+      value: 0.000011
+      unit: cm2/s
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 1.35
+          impacts:
+          - metric: gwp
+            value: 1.8
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 25.0
+            unit: MJ
+          - metric: water_use
+            value: 0.1
+            unit: m3
+          - metric: ep
+            value: 0.55
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.003
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.001
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: MEDIA-NACL
+    material_name: NaCl (Sodium Chloride)
+    material_class: Chemical
+    material_subtype: Nutrient
+    material_category: PurchasedRawMaterial
+    unit: kg
+    metadata:
+      process_role: Osmolyte
+      vendor: null
+      part_number: null
+      notes: Used to maintain osmotic pressure in cell culture media.
+      identifiers:
+        cas_number: 7647-14-5
+        chebi_id: CHEBI:26710
+        pubchem_cid: '5234'
+    specifications:
+    - key: molecular_weight
+      value: 58.44
+      unit: Da
+    - key: diffusion_coefficient
+      value: 0.0000161
+      unit: cm2/s
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 0.25
+          impacts:
+          - metric: gwp
+            value: 0.15
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 2.5
+            unit: MJ
+          - metric: water_use
+            value: 0.01
+            unit: m3
+          - metric: ep
+            value: 0.0
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.0
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.0
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: MEDIA-CUSO4
+    material_name: CuSO₄·5H₂O (Cupric Sulfate)
+    material_class: Chemical
+    material_subtype: Nutrient
+    material_category: PurchasedRawMaterial
+    unit: kg
+    metadata:
+      process_role: Trace Element (Copper)
+      vendor: null
+      part_number: null
+      notes: A source of copper, an essential redox-active metal cofactor. Also used as an algaecide at higher concentrations. Values are for the pentahydrate form (blue vitriol).
+      identifiers:
+        cas_number: 7758-99-8
+        chebi_id: CHEBI:23414
+        pubchem_cid: '24462'
+    specifications:
+    - key: molecular_weight
+      value: 249.68
+      unit: Da
+    - key: diffusion_coefficient
+      value: 5.9e-6
+      unit: cm2/s
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 2.5
+          impacts:
+          - metric: gwp
+            value: 1.5
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 25.0
+            unit: MJ
+          - metric: water_use
+            value: 0.1
+            unit: m3
+          - metric: ep
+            value: 0.002
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.005
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.003
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: MEDIA-ACETATE
+    material_name: Acetate
+    material_class: Chemical
+    material_subtype: Metabolic Byproduct
+    material_category: ProcessGeneratedByproduct
+    unit: kg
+    metadata:
+      process_role: Inhibitor / Carbon Source
+      vendor: null
+      part_number: null
+      notes: A common metabolic byproduct that can be inhibitory at high concentrations, but also serves as a carbon source for some organisms. TEA/LCA is based on Acetic Acid as the source.
+      identifiers:
+        cas_number: 71-50-1
+        chebi_id: CHEBI:30089
+        pubchem_cid: '175'
+    specifications:
+    - key: molecular_weight
+      value: 59.04
+      unit: Da
+    - key: diffusion_coefficient
+      value: 0.000012
+      unit: cm2/s
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 1.1
+          impacts:
+          - metric: gwp
+            value: 2.1
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 48.0
+            unit: MJ
+          - metric: water_use
+            value: 0.1
+            unit: m3
+          - metric: ep
+            value: 0.001
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.005
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.002
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: MEDIA-ETHANOL
+    material_name: Ethanol
+    material_class: Chemical
+    material_subtype: Metabolic Byproduct
+    material_category: ProcessGeneratedByproduct
+    unit: kg
+    metadata:
+      process_role: Inhibitor / Carbon Source
+      vendor: null
+      part_number: null
+      notes: A common fermentation byproduct that can be toxic to cells at high concentrations but is also used as a carbon source by some organisms.
+      identifiers:
+        cas_number: 64-17-5
+        chebi_id: CHEBI:16236
+        pubchem_cid: '702'
+    specifications:
+    - key: molecular_weight
+      value: 46.07
+      unit: Da
+    - key: diffusion_coefficient
+      value: 0.000015
+      unit: cm2/s
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 0.95
+          impacts:
+          - metric: gwp
+            value: 1.5
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 25.0
+            unit: MJ
+          - metric: water_use
+            value: 2.0
+            unit: m3
+          - metric: ep
+            value: 0.002
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.004
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.001
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: MEDIA-LACTATE
+    material_name: Lactic Acid
+    material_class: Chemical
+    material_subtype: Metabolic Byproduct
+    material_category: ProcessGeneratedByproduct
+    unit: kg
+    metadata:
+      process_role: Inhibitor
+      vendor: null
+      part_number: null
+      notes: A major byproduct of anaerobic fermentation in many bacteria and animal cells. Its accumulation lowers pH and can be inhibitory.
+      identifiers:
+        cas_number: 79-33-4
+        chebi_id: CHEBI:422
+        pubchem_cid: '612'
+    specifications:
+    - key: molecular_weight
+      value: 90.08
+      unit: Da
+    - key: diffusion_coefficient
+      value: 0.00001
+      unit: cm2/s
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 1.6
+          impacts:
+          - metric: gwp
+            value: 1.8
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 35.0
+            unit: MJ
+          - metric: water_use
+            value: 1.9
+            unit: m3
+          - metric: ep
+            value: 0.003
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.007
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.004
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: MEDIA-CITRIC-ACID
+    material_name: Citric Acid
+    material_class: Chemical
+    material_subtype: Metabolic Byproduct
+    material_category: ProcessGeneratedByproduct
+    unit: kg
+    metadata:
+      process_role: Product / Chelator
+      vendor: null
+      part_number: null
+      notes: A key metabolic intermediate and a major industrial product of fermentation by Aspergillus niger.
+      identifiers:
+        cas_number: 77-92-9
+        chebi_id: CHEBI:30769
+        pubchem_cid: '311'
+    specifications:
+    - key: molecular_weight
+      value: 192.12
+      unit: Da
+    - key: diffusion_coefficient
+      value: 6.9e-6
+      unit: cm2/s
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 1.5
+          impacts:
+          - metric: gwp
+            value: 1.7
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 30.0
+            unit: MJ
+          - metric: water_use
+            value: 2.0
+            unit: m3
+          - metric: ep
+            value: 0.002
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.006
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.003
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []
+  - material_id: MEDIA-GLYCEROL
+    material_name: Glycerol (Glycerin)
+    material_class: Chemical
+    material_subtype: Nutrient
+    material_category: PurchasedRawMaterial
+    unit: kg
+    metadata:
+      process_role: Carbon Source
+      vendor: null
+      part_number: null
+      notes: A common, non-repressing carbon source for microbial cultures, particularly for the growth phase of Pichia pastoris before methanol induction.
+      identifiers:
+        cas_number: 56-81-5
+        chebi_id: CHEBI:17754
+        pubchem_cid: '753'
+    specifications:
+    - key: molecular_weight
+      value: 92.09
+      unit: Da
+    - key: diffusion_coefficient
+      value: 9.4e-6
+      unit: cm2/s
+    formulation: null
+    techno_economic_and_lca_profile:
+      lifecycle_stages:
+        manufacturing_and_acquisition:
+          costs:
+          - cost_type: purchase_cost
+            value_usd: 1.1
+          impacts:
+          - metric: gwp
+            value: 1.2
+            unit: kg_CO2e
+          - metric: adp_fossil
+            value: 25.0
+            unit: MJ
+          - metric: water_use
+            value: 1.5
+            unit: m3
+          - metric: ep
+            value: 0.002
+            unit: kg_PO4e
+          - metric: ap
+            value: 0.004
+            unit: kg_SO2e
+          - metric: pocp
+            value: 0.001
+            unit: kg_C2H4e
+        use_and_operation:
+          costs: []
+          impacts: []
+        maintenance:
+          costs: []
+          impacts: []
+        end_of_life:
+          costs: []
+          impacts: []

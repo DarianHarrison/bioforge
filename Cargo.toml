@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "bioforge-schemas",
+    "bioforge-core",
+    "bioforge-app",
+]
+resolver = "2"

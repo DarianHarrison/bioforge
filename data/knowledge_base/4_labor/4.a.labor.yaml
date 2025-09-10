@@ -1,0 +1,44 @@
+schema_version: "1.0"
+labor_roles:
+  - labor_role_id: LABOR-OPERATOR-1
+    role_name: Bioprocess Operator I
+    skill_level: 1
+    description: Performs routine, supervised tasks on upstream and downstream process equipment, such as monitoring, cleaning, and material handling.
+    techno_economic_profile:
+      cost_per_hour_usd: 45.0
+  - labor_role_id: LABOR-OPERATOR-2
+    role_name: Bioprocess Operator II
+    skill_level: 2
+    description: Handles complex equipment setup, in-process adjustments, and executes batch records with minimal supervision.
+    techno_economic_profile:
+      cost_per_hour_usd: 55.0
+  - labor_role_id: LABOR-TECHNICIAN-1
+    role_name: QC Technician I
+    skill_level: 1
+    description: Performs basic, supervised QC tests and characterization, such as microscopy and sieve analysis.
+    techno_economic_profile:
+      cost_per_hour_usd: 48.0
+  - labor_role_id: LABOR-TECHNICIAN-2
+    role_name: QC Technician II
+    skill_level: 2
+    description: Independently performs routine QC assays (e.g., UV-Vis, enzymatic assays) and documents results according to established SOPs.
+    techno_economic_profile:
+      cost_per_hour_usd: 52.0
+  - labor_role_id: LABOR-SCIENTIST-1
+    role_name: QC Scientist I
+    skill_level: 3
+    description: Operates complex analytical equipment (e.g., HPLC, ICP-MS), performs method troubleshooting, and analyzes data with supervision.
+    techno_economic_profile:
+      cost_per_hour_usd: 65.0
+  - labor_role_id: LABOR-SCIENTIST-2
+    role_name: QC Scientist II
+    skill_level: 4
+    description: Independently develops and validates new analytical methods (e.g., NMR, PCR), analyzes complex data, and authors technical reports.
+    techno_economic_profile:
+      cost_per_hour_usd: 75.0
+  - labor_role_id: LABOR-MAINT-TECH-2
+    role_name: Maintenance Technician II
+    skill_level: 2
+    description: Performs scheduled preventative maintenance and unscheduled repairs on facility and process equipment.
+    techno_economic_profile:
+      cost_per_hour_usd: 60.0
